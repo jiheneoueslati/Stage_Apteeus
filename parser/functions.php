@@ -13,8 +13,8 @@ function connexxion (){
 	mysql_select_db($bdname,$connexion);
 	return $connexion;
 }
-//////////////////////////////////////////////////////////////// fonction retourne,dans un array,les fichiers sous répertoire selon extention 
-/* 
+//////////////////////////////////////////////////////////////// fonction retourne,dans un array,les fichiers des sous répertoires selon extention 
+
 function array_fichiers($path, $extension)
 {
     $files = array();
@@ -28,13 +28,7 @@ function array_fichiers($path, $extension)
     return $files;
 }
 
-//$Xevo=array_fichiers('./Xevo', 'txt'); // ou array_fichiers('../stage', 'xls'); //liste des fichiers InCell
-//echo '<pre>',print_r($Xevo),'</pre>';
-//$Incell=array_fichiers('./Incell', 'xls');// liste des fichiers Xevo
-
-
-
-//////////////////////////////////////fonction extraire la date à partier d'un fichier Xevo
+/////////////////////////*****************fonction extraire la date à partier d'un fichier Xevo****************//////////////////////////////
 function date_experience($fich)
 {
 	$filearray = file($fich); // à remplacer: $fich par indice 0 de la tab $files
@@ -51,46 +45,125 @@ function date_experience($fich)
 //$date= date_experience($Xevo[0]); // lire la date à partir du ficheir Xevo num 1
 //echo $date;
 
-////////////////////////////////////////////////////////////// fct supprimant les lignes brouillantes dans un fichier
-function supp_lignes_brouil($dossier,$fich)
-{
+//////////////////***********************fonction construisant une table contenant les initialisation des TEE pour chaque ficheir****************//////////////////////////////////////////////
 
-$fich1=$dossier."/".$fich;
-$fich2=$dossier."/"."1_".$fich;
-$tab="";
-if ($monfichier = fopen($fich1 ,'r'))
+function initialiser_TEE($nb_fichiers) // fonction pour initialiser les compteurs TEE selon le nombre de fichiers (fich1:240, fich2:480, fich3:720...)
 {
-	$nouv_fich=fopen($fich2,'w');
-    $row = 1; // Variable pour numéroter les lignes 
-      // Lecture du fichier ligne par ligne
-    while (($ligne = fgets($monfichier)) !== FALSE)
-    {
-        // Si la ligne est égal  la ligne à expression régulière
-        if ((!preg_match('#Compound#',$ligne))&& (!preg_match('#Name#',$ligne)) && (!preg_match('#Printed#',$ligne)))
-        {
-            fputs($nouv_fich, $ligne);
-        }
-        // Sinon, on réécri la ligne
-        
-        $row++;    
-    }  
-	    fclose($monfichier);
-	unlink($fich1); //unlink des fichiers initiaux
-        fclose($nouv_fich);
-}
+	$i=0;
+	$TEE=0;
+	while($i<=$nb_fichiers)
+	{
+		$tab_init_TEE[]= $TEE;
+		$TEE=$TEE+240;
+		$i++;
+	}
+	return($tab_init_TEE);
 }
 
-//supp_lignes_brouil("Xevo","10-12 TEE3.txt");
+/////////////////////////**************************************fonction qui lit 1 fichier********************//////////////////////////////////////////////
 
-////////////////////////////////////////////////////////////// fct supprimant les lignes vides dans un fichier
-function supp_lignes_vides($fich)
+function lire_fichier($fich1,$init_TEE, $fich2)// $fich: indice tab noms fichiers; $init_TEE: indice tab initialisation TEE
 {
-	$filearray = file($fich, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-	return $filearray;
+	$fich=file($fich1);
+		
+	foreach($fich as $f) // table des lignes valeurs 
+	{
+		if(preg_match('#TEE#',$f))// demander de taper dans une zone de texte
+			{
+				$valeurs[]=$f;
+			}
+	}
+	
+	foreach($fich as $f) // table des compound
+	{
+		if(preg_match('#^Compound [0-9]: #',$f)) // les lignes contenant les num et nom des compounds (!!! faut vérifier le cas des cellules GM comment ils vont apparaître dans les fichiers Xevo)
+			{
+				$comp[]=$f;
+			}
+	}
+	
+	for ($i=0;$i<=count($comp)-1;$i++) // les composants(métabolites)	
+	{
+		$explod_composants[] = explode(":",$comp[$i]);// séparer le num compound du nom
+		$composants[]=$explod_composants[$i][1]; // je sauvegarde que les noms des composants (je garde pas le num)
+	}
+	
+	foreach($fich as $f) //table des activités 
+		{
+			if(preg_match('#Name#',$f))//les lignes des entêtes colonnes)
+			{
+				$activites[]=$f;
+			}
+		}
+		 
+	$n=count($valeurs); //nb lignes valeurs =960
+	$c=count($comp); //nb  composants =4
+		
+	for ($i=0;$i<=$n-1;$i++) // décomposer chaque ligne valeur par le délimitateur "tabulation"
+	{
+		$explod_valeurs[$i]= explode("	",$valeurs[$i]);
+	}
+	// => Le champs $explod_valeurs[2] contient le num_exp 10-12, id_cellule MAP, numplaque TEE1 et id pos E1, je les stocke dans un array 'position' avec explod 'espace'
+	
+	for ($i=0;$i<=$n-1;$i++)
+	{
+		$position[$i]= explode(" ",$explod_valeurs[$i][2]);
+	}
+	// décomposer chaque ligne activité par le délimitateur "tabulation"	pour récupérer les activités
+	$explod_activites = explode("	",$activites[0]);// pas de boucle en lignes les actvités à déterminer une seule fois à partier de la ligne1 indice0 //la boucle sera faite pour parcourir cette table '$explod_activites' de l'indice 3 à $a-2
+	$a=count($explod_activites); // =8 :les activités + 4(vide, #, Name, Vial) => nb activitées: $na=$a-4;
+	
+	
+	$nouv=fopen($fich2,'a');
+	$metabolite="";
+	$k=-1;
+
+	for($i=0;$i<=$n-1;$i++)//nb lignes
+	{
+		//remplir variable Id_TEE:
+		$Id_TEE =$init_TEE + $explod_valeurs[$i][0];
+		//remplir variable num_Experience:
+		$num_Experience=$position[$i][0];
+		//remplir variable metabolite:
+		if($explod_valeurs[$i][0]==1)
+		{
+			$k=$k+1;
+			$metabolite=$composants[$k];
+     	}
+			
+		//remplir variables activites et valeurs associées
+		for($j=3;$j<=$a-2;$j++)
+		{
+			$activite=$explod_activites[$j];
+			$valeur=$explod_valeurs[$i][$j];
+			$ligne= $activite.";".$valeur.";"." ".";".$num_Experience.";".$Id_TEE.";".$metabolite;
+			fputs($nouv, $ligne);// remplir les fichiers pour les importer dans la base
+			 
+		}
+	
+	}
+	return ($fich2);
 }
-//$f=supp_lignes_vides("Xevo/10-12 TEE1.txt"); // Attention il faut mettre le nom des nouveaux fichiers(suite à la fct précédente les noms des fichiers changent)
-//foreach ($f as $f2)
-//{
-//	echo $f2."<br>";
-//}*/
+
+//Essais fcts
+//1- Compter le nombre des fichiers déplacés !!! faire de controle de saise: il faut que nb xevo==nb incell
+$Xevo=array_fichiers('./Xevo', 'txt'); // ou array_fichiers('../stage', 'xls'); //liste des fichiers InCell
+$Incell=array_fichiers('./Incell', 'xls');
+$nom_fichier1=substr($Xevo[0], 1, 15);
+$nom_fichier=substr($nom_fichier1,-9);// récupere nom fichier pour l'utiliser dans la boucle 3-
+$nb_fichiers=count ($Xevo);
+//2- construire la table contenant les initialisations des TEE
+$T_init_TEE=initialiser_TEE($nb_fichiers);
+//3- exécuter la fonction qui lit 1 fichier
+for ($i=1;$i<=$nb_fichiers;$i++)
+{
+	$fich1="Xevo/".$nom_fichier.$i.".txt"; // modifier
+	$init_TEE=$T_init_TEE[$i-1];  // commencer à partir de lindice 0; Id_TEE=0
+	$fich2="Xevo2/".$nom_fichier.$i.".txt";
+	lire_fichier($fich1,$init_TEE, $fich2);
+}
+
+
+
+
 ?>
