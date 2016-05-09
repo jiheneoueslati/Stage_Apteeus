@@ -18,7 +18,18 @@ include 'PHPExcel/Writer/Excel2007.php';
 
 
 $inputFileName = 'pageform_etape1.xlsx';/** Load $inputFileName to a PHPExcel Object  **/$objPHPExcel = PHPExcel_IOFactory::load($inputFileName);
-$objWorkSheetBase = $objPHPExcel->getSheet();$objPHPExcel->getActiveSheet()->setTitle('TEE');
+$objWorkSheetBase = $objPHPExcel->getSheet();$objPHPExcel->getActiveSheet()->setTitle('TEEB01');
+
+
+$compound=$objPHPExcel->getActiveSheet()->getCell('A243')->getValue();
+$compoundtb=explode(" ", $compound);
+$activite=$objPHPExcel->getActiveSheet()->getCell('A242')->getValue();
+$activitetb=explode(" ", $activite);
+$activitebis=$objPHPExcel->getActiveSheet()->getCell('A244')->getValue();
+$activitebistb=explode(" ", $activitebis);
+$objPHPExcel->getActiveSheet()->setCellValue('A242'," ");
+$objPHPExcel->getActiveSheet()->setCellValue('A243'," ");
+$objPHPExcel->getActiveSheet()->setCellValue('A244'," ");
 
 mysqli_set_charset('utf8', $connexion);
 mysqli_select_db($bdname,$connexion);
@@ -30,10 +41,10 @@ $requete="SELECT `resultat_metabolite`.`Id_TEE` FROM `resultat_metabolite` WHERE
 $resultat= mysqli_query($connexion,$requete);
 
 
-
-$nbfeuille=0;
+$nbfeuille=1;
 $element=0;
 while ($test = mysqli_fetch_assoc($resultat)) {
+
 //Reglage du nombre de feuille
 $element=$element+1;
 if ($element % 240 ==0){
@@ -42,26 +53,28 @@ if ($element % 240 ==0){
 }
 }
 
-//Bug dans la requete
-$nbfeuille=3;
+$myfile = fopen("nbfeuille.txt", "w") or die("Unable to open file!");
+$txt = $nbfeuille;
+fwrite($myfile, $txt);
+fclose($myfile);
+
 
 $o=2;
 // Mettre plus de feuilles
 for ($i = 1; $i <= $nbfeuille-1; $i++){
 	$objWorkSheet1 = clone $objWorkSheetBase;
-	$objWorkSheet1->setTitle('Feuille');
+	$objWorkSheet1->setTitle('TEEB0'.($i+1));
 	$objPHPExcel->addSheet($objWorkSheet1);	
 }
 $a=0;
 
-
-for ($j = 1; $j <= 4; $j++){
-//Composants (1:C22)
-for ($i = 1; $i <= 2; $i++){
+for ($j = 0; $j <= sizeof($compoundtb)-2; $j++){
+//Composants
+for ($i = 0; $i <= sizeof($activitetb)-2; $i++){
 $compt=0;
-//Activité (1: RT : 2 Area)
-$requete2="SELECT Valeur FROM `resultat_metabolite` WHERE `resultat_metabolite`.`Num_Experience`= ".$numexp." and Id_Activite=".$i." and Id_Metabolite=".$j." Group BY Id_TEE";
+//Activité
 
+$requete2="SELECT Valeur FROM `resultat_metabolite` WHERE `resultat_metabolite`.`Num_Experience`= ".$numexp." and Id_Activite=".$activitetb[$i]." and Id_Metabolite=".$compoundtb[$j]." Group BY Id_TEE";
 
 $resultat2= mysqli_query($connexion,$requete2);
 $o=2;
@@ -84,11 +97,15 @@ $a=$a+1;
 }
 }
 
+// Pour remplacer la requete qui ne marche pas
+$activitetb=array(6,7,8,9,0);
 
-for ($i = 6; $i <= 9; $i++){
+
+for ($i = 0; $i <= sizeof($activitetb)-2; $i++){
+
 $compt=0;
-//Activité (1: RT : 2 Area)
-$requete2="SELECT Valeur FROM `resultat_cellule` WHERE `resultat_cellule`.`Num_Experience`= ".$numexp." and Id_Activite=".$i." Group BY Id_TEE";
+
+$requete2="SELECT Valeur FROM `resultat_cellule` WHERE `resultat_cellule`.`Num_Experience`= ".$numexp." and Id_Activite=".$activitetb[$i]." Group BY Id_TEE";
 
 
 $resultat2= mysqli_query($connexion,$requete2);
@@ -110,6 +127,15 @@ if ($compt%240==0){
 $a=$a+1;
 }
 
+
+for ($i = 0; $i <= ($nbfeuille-1); $i++){
+$objPHPExcel->setActiveSheetIndex($i);
+for($col = 'A'; $col !== 'X'; $col++) {
+    $objPHPExcel->getActiveSheet()
+        ->getColumnDimension($col)
+        ->setAutoSize(true);
+}
+}
 
 // Save Excel 2007 file
 //echo date('H:i:s') . " Write to Excel2007 format\n";

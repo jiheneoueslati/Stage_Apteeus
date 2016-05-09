@@ -2,7 +2,7 @@
 
 
 $serveurbd = 'localhost';
-$bdname    = 'test3';
+$bdname    = 'test2';
 $userbd='root@localhost';
 $mdpbd='root';
 
@@ -28,7 +28,9 @@ mysqli_select_db($bdname,$connexion);
 
 $numexp="'10-12'";
 
-$requete= "SELECT Nom_metabolite FROM `resultat_metabolite`,`metabolite` WHERE `resultat_metabolite`.`Id_metabolite` = `metabolite`.`Id_metabolite` AND `resultat_metabolite`.`Num_Experience`= ".$numexp." GROUP BY `metabolite`.`Nom_metabolite`";
+//Dans le cas d'une jointure avec la table des métabolites
+
+/*$requete= "SELECT Nom_metabolite FROM `resultat_metabolite`,`metabolite` WHERE `resultat_metabolite`.`Id_metabolite` = `metabolite`.`Id_metabolite` AND `resultat_metabolite`.`Num_Experience`= ".$numexp." GROUP BY `metabolite`.`Nom_metabolite`";
 
 
 //$resultat = mysql_query($requete,$connexion);
@@ -40,6 +42,7 @@ while ($test = mysqli_fetch_assoc($resultat)) {
 	$compoundtb[$i]=$test['Nom_metabolite'];
 	$i=$i+1;
 	}
+*/
 
 $requete1="SELECT `Id_metabolite` FROM `resultat_metabolite` WHERE `resultat_metabolite`.`Num_Experience`= ".$numexp." GROUP BY `resultat_metabolite`.`Id_metabolite`";
 
@@ -53,6 +56,8 @@ while ($test1 = mysqli_fetch_assoc($resultat1)) {
 	$compoundid[$i]=$test1['Id_metabolite'];
 	$i=$i+1;
 	}
+	
+$compoundtb=$compoundid;
 
 $requete2="SELECT `Id_Activite` FROM `resultat_metabolite` WHERE `resultat_metabolite`.`Num_Experience`= ".$numexp." GROUP BY `resultat_metabolite`.`Id_Activite`";
 
@@ -64,10 +69,6 @@ while ($test2 = mysqli_fetch_assoc($resultat2)) {
 	$activitetb[$i]=$test2['Id_Activite'];
 	$i=$i+1;
 	}
-
-$activitetb=array("RT","Area");
-
-
 
 // Mettre des titres des colonnes
 
@@ -92,10 +93,18 @@ $z=$z+1;
 
 $requete2bis="SELECT Nom_Activite FROM `resultat_cellule`,`activite` WHERE `resultat_cellule`.`Num_Experience`= ".$numexp." AND `resultat_cellule`.`Id_activite`=`activite`.`Id_activite` Group BY `resultat_cellule`.`Id_Activite`";
 
+
+//$requete2bis="SELECT Id_Activite FROM `resultat_cellule` WHERE `Num_Experience`= ".$numexp." Group BY `Id_Activite`";
+
+
+$actincell=array();
+$f=0;
 $resultat2bis= mysqli_query($connexion,$requete2bis);
 
 while ($test2bis = mysqli_fetch_assoc($resultat2bis)) {
 	$objPHPExcel->getActiveSheet()->setCellValue($alphas[$a]."1",$test2bis['Nom_Activite']);
+	$actincell[$f]=$test2bis['Nom_Activite'];
+	$f=$f+1;
 	$a=$a+1;
 	}
 
@@ -120,6 +129,32 @@ $range=$range+1;
 $o=$o+1;
 }
 
+$xevo="";
+for ($i = 0; $i <= sizeof($activitetb)-1; $i++){
+$xevo=$xevo.$activitetb[$i]." ";
+}
+
+
+$objPHPExcel->getActiveSheet()->setCellValue("A242",$xevo);
+
+
+$metabolites="";
+for ($i = 0; $i <= sizeof($compoundid)-1; $i++){
+$metabolites=$metabolites.$compoundid[$i]." ";
+}
+
+
+$objPHPExcel->getActiveSheet()->setCellValue("A243",$metabolites);
+
+
+$incell="";
+for ($i = 0; $i <= sizeof($actincell)-1; $i++){
+$incell=$incell.$actincell[$i]." ";
+}
+
+
+$objPHPExcel->getActiveSheet()->setCellValue("A244",$incell);
+
 for($col = 'A'; $col !== 'X'; $col++) {
     $objPHPExcel->getActiveSheet()
         ->getColumnDimension($col)
@@ -137,6 +172,9 @@ $objWriter->save(str_replace('.php', '.xlsx', __FILE__));
 //echo date('H:i:s') . " Done writing file.\r\n";
 
 
+
 header('Location: remplissage_etape2.php');
+
+
 
 ?>

@@ -1,14 +1,35 @@
 <?php
 
-$archive_name = 'fichier.zip';
-$dir_path = 'fichierfinal';
+// Get real path for our folder
+$rootPath = realpath('fichierfinal');
 
-$archive = new PharData($archive_name);
-$archive->buildFromDirectory($dir_path); // make path\to\archive\arch1.tar
-$archive->compress(Phar::GZ); // make path\to\archive\arch1.tar.gz
-unlink($archive_name); // deleting path\to\archive\arch1.tar
+// Initialize archive object
+$zip = new ZipArchive();
+$zip->open('Results.xlsx', ZipArchive::CREATE | ZipArchive::OVERWRITE);
 
+// Create recursive directory iterator
+/** @var SplFileInfo[] $files */
+$files = new RecursiveIteratorIterator(
+    new RecursiveDirectoryIterator($rootPath),
+    RecursiveIteratorIterator::LEAVES_ONLY
+);
 
+foreach ($files as $name => $file)
+{
+    // Skip directories (they would be added automatically)
+    if (!$file->isDir())
+    {
+        // Get real and relative path for current file
+        $filePath = $file->getRealPath();
+        $relativePath = substr($filePath, strlen($rootPath) + 1);
+
+        // Add current file to archive
+        $zip->addFile($filePath, $relativePath);
+    }
+}
+
+// Zip archive will be created only after closing object
+$zip->close();
 
 header('Location: fin_etape6.php');
 
