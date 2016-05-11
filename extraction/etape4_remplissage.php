@@ -2,11 +2,11 @@
 
 
 $serveurbd = 'localhost';
-$bdname    = 'test2';
+$bdname    = 'parseur';
 $userbd='root@localhost';
 $mdpbd='root';
 
-$connexion = new mysqli("localhost", "root", "root", "test2");
+$connexion = new mysqli("localhost", "root", "root", "parseur");
 /* Vérification de la connexion */
 if (mysqli_connect_errno()) {
     printf("Echec de la connexion : %s\n", mysqli_connect_error());
@@ -17,24 +17,44 @@ include 'PHPExcel.php';
 include 'PHPExcel/Writer/Excel2007.php';
 
 
-$inputFileName = 'pageform_etape1.xlsx';/** Load $inputFileName to a PHPExcel Object  **/$objPHPExcel = PHPExcel_IOFactory::load($inputFileName);
-$objWorkSheetBase = $objPHPExcel->getSheet();$objPHPExcel->getActiveSheet()->setTitle('TEEB01');
+$inputFileName = 'etape3_recuperation.xlsx';/** Load $inputFileName to a PHPExcel Object  **/$objPHPExcel = PHPExcel_IOFactory::load($inputFileName);
+$objWorkSheetBase = $objPHPExcel->getSheet();$objPHPExcel->getActiveSheet()->setTitle('TEEB01');$myfile = fopen("metabolitesfinal.txt", "r") or die("Unable to open file!");
+$compound=fgets($myfile);
+$compoundtb = unserialize($compound);
+fclose($myfile);
+
+//$activite=$objPHPExcel->getActiveSheet()->getCell('A242')->getValue();
+$myfile = fopen("activitefinal.txt", "r") or die("Unable to open file!");
+$activite=fgets($myfile);
+$activitetb=unserialize($activite);
+fclose($myfile);
+
+//$activitebis=$objPHPExcel->getActiveSheet()->getCell('A244')->getValue();
+$myfile = fopen("activitebisfinal.txt", "r") or die("Unable to open file!");
+$activitebis=fgets($myfile);
+$activitebistb=unserialize($activitebis);
+fclose($myfile);
 
 
-$compound=$objPHPExcel->getActiveSheet()->getCell('A243')->getValue();
-$compoundtb=explode(" ", $compound);
-$activite=$objPHPExcel->getActiveSheet()->getCell('A242')->getValue();
-$activitetb=explode(" ", $activite);
-$activitebis=$objPHPExcel->getActiveSheet()->getCell('A244')->getValue();
-$activitebistb=explode(" ", $activitebis);
-$objPHPExcel->getActiveSheet()->setCellValue('A242'," ");
-$objPHPExcel->getActiveSheet()->setCellValue('A243'," ");
-$objPHPExcel->getActiveSheet()->setCellValue('A244'," ");
+//$compound=$objPHPExcel->getActiveSheet()->getCell('A243')->getValue();
+//$compoundtb = unserialize($compound);
+
+//$activite=$objPHPExcel->getActiveSheet()->getCell('A242')->getValue();
+//$activitetb=unserialize($activite);
+
+//$activitebis=$objPHPExcel->getActiveSheet()->getCell('A244')->getValue();
+//$activitebistb=unserialize($activitebis);
+
+//$objPHPExcel->getActiveSheet()->setCellValue('A242'," ");
+//$objPHPExcel->getActiveSheet()->setCellValue('A243'," ");
+//$objPHPExcel->getActiveSheet()->setCellValue('A244'," ");
 
 mysqli_set_charset('utf8', $connexion);
 mysqli_select_db($bdname,$connexion);
 
-$numexp="'10-12'";
+
+$numexpe=$objPHPExcel->getActiveSheet()->getCell('B2')->getValue();
+$numexp="'".$numexpe."'";
 
 $requete="SELECT `resultat_metabolite`.`Id_TEE` FROM `resultat_metabolite` WHERE `resultat_metabolite`.`Num_Experience`= ".$numexp."  Group BY `resultat_metabolite`.`Id_TEE`";
 
@@ -68,13 +88,14 @@ for ($i = 1; $i <= $nbfeuille-1; $i++){
 }
 $a=0;
 
-for ($j = 0; $j <= sizeof($compoundtb)-2; $j++){
+for ($j = 0; $j <= sizeof($compoundtb)-1; $j++){
 //Composants
-for ($i = 0; $i <= sizeof($activitetb)-2; $i++){
+for ($i = 0; $i <= sizeof($activitetb)-1; $i++){
 $compt=0;
 //Activité
 
-$requete2="SELECT Valeur FROM `resultat_metabolite` WHERE `resultat_metabolite`.`Num_Experience`= ".$numexp." and Id_Activite=".$activitetb[$i]." and Id_Metabolite=".$compoundtb[$j]." Group BY Id_TEE";
+$requete2="SELECT Valeur FROM `resultat_metabolite` WHERE `resultat_metabolite`.`Num_Experience`= ".$numexp." and Id_Activite='".$activitetb[$i]."' and Id_Metabolite='".$compoundtb[$j]."' Group BY Id_TEE";
+
 
 $resultat2= mysqli_query($connexion,$requete2);
 $o=2;
@@ -84,6 +105,7 @@ while ($test2 = mysqli_fetch_assoc($resultat2)) {
 //Rentrer les valeurs
 //for ($i = 1; $i <= 5; $i++){
 $objPHPExcel->setActiveSheetIndex($move);
+$objPHPExcel->getActiveSheet()->setCellValue("B".$o,$numexpe." MAP TEE".($move+1)." E".($o-1));
 $objPHPExcel->getActiveSheet()->setCellValue($alphas[$a].$o,$test2['Valeur']);
 //$objPHPExcel->getActiveSheet()->setCellValue("E".$o,$test2['valeur']);
 $o=$o+1;
@@ -97,16 +119,13 @@ $a=$a+1;
 }
 }
 
-// Pour remplacer la requete qui ne marche pas
-$activitetb=array(6,7,8,9,0);
 
 
-for ($i = 0; $i <= sizeof($activitetb)-2; $i++){
+for ($i = 0; $i <= sizeof($activitebistb)-1; $i++){
 
 $compt=0;
 
-$requete2="SELECT Valeur FROM `resultat_cellule` WHERE `resultat_cellule`.`Num_Experience`= ".$numexp." and Id_Activite=".$activitetb[$i]." Group BY Id_TEE";
-
+$requete2="SELECT Valeur FROM `resultat_cellule` WHERE `resultat_cellule`.`Num_Experience`= ".$numexp." and Id_Activite='".$activitebistb[$i]."' Group BY Id_TEE";
 
 $resultat2= mysqli_query($connexion,$requete2);
 $o=2;
@@ -147,6 +166,6 @@ $objWriter->save(str_replace('.php', '.xlsx', __FILE__));
 // Echo done
 //echo date('H:i:s') . " Done writing file.\r\n";
 
-header('Location: unzip_etape3.php');
+header('Location: etape5_unzip.php');
 
 ?>

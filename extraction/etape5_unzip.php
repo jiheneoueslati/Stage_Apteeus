@@ -14,8 +14,8 @@ function unzip_file($file, $destination) {
 	//echo 'Archive extrait';
 }
  
-unzip_file('remplissage_etape2.xlsx','fichierfinal');
+unzip_file('etape4_remplissage.xlsx','fichierfinal');
 
-header('Location: format_etape4.php');
+header('Location:etape6_format.php');
 
 ?>

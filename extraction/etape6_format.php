@@ -24,5 +24,5 @@ fclose($myfile);
 
 }
 
-header('Location: zip_etape5.php');
+header('Location:etape7_zip.php');
 ?> 

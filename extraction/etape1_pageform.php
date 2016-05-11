@@ -2,16 +2,17 @@
 
 
 $serveurbd = 'localhost';
-$bdname    = 'test2';
+$bdname    = 'parseur';
 $userbd='root@localhost';
 $mdpbd='root';
 
-$connexion = new mysqli("localhost", "root", "root", "test2");
+$connexion = new mysqli("localhost", "root", "root", "parseur");
 /* Vérification de la connexion */
 if (mysqli_connect_errno()) {
     printf("Echec de la connexion : %s\n", mysqli_connect_error());
     exit();
 }
+
 //$connexion = mysql_connect($serveurbd,$userbd,$mdpbd);
 //mysql_set_charset('utf8', $connexion);
 //mysql_select_db($bdname,$connexion);
@@ -25,8 +26,8 @@ $objPHPExcel->getActiveSheet()->setTitle('Feuille 1');
 mysqli_set_charset('utf8', $connexion);
 mysqli_select_db($bdname,$connexion);
 
-
-$numexp="'10-12'";
+$numexp=$_POST['numexp'];
+$numexp="'".$numexp."'";
 
 //Dans le cas d'une jointure avec la table des métabolites
 
@@ -44,7 +45,7 @@ while ($test = mysqli_fetch_assoc($resultat)) {
 	}
 */
 
-$requete1="SELECT `Id_metabolite` FROM `resultat_metabolite` WHERE `resultat_metabolite`.`Num_Experience`= ".$numexp." GROUP BY `resultat_metabolite`.`Id_metabolite`";
+$requete1="SELECT `Id_Metabolite` FROM `resultat_metabolite` WHERE `resultat_metabolite`.`Num_Experience`= ".$numexp." GROUP BY `resultat_metabolite`.`Id_Metabolite`";
 
 
 //$resultat = mysql_query($requete,$connexion);
@@ -53,9 +54,10 @@ $i=0;
 $compoundid=array();
 
 while ($test1 = mysqli_fetch_assoc($resultat1)) {
-	$compoundid[$i]=$test1['Id_metabolite'];
+	$compoundid[$i]=$test1['Id_Metabolite'];
 	$i=$i+1;
 	}
+	
 	
 $compoundtb=$compoundid;
 
@@ -69,6 +71,7 @@ while ($test2 = mysqli_fetch_assoc($resultat2)) {
 	$activitetb[$i]=$test2['Id_Activite'];
 	$i=$i+1;
 	}
+
 
 // Mettre des titres des colonnes
 
@@ -84,17 +87,17 @@ $a=0;
 for ($i = 0; $i <= sizeof($compoundtb)-1; $i++){
 for ($j = 0; $j <= sizeof($activitetb)-1; $j++){
 	
-$objPHPExcel->getActiveSheet()->setCellValue($alphas[$a]."1",$compoundtb[$z]." ".$activitetb[$j]);
+//$objPHPExcel->getActiveSheet()->setCellValue($alphas[$a]."1",$compoundtb[$z]." ".$activitetb[$j]);
 $a=$a+1;
 }
 $z=$z+1;
 }
 //Mettre la suite des info après
 
-$requete2bis="SELECT Nom_Activite FROM `resultat_cellule`,`activite` WHERE `resultat_cellule`.`Num_Experience`= ".$numexp." AND `resultat_cellule`.`Id_activite`=`activite`.`Id_activite` Group BY `resultat_cellule`.`Id_Activite`";
+//$requete2bis="SELECT Nom_Activite FROM `resultat_cellule`,`activite` WHERE `resultat_cellule`.`Num_Experience`= ".$numexp." AND `resultat_cellule`.`Id_activite`=`activite`.`Id_activite` Group BY `resultat_cellule`.`Id_Activite`";
 
 
-//$requete2bis="SELECT Id_Activite FROM `resultat_cellule` WHERE `Num_Experience`= ".$numexp." Group BY `Id_Activite`";
+$requete2bis="SELECT Id_Activite FROM `resultat_cellule` WHERE `Num_Experience`= ".$numexp." Group BY `Id_Activite`";
 
 
 $actincell=array();
@@ -102,8 +105,8 @@ $f=0;
 $resultat2bis= mysqli_query($connexion,$requete2bis);
 
 while ($test2bis = mysqli_fetch_assoc($resultat2bis)) {
-	$objPHPExcel->getActiveSheet()->setCellValue($alphas[$a]."1",$test2bis['Nom_Activite']);
-	$actincell[$f]=$test2bis['Nom_Activite'];
+//	$objPHPExcel->getActiveSheet()->setCellValue($alphas[$a]."1",$test2bis['Id_Activite']);
+	$actincell[$f]=$test2bis['Id_Activite'];
 	$f=$f+1;
 	$a=$a+1;
 	}
@@ -129,38 +132,44 @@ $range=$range+1;
 $o=$o+1;
 }
 
-$xevo="";
-for ($i = 0; $i <= sizeof($activitetb)-1; $i++){
-$xevo=$xevo.$activitetb[$i]." ";
-}
-
-
+/*
+$xevo = serialize($activitetb);
 $objPHPExcel->getActiveSheet()->setCellValue("A242",$xevo);
 
-
-$metabolites="";
-for ($i = 0; $i <= sizeof($compoundid)-1; $i++){
-$metabolites=$metabolites.$compoundid[$i]." ";
-}
-
-
+$metabolites = serialize($compoundid);
 $objPHPExcel->getActiveSheet()->setCellValue("A243",$metabolites);
 
-
-$incell="";
-for ($i = 0; $i <= sizeof($actincell)-1; $i++){
-$incell=$incell.$actincell[$i]." ";
-}
-
-
+$incell = serialize($actincell);
 $objPHPExcel->getActiveSheet()->setCellValue("A244",$incell);
+*/
+$xevo = serialize($activitetb);
+$myfile = fopen("activite.txt", "w") or die("Unable to open file!");
+$txt = $xevo;
+fwrite($myfile, $txt);
+fclose($myfile);
 
+
+$metabolites = serialize($compoundid);
+$myfile = fopen("metabolites.txt", "w") or die("Unable to open file!");
+$txt = $metabolites;
+fwrite($myfile, $txt);
+fclose($myfile);
+
+
+$incell = serialize($actincell);
+$myfile = fopen("activitebis.txt", "w") or die("Unable to open file!");
+$txt = $incell;
+fwrite($myfile, $txt);
+fclose($myfile);
+
+
+/*
 for($col = 'A'; $col !== 'X'; $col++) {
     $objPHPExcel->getActiveSheet()
         ->getColumnDimension($col)
         ->setAutoSize(true);
 }
-
+*/
 // Save Excel 2007 file
 //echo date('H:i:s') . " Write to Excel2007 format\n";
 $objWriter = new PHPExcel_Writer_Excel2007($objPHPExcel);
@@ -173,7 +182,7 @@ $objWriter->save(str_replace('.php', '.xlsx', __FILE__));
 
 
 
-header('Location: remplissage_etape2.php');
+header('Location:etape2_choix.php');
 
 
 
