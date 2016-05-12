@@ -8,19 +8,19 @@ include 'PHPExcel/Writer/Excel2007.php';
 $inputFileName = 'etape1_pageform.xlsx';/** Load $inputFileName to a PHPExcel Object  **/$objPHPExcel = PHPExcel_IOFactory::load($inputFileName);
 
 
-$myfile = fopen("metabolites.txt", "r") or die("Unable to open file!");
+$myfile = fopen("Fichiers/metabolites.txt", "r") or die("Unable to open file!");
 $compound=fgets($myfile);
 $compoundtb = unserialize($compound);
 fclose($myfile);
 
 //$activite=$objPHPExcel->getActiveSheet()->getCell('A242')->getValue();
-$myfile = fopen("activite.txt", "r") or die("Unable to open file!");
+$myfile = fopen("Fichiers/activitea.txt", "r") or die("Unable to open file!");
 $activite=fgets($myfile);
 $activitetb=unserialize($activite);
 fclose($myfile);
 
 //$activitebis=$objPHPExcel->getActiveSheet()->getCell('A244')->getValue();
-$myfile = fopen("activitebis.txt", "r") or die("Unable to open file!");
+$myfile = fopen("Fichiers/activiteb.txt", "r") or die("Unable to open file!");
 $activitebis=fgets($myfile);
 $activitebistb=unserialize($activitebis);
 fclose($myfile);
@@ -60,21 +60,21 @@ $z=$z+1;
 
 
 $xevo = serialize($activitetbfinal);
-$myfile = fopen("activitefinal.txt", "w") or die("Unable to open file!");
+$myfile = fopen("Fichiers/activiteafinal.txt", "w") or die("Unable to open file!");
 $txt = $xevo;
 fwrite($myfile, $txt);
 fclose($myfile);
 
 
 $metabolites = serialize($compoundtbfinal);
-$myfile = fopen("metabolitesfinal.txt", "w") or die("Unable to open file!");
+$myfile = fopen("Fichiers/metabolitesfinal.txt", "w") or die("Unable to open file!");
 $txt = $metabolites;
 fwrite($myfile, $txt);
 fclose($myfile);
 
 
 $incell = serialize($activitebisfinal);
-$myfile = fopen("activitebisfinal.txt", "w") or die("Unable to open file!");
+$myfile = fopen("Fichiers/activitebfinal.txt", "w") or die("Unable to open file!");
 $txt = $incell;
 fwrite($myfile, $txt);
 fclose($myfile);

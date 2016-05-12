@@ -101,16 +101,13 @@ $requete2bis="SELECT Id_Activite FROM `resultat_cellule` WHERE `Num_Experience`=
 
 
 $actincell=array();
-$f=0;
+$q=0;
 $resultat2bis= mysqli_query($connexion,$requete2bis);
 
 while ($test2bis = mysqli_fetch_assoc($resultat2bis)) {
-//	$objPHPExcel->getActiveSheet()->setCellValue($alphas[$a]."1",$test2bis['Id_Activite']);
-	$actincell[$f]=$test2bis['Id_Activite'];
-	$f=$f+1;
-	$a=$a+1;
+	$actincell[$q]=$test2bis['Id_Activite'];
+	$q++;
 	}
-
 
 
 $alphaplaque=range('C', 'N');
@@ -143,33 +140,25 @@ $incell = serialize($actincell);
 $objPHPExcel->getActiveSheet()->setCellValue("A244",$incell);
 */
 $xevo = serialize($activitetb);
-$myfile = fopen("activite.txt", "w") or die("Unable to open file!");
+$myfile = fopen("Fichiers/activitea.txt", "w") or die("Unable to open file!");
 $txt = $xevo;
 fwrite($myfile, $txt);
 fclose($myfile);
 
 
 $metabolites = serialize($compoundid);
-$myfile = fopen("metabolites.txt", "w") or die("Unable to open file!");
+$myfile = fopen("Fichiers/metabolites.txt", "w") or die("Unable to open file!");
 $txt = $metabolites;
 fwrite($myfile, $txt);
 fclose($myfile);
 
 
 $incell = serialize($actincell);
-$myfile = fopen("activitebis.txt", "w") or die("Unable to open file!");
+$myfile = fopen("Fichiers/activiteb.txt", "w") or die("Unable to open file!");
 $txt = $incell;
 fwrite($myfile, $txt);
 fclose($myfile);
 
-
-/*
-for($col = 'A'; $col !== 'X'; $col++) {
-    $objPHPExcel->getActiveSheet()
-        ->getColumnDimension($col)
-        ->setAutoSize(true);
-}
-*/
 // Save Excel 2007 file
 //echo date('H:i:s') . " Write to Excel2007 format\n";
 $objWriter = new PHPExcel_Writer_Excel2007($objPHPExcel);

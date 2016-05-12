@@ -31,6 +31,7 @@ foreach ($files as $name => $file)
 // Zip archive will be created only after closing object
 $zip->close();
 
+
 header('Location: etape8_telechargement.php');
 
 

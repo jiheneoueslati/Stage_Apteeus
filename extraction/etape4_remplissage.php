@@ -18,19 +18,19 @@ include 'PHPExcel/Writer/Excel2007.php';
 
 
 $inputFileName = 'etape3_recuperation.xlsx';/** Load $inputFileName to a PHPExcel Object  **/$objPHPExcel = PHPExcel_IOFactory::load($inputFileName);
-$objWorkSheetBase = $objPHPExcel->getSheet();$objPHPExcel->getActiveSheet()->setTitle('TEEB01');$myfile = fopen("metabolitesfinal.txt", "r") or die("Unable to open file!");
+$objWorkSheetBase = $objPHPExcel->getSheet();$objPHPExcel->getActiveSheet()->setTitle('TEEB01');$myfile = fopen("Fichiers/metabolitesfinal.txt", "r") or die("Unable to open file!");
 $compound=fgets($myfile);
 $compoundtb = unserialize($compound);
 fclose($myfile);
 
 //$activite=$objPHPExcel->getActiveSheet()->getCell('A242')->getValue();
-$myfile = fopen("activitefinal.txt", "r") or die("Unable to open file!");
+$myfile = fopen("Fichiers/activiteafinal.txt", "r") or die("Unable to open file!");
 $activite=fgets($myfile);
 $activitetb=unserialize($activite);
 fclose($myfile);
 
 //$activitebis=$objPHPExcel->getActiveSheet()->getCell('A244')->getValue();
-$myfile = fopen("activitebisfinal.txt", "r") or die("Unable to open file!");
+$myfile = fopen("Fichiers/activitebfinal.txt", "r") or die("Unable to open file!");
 $activitebis=fgets($myfile);
 $activitebistb=unserialize($activitebis);
 fclose($myfile);
@@ -67,13 +67,12 @@ while ($test = mysqli_fetch_assoc($resultat)) {
 
 //Reglage du nombre de feuille
 $element=$element+1;
-if ($element % 240 ==0){
+if ($element % (241+($nbfeuille-1)*240) ==0){
 	$nbfeuille=$nbfeuille+1;
 	
 }
 }
-
-$myfile = fopen("nbfeuille.txt", "w") or die("Unable to open file!");
+$myfile = fopen("Fichiers/nbfeuille.txt", "w") or die("Unable to open file!");
 $txt = $nbfeuille;
 fwrite($myfile, $txt);
 fclose($myfile);
@@ -120,6 +119,19 @@ $a=$a+1;
 }
 
 
+$requete2bis="SELECT Id_Activite FROM `resultat_cellule` WHERE `Num_Experience`= ".$numexp." Group BY `Id_Activite`";
+
+
+$activitebistb=array();
+$q=0;
+$resultat2bis= mysqli_query($connexion,$requete2bis);
+
+while ($test2bis = mysqli_fetch_assoc($resultat2bis)) {
+$activitebistb[$q]=$test2bis['Id_Activite'];
+$q=$q+1;
+}
+
+
 
 for ($i = 0; $i <= sizeof($activitebistb)-1; $i++){
 
@@ -146,15 +158,19 @@ if ($compt%240==0){
 $a=$a+1;
 }
 
+$alphas=range('E','Z');
 
 for ($i = 0; $i <= ($nbfeuille-1); $i++){
 $objPHPExcel->setActiveSheetIndex($i);
-for($col = 'A'; $col !== 'X'; $col++) {
-    $objPHPExcel->getActiveSheet()
-        ->getColumnDimension($col)
-        ->setAutoSize(true);
+for ($j = 0; $j <= sizeof($alphas)-1; $j++){
+$objPHPExcel->getActiveSheet()->getColumnDimension('A')->setWidth(10);
+$objPHPExcel->getActiveSheet()->getColumnDimension('B')->setWidth(20);
+$objPHPExcel->getActiveSheet()->getColumnDimension('C')->setWidth(6);
+$objPHPExcel->getActiveSheet()->getColumnDimension('D')->setWidth(6);
+$objPHPExcel->getActiveSheet()->getColumnDimension($alphas[$j])->setWidth(30);
 }
 }
+
 
 // Save Excel 2007 file
 //echo date('H:i:s') . " Write to Excel2007 format\n";

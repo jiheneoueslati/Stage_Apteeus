@@ -1,7 +1,7 @@
 <?php
 
 
-$myfile = fopen("nbfeuille.txt", "r") or die("Unable to open file!");
+$myfile = fopen("Fichiers/nbfeuille.txt", "r") or die("Unable to open file!");
 $feuille=fgets($myfile);
 fclose($myfile);
 
