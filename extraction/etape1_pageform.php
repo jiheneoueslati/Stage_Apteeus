@@ -129,35 +129,16 @@ $range=$range+1;
 $o=$o+1;
 }
 
-/*
+
 $xevo = serialize($activitetb);
-$objPHPExcel->getActiveSheet()->setCellValue("A242",$xevo);
+file_put_contents('Fichiers/activitea.txt', $xevo);
 
 $metabolites = serialize($compoundid);
-$objPHPExcel->getActiveSheet()->setCellValue("A243",$metabolites);
-
-$incell = serialize($actincell);
-$objPHPExcel->getActiveSheet()->setCellValue("A244",$incell);
-*/
-$xevo = serialize($activitetb);
-$myfile = fopen("Fichiers/activitea.txt", "w") or die("Unable to open file!");
-$txt = $xevo;
-fwrite($myfile, $txt);
-fclose($myfile);
-
-
-$metabolites = serialize($compoundid);
-$myfile = fopen("Fichiers/metabolites.txt", "w") or die("Unable to open file!");
-$txt = $metabolites;
-fwrite($myfile, $txt);
-fclose($myfile);
+file_put_contents('Fichiers/metabolites.txt', $metabolites);
 
 
 $incell = serialize($actincell);
-$myfile = fopen("Fichiers/activiteb.txt", "w") or die("Unable to open file!");
-$txt = $incell;
-fwrite($myfile, $txt);
-fclose($myfile);
+file_put_contents('Fichiers/activiteb.txt', $incell);
 
 // Save Excel 2007 file
 //echo date('H:i:s') . " Write to Excel2007 format\n";

@@ -1,22 +1,14 @@
 <?php
 
-//$compound=$objPHPExcel->getActiveSheet()->getCell('A243')->getValue();
-$myfile = fopen("Fichiers/metabolites.txt", "r") or die("Unable to open file!");
-$compound=fgets($myfile);
+$compound = file_get_contents('Fichiers/metabolites.txt');
 $compoundtb = unserialize($compound);
-fclose($myfile);
 
-//$activite=$objPHPExcel->getActiveSheet()->getCell('A242')->getValue();
-$myfile1 = fopen("Fichiers/activitea.txt", "r") or die("Unable to open file!");
-$activitea=fgets($myfile1);
+$activitea=file_get_contents('Fichiers/activitea.txt');
 $activiteatb=unserialize($activitea);
-fclose($myfile1);
 
-//$activitebis=$objPHPExcel->getActiveSheet()->getCell('A244')->getValue();
-$myfile2 = fopen("Fichiers/activiteb.txt", "r") or die("Unable to open file!");
-$activiteb=fgets($myfile2);
+$activiteb=file_get_contents('Fichiers/activiteb.txt');
 $activitebtb=unserialize($activiteb);
-fclose($myfile2);
+
 
 echo "Sélectionnez vos Métabolites";
 echo'<br>';
@@ -41,21 +33,20 @@ echo '<input type="checkbox" name="act[]" value='.$i.' checked="checked"  />';
 echo $activiteatb[$i];
 echo'<br>';
 }
-/*
-echo'<br>';
-echo "Sélectionnez vos Activités Cellule";
+
+
+echo "Sélectionnez vos Activités Cellules";
 echo'<br>';
 echo'<br>';
 
 echo '<form action="etape3_recuperation.php" method="post">';
 for ($i = 0; $i <= sizeof($activitebtb)-1; $i++){
-echo '<input type="checkbox" name="actb[]" value='.$i.'checked="checked"  />';
+echo '<input type="checkbox" name="actb[]" value='.$i.' checked="checked" />';
 echo $activitebtb[$i];
 echo'<br>';
 }
 
-echo '<br>';
-*/
+
 echo '<input type="submit" value="Envoyer" />';
 
 

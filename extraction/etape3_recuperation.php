@@ -1,34 +1,24 @@
 <?php
 
-//$compound=$objPHPExcel->getActiveSheet()->getCell('A243')->getValue();
 include 'PHPExcel.php';
 include 'PHPExcel/Writer/Excel2007.php';
 
 
 $inputFileName = 'etape1_pageform.xlsx';/** Load $inputFileName to a PHPExcel Object  **/$objPHPExcel = PHPExcel_IOFactory::load($inputFileName);
 
-
-$myfile = fopen("Fichiers/metabolites.txt", "r") or die("Unable to open file!");
-$compound=fgets($myfile);
+$compound = file_get_contents('Fichiers/metabolites.txt');
 $compoundtb = unserialize($compound);
-fclose($myfile);
 
-//$activite=$objPHPExcel->getActiveSheet()->getCell('A242')->getValue();
-$myfile = fopen("Fichiers/activitea.txt", "r") or die("Unable to open file!");
-$activite=fgets($myfile);
-$activitetb=unserialize($activite);
-fclose($myfile);
+$activitea=file_get_contents('Fichiers/activitea.txt');
+$activiteatb=unserialize($activitea);
 
-//$activitebis=$objPHPExcel->getActiveSheet()->getCell('A244')->getValue();
-$myfile = fopen("Fichiers/activiteb.txt", "r") or die("Unable to open file!");
-$activitebis=fgets($myfile);
-$activitebistb=unserialize($activitebis);
-fclose($myfile);
+$activiteb=file_get_contents('Fichiers/activiteb.txt');
+$activitebtb=unserialize($activiteb);
 
 
 $compoundtbfinal=array();
-$activitetbfinal=array();
-$activitebistbfinal=array();
+$activiteatbfinal=array();
+$activitebtbfinal=array();
 
 $i=0;
 foreach($_POST['meta'] as $valeur)
@@ -41,44 +31,46 @@ foreach($_POST['meta'] as $valeur)
 $i=0;
 foreach($_POST['act'] as $valeur)
 {
-    $activitetbfinal[$i]=$activitetb[$valeur];
+    $activiteatbfinal[$i]=$activiteatb[$valeur];
     $i=$i+1;
 
 }
+
+$i=0;
+foreach($_POST['actb'] as $valeur)
+{
+    $activitebtbfinal[$i]=$activitebtb[$valeur];
+    $i=$i+1;
+
+}
+
 
 $alphas=range('E', 'Z');
 
 $z=0;
 $a=0;
 for ($i = 0; $i <= sizeof($compoundtbfinal)-1; $i++){
-for ($j = 0; $j <= sizeof($activitetbfinal)-1; $j++){
-$objPHPExcel->getActiveSheet()->setCellValue($alphas[$a]."1",$compoundtbfinal[$z]." ".$activitetbfinal[$j]);
+for ($j = 0; $j <= sizeof($activiteatbfinal)-1; $j++){
+$objPHPExcel->getActiveSheet()->setCellValue($alphas[$a]."1",$compoundtbfinal[$z]." ".$activiteatbfinal[$j]);
 $a=$a+1;
 }
 $z=$z+1;
 }
 
+for ($f = 0; $f <= sizeof($activitebtbfinal)-1; $f++){
+$objPHPExcel->getActiveSheet()->setCellValue($alphas[$a]."1",$activitebtbfinal[$f]);
+$a=$a+1;
+}
 
-$xevo = serialize($activitetbfinal);
-$myfile = fopen("Fichiers/activiteafinal.txt", "w") or die("Unable to open file!");
-$txt = $xevo;
-fwrite($myfile, $txt);
-fclose($myfile);
-
+$xevo = serialize($activiteatbfinal);
+file_put_contents('Fichiers/activiteafinal.txt', $xevo);
 
 $metabolites = serialize($compoundtbfinal);
-$myfile = fopen("Fichiers/metabolitesfinal.txt", "w") or die("Unable to open file!");
-$txt = $metabolites;
-fwrite($myfile, $txt);
-fclose($myfile);
+file_put_contents('Fichiers/metabolitesfinal.txt', $metabolites);
 
 
-$incell = serialize($activitebisfinal);
-$myfile = fopen("Fichiers/activitebfinal.txt", "w") or die("Unable to open file!");
-$txt = $incell;
-fwrite($myfile, $txt);
-fclose($myfile);
-
+$incell =  serialize($activitebtbfinal);
+file_put_contents('Fichiers/activitebfinal.txt', $incell);
 
 //$xevo = serialize($activitetbfinal);
 //$objPHPExcel->getActiveSheet()->setCellValue("A242",$xevo);

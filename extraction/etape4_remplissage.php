@@ -18,36 +18,15 @@ include 'PHPExcel/Writer/Excel2007.php';
 
 
 $inputFileName = 'etape3_recuperation.xlsx';/** Load $inputFileName to a PHPExcel Object  **/$objPHPExcel = PHPExcel_IOFactory::load($inputFileName);
-$objWorkSheetBase = $objPHPExcel->getSheet();$objPHPExcel->getActiveSheet()->setTitle('TEEB01');$myfile = fopen("Fichiers/metabolitesfinal.txt", "r") or die("Unable to open file!");
-$compound=fgets($myfile);
+$objWorkSheetBase = $objPHPExcel->getSheet();$objPHPExcel->getActiveSheet()->setTitle('TEEB01');$compound = file_get_contents('Fichiers/metabolitesfinal.txt');
 $compoundtb = unserialize($compound);
-fclose($myfile);
 
-//$activite=$objPHPExcel->getActiveSheet()->getCell('A242')->getValue();
-$myfile = fopen("Fichiers/activiteafinal.txt", "r") or die("Unable to open file!");
-$activite=fgets($myfile);
+$activite=file_get_contents('Fichiers/activiteafinal.txt');
 $activitetb=unserialize($activite);
-fclose($myfile);
 
-//$activitebis=$objPHPExcel->getActiveSheet()->getCell('A244')->getValue();
-$myfile = fopen("Fichiers/activitebfinal.txt", "r") or die("Unable to open file!");
-$activitebis=fgets($myfile);
+$activitebis=file_get_contents('Fichiers/activitebfinal.txt');
 $activitebistb=unserialize($activitebis);
-fclose($myfile);
 
-
-//$compound=$objPHPExcel->getActiveSheet()->getCell('A243')->getValue();
-//$compoundtb = unserialize($compound);
-
-//$activite=$objPHPExcel->getActiveSheet()->getCell('A242')->getValue();
-//$activitetb=unserialize($activite);
-
-//$activitebis=$objPHPExcel->getActiveSheet()->getCell('A244')->getValue();
-//$activitebistb=unserialize($activitebis);
-
-//$objPHPExcel->getActiveSheet()->setCellValue('A242'," ");
-//$objPHPExcel->getActiveSheet()->setCellValue('A243'," ");
-//$objPHPExcel->getActiveSheet()->setCellValue('A244'," ");
 
 mysqli_set_charset('utf8', $connexion);
 mysqli_select_db($bdname,$connexion);
@@ -119,26 +98,11 @@ $a=$a+1;
 }
 
 
-$requete2bis="SELECT Id_Activite FROM `resultat_cellule` WHERE `Num_Experience`= ".$numexp." Group BY `Id_Activite`";
-
-
-$activitebistb=array();
-$q=0;
-$resultat2bis= mysqli_query($connexion,$requete2bis);
-
-while ($test2bis = mysqli_fetch_assoc($resultat2bis)) {
-$activitebistb[$q]=$test2bis['Id_Activite'];
-$q=$q+1;
-}
-
-
-
 for ($i = 0; $i <= sizeof($activitebistb)-1; $i++){
 
 $compt=0;
 
 $requete2="SELECT Valeur FROM `resultat_cellule` WHERE `resultat_cellule`.`Num_Experience`= ".$numexp." and Id_Activite='".$activitebistb[$i]."' Group BY Id_TEE";
-
 $resultat2= mysqli_query($connexion,$requete2);
 $o=2;
 $move=0;
@@ -158,6 +122,7 @@ if ($compt%240==0){
 $a=$a+1;
 }
 
+file_put_contents('Fichiers/lettrefin.txt', $alphas[$a-1]);
 $alphas=range('E','Z');
 
 for ($i = 0; $i <= ($nbfeuille-1); $i++){
