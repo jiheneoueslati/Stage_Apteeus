@@ -16,6 +16,17 @@ if (mysqli_connect_errno()) {
 include 'PHPExcel.php';
 include 'PHPExcel/Writer/Excel2007.php';
 
+function cellColor($cells,$color){
+    global $objPHPExcel;
+
+    $objPHPExcel->getActiveSheet()->getStyle($cells)->getFill()->applyFromArray(array(
+        'type' => PHPExcel_Style_Fill::FILL_SOLID,
+        'startcolor' => array(
+             'rgb' => $color
+        )
+    ));
+}
+
 
 $inputFileName = 'etape2bis_conversion.xlsx';/** Load $inputFileName to a PHPExcel Object  **/$objPHPExcel = PHPExcel_IOFactory::load($inputFileName);
 $objWorkSheetBase = $objPHPExcel->getSheet();
@@ -101,6 +112,9 @@ while ($test2 = mysqli_fetch_assoc($resultat2)) {
 //for ($i = 1; $i <= 5; $i++){
 $objPHPExcel->setActiveSheetIndex($move);
 $objPHPExcel->getActiveSheet()->setCellValue("E".$o,$inn[$innid]);
+if ($inn[$innid]==""){
+cellColor('E'.$o, 'FF4500');
+}
 $innid=$innid+1;
 $objPHPExcel->getActiveSheet()->setCellValue("B".$o,$numexpe." MAP TEE".($move+1)." E".($o-1));
 $objPHPExcel->getActiveSheet()->setCellValue($alphas[$a].$o,$test2['Valeur']);
