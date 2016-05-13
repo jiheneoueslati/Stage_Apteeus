@@ -1,3 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML>
+ <HEAD>
+  <STYLE type="text/css">
+
+#global
+{
+    width: 600px;
+}
+ 
+#cadre1
+{
+    height: 500px;
+    width: 300px;
+    float: left;
+}
+ 
+#cadre2
+{
+    height: 500px;
+    width: 300px;
+    margin-left: 300px;
+}
+ 
+.centre
+{
+    height: 100px;
+    width: 100px;
+    margin-left: 100px;
+}
+  </STYLE>
+ </HEAD>
+<BODY>
+
 <?php
 
 $compound = file_get_contents('Fichiers/metabolites.txt');
@@ -9,7 +43,8 @@ $activiteatb=unserialize($activitea);
 $activiteb=file_get_contents('Fichiers/activiteb.txt');
 $activitebtb=unserialize($activiteb);
 
-
+echo '<div id="global">';
+echo '<div id="cadre1">';
 echo "Sélectionnez vos Métabolites";
 echo'<br>';
 echo'<br>';
@@ -34,6 +69,8 @@ echo $activiteatb[$i];
 echo'<br>';
 }
 
+echo'<br>';
+
 
 echo "Sélectionnez vos Activités Cellules";
 echo'<br>';
@@ -46,10 +83,16 @@ echo $activitebtb[$i];
 echo'<br>';
 }
 
-
+echo '<br>';
 echo '<input type="submit" value="Envoyer" />';
-
-
-
 echo'</form>';
+echo '</div>';
+
+echo '<div id="cadre2">';
+
+
+echo '</div>';
 ?>
+
+</BODY>
+</HTML>

@@ -72,6 +72,7 @@ for ($i = 0; $i <= sizeof($activitetb)-1; $i++){
 $compt=0;
 //Activité
 
+
 $requete2="SELECT Valeur FROM `resultat_metabolite` WHERE `resultat_metabolite`.`Num_Experience`= ".$numexp." and Id_Activite='".$activitetb[$i]."' and Id_Metabolite='".$compoundtb[$j]."' Group BY Id_TEE";
 
 
