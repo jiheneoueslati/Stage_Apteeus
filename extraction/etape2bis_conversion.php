@@ -1,5 +1,17 @@
 <?php
 
+$serveurbd = 'localhost';
+$bdname    = 'parseur';
+$userbd='root@localhost';
+$mdpbd='root';
+
+$connexion = new mysqli("localhost", "root", "root", "parseur");
+/* Vérification de la connexion */
+if (mysqli_connect_errno()) {
+    printf("Echec de la connexion : %s\n", mysqli_connect_error());
+    exit();
+}
+
 $inn = file_get_contents('Fichiers/innmol.txt');
 $innmol = unserialize($inn);
 
@@ -16,6 +28,9 @@ $plaque = file_get_contents('Fichiers/plaqueconv.txt');
 $plaqueconv = unserialize($plaque);
 
 
+$TEE = file_get_contents('Fichiers/TEE.txt');
+$TEE = unserialize($TEE);
+
 include 'PHPExcel.php';
 include 'PHPExcel/Writer/Excel2007.php';
 
@@ -26,8 +41,7 @@ $objPHPExcel->getActiveSheet()->setCellValue("A1","Id_TEE");
 $objPHPExcel->getActiveSheet()->setCellValue("B1","Nom_molecule");
 $objPHPExcel->getActiveSheet()->setCellValue("C1","Num_plaque96");
 $objPHPExcel->getActiveSheet()->setCellValue("D1","Position");
-
-for ($id=1; $id<=2200-1; $id++){
+for ($id=1; $id<=1900-1; $id++){
 
 $positionplaque=array();
 $position="";
@@ -37,17 +51,17 @@ $plaque=$positionconv[($id+1)];
 $position=$plaqueconv[($id+1)];
 $positionplaque[1]=$position;
 $positionplaque[0]=$plaque;
-
-
+$result=0;
+$f=0;
 $keypos=array_keys($positionmol,$position);
 $keyplaque=array_keys($plaquemol,$plaque);
-
+$elementtab=array();
 $element="";
 for ($i=0; $i<=sizeof($keyplaque)-1; $i++){
 for ($j=0; $j<=sizeof($keypos)-1; $j++){
 	if ($keyplaque[$i]==$keypos[$j]){
 		$element=$innmol[($keyplaque[$i])];
-	}
+			}
 }
 }
 
@@ -56,7 +70,6 @@ $objPHPExcel->getActiveSheet()->setCellValue("A".($id+1),$id);
 $objPHPExcel->getActiveSheet()->setCellValue("B".($id+1),$element);
 $objPHPExcel->getActiveSheet()->setCellValue("C".($id+1),$positionconv[$id+1]);
 $objPHPExcel->getActiveSheet()->setCellValue("D".($id+1),$plaqueconv[$id+1]);
-
 }
 
 $objPHPExcel->getActiveSheet()->getColumnDimension('A')->setWidth(20);

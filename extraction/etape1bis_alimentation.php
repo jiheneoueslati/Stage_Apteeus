@@ -26,6 +26,7 @@ $objWorkSheetBase = $objPHPExcel->getSheet();
 $innmol=array();
 $plaquemol=array();
 $positionmol=array();
+$TEE=array();
 $i=1;
 
 
@@ -33,6 +34,8 @@ while (($objPHPExcel->getActiveSheet()->getCell('A'.$i)->getValue())!=("")){
 $innmol[$i]=$objPHPExcel->getActiveSheet()->getCell('A'.$i)->getValue();
 $plaquemol[$i]=$objPHPExcel->getActiveSheet()->getCell('B'.$i)->getValue();
 $positionmol[$i]=$objPHPExcel->getActiveSheet()->getCell('C'.$i)->getValue();
+$TEE[$i]=$objPHPExcel->getActiveSheet()->getCell('D'.$i)->getValue();
+
 $i=$i+1;
 }
 
@@ -44,6 +47,7 @@ file_put_contents('Fichiers/plaquemol.txt',serialize($plaquemol));
 file_put_contents('Fichiers/positionmol.txt', serialize($positionmol));
 file_put_contents('Fichiers/plaqueconv.txt',serialize($plaqueconv));
 file_put_contents('Fichiers/positionconv.txt', serialize($positionconv));
+file_put_contents('Fichiers/TEE.txt', serialize($TEE));
 
 header('Location: etape2bis_conversion.php');
 

@@ -1,1 +1,1 @@
-a:4:{i:0;s:4:"Area";i:1;s:8:"Response";i:2;s:2:"RT";i:3;s:3:"S/N";}
+a:2:{i:0;s:4:"Area";i:1;s:3:"S/N";}

@@ -17,6 +17,21 @@ include 'PHPExcel.php';
 include 'PHPExcel/Writer/Excel2007.php';
 
 
+$inputFileName = 'etape2bis_conversion.xlsx';/** Load $inputFileName to a PHPExcel Object  **/$objPHPExcel = PHPExcel_IOFactory::load($inputFileName);
+$objWorkSheetBase = $objPHPExcel->getSheet();
+
+
+$inn=array();
+$i=2;
+
+
+while ((($objPHPExcel->getActiveSheet()->getCell('B'.$i)->getValue())!=("")) or (($objPHPExcel->getActiveSheet()->getCell('B'.($i+1))->getValue())!=(""))or (($objPHPExcel->getActiveSheet()->getCell('B'.($i+3))->getValue())!=(""))){
+$inn[($i-2)]=$objPHPExcel->getActiveSheet()->getCell('B'.$i)->getValue();
+$i=$i+1;
+}
+
+
+
 $inputFileName = 'etape3_recuperation.xlsx';/** Load $inputFileName to a PHPExcel Object  **/$objPHPExcel = PHPExcel_IOFactory::load($inputFileName);
 $objWorkSheetBase = $objPHPExcel->getSheet();$objPHPExcel->getActiveSheet()->setTitle('TEEB01');$compound = file_get_contents('Fichiers/metabolitesfinal.txt');
 $compoundtb = unserialize($compound);
@@ -79,11 +94,14 @@ $requete2="SELECT Valeur FROM `resultat_metabolite` WHERE `resultat_metabolite`.
 $resultat2= mysqli_query($connexion,$requete2);
 $o=2;
 $move=0;
-$alphas=range('E','Z');
+$alphas=range('F','Z');
+$innid=0;
 while ($test2 = mysqli_fetch_assoc($resultat2)) {
 //Rentrer les valeurs
 //for ($i = 1; $i <= 5; $i++){
 $objPHPExcel->setActiveSheetIndex($move);
+$objPHPExcel->getActiveSheet()->setCellValue("E".$o,$inn[$innid]);
+$innid=$innid+1;
 $objPHPExcel->getActiveSheet()->setCellValue("B".$o,$numexpe." MAP TEE".($move+1)." E".($o-1));
 $objPHPExcel->getActiveSheet()->setCellValue($alphas[$a].$o,$test2['Valeur']);
 //$objPHPExcel->getActiveSheet()->setCellValue("E".$o,$test2['valeur']);

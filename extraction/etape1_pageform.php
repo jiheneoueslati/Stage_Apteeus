@@ -79,6 +79,7 @@ $objPHPExcel->getActiveSheet()->setCellValue("A1", "Sample Number");
 $objPHPExcel->getActiveSheet()->setCellValue("B1", "Sample Name");
 $objPHPExcel->getActiveSheet()->setCellValue("C1", "Row");
 $objPHPExcel->getActiveSheet()->setCellValue("D1", "Col");
+$objPHPExcel->getActiveSheet()->setCellValue("E1", "INN");
 
 $alphas=range('E', 'Z');
 

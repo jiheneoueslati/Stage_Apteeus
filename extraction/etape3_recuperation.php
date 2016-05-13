@@ -45,7 +45,7 @@ foreach($_POST['actb'] as $valeur)
 }
 
 
-$alphas=range('E', 'Z');
+$alphas=range('F', 'Z');
 
 $z=0;
 $a=0;
