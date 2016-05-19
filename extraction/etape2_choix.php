@@ -34,6 +34,8 @@
 
 <?php
 
+//Recuperation des tableaux d'activité et de metabolites
+
 $compound = file_get_contents('Fichiers/metabolites.txt');
 $compoundtb = unserialize($compound);
 
@@ -43,11 +45,14 @@ $activiteatb=unserialize($activitea);
 $activiteb=file_get_contents('Fichiers/activiteb.txt');
 $activitebtb=unserialize($activiteb);
 
+
 echo '<div id="global">';
 echo '<div id="cadre1">';
 echo "Sélectionnez vos Métabolites";
 echo'<br>';
 echo'<br>';
+
+//Choix des métabolites
 
 echo '<form action="etape3_recuperation.php" method="post">';
 for ($i = 0; $i <= sizeof($compoundtb)-1; $i++){
@@ -56,6 +61,7 @@ echo $compoundtb[$i];
 echo'<br>';
 }
 
+//Choix des activités
 
 echo "<br>";
 echo "Sélectionnez vos Activités";
@@ -71,6 +77,7 @@ echo'<br>';
 
 echo'<br>';
 
+//Choix des activités cellules
 
 echo "Sélectionnez vos Activités Cellules";
 echo'<br>';

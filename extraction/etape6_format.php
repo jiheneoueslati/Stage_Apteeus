@@ -9,11 +9,11 @@ $formattingpart="";
 
 
 While ($alphas[$a]!=$lettre){
-$formattingpart=$formattingpart.'<conditionalFormatting sqref="'.$alphas[$a].'1:'.$alphas[$a].'1048576"><cfRule type="colorScale" priority="'.($a+1).'"><colorScale><cfvo type="min"/><cfvo type="percentile" val="50"/><cfvo type="max"/><color rgb="FFF8696B"/><color rgb="FFFFEB84"/><color rgb="FF63BE7B"/></colorScale></cfRule></conditionalFormatting>';
+$formattingpart=$formattingpart.'<conditionalFormatting sqref="'.$alphas[$a].'1:'.$alphas[$a].'241"><cfRule type="colorScale" priority="'.($a+1).'"><colorScale><cfvo type="min"/><cfvo type="percentile" val="50"/><cfvo type="max"/><color rgb="FFF8696B"/><color rgb="FFFFEB84"/><color rgb="FF63BE7B"/></colorScale></cfRule></conditionalFormatting>';
 $a=$a+1;
 }
 
-$formattingpart=$formattingpart.'<conditionalFormatting sqref="'.$alphas[$a].'1:'.$alphas[$a].'1048576"><cfRule type="colorScale" priority="'.($a+1).'"><colorScale><cfvo type="min"/><cfvo type="percentile" val="50"/><cfvo type="max"/><color rgb="FFF8696B"/><color rgb="FFFFEB84"/><color rgb="FF63BE7B"/></colorScale></cfRule></conditionalFormatting>';
+$formattingpart=$formattingpart.'<conditionalFormatting sqref="'.$alphas[$a].'1:'.$alphas[$a].'241"><cfRule type="colorScale" priority="'.($a+1).'"><colorScale><cfvo type="min"/><cfvo type="percentile" val="50"/><cfvo type="max"/><color rgb="FFF8696B"/><color rgb="FFFFEB84"/><color rgb="FF63BE7B"/></colorScale></cfRule></conditionalFormatting>';
 
 
 
