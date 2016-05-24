@@ -2,22 +2,23 @@
 
 //Connexion à la BDD
 
-//$serveurbd = 'formationweb-peda.univ-lille3.fr';
-//$userbd    = 'joueslati';
-//$mdpbd     = 'toto';
+$serveurbd = 'formationweb-peda.univ-lille3.fr';
+$userbd    = 'joueslati';
+$mdpbd     = 'toto';
+$bdname    = 'sages_femmes_jo';
+$connexion = mysql_connect($serveurbd,$userbd,$mdpbd);
+mysql_set_charset('utf8', $connexion);
+mysql_select_db($bdname,$connexion);
+/*
 $bdname    = 'sages_femmes_jo';
 $serveurbd = 'localhost';
-//$bdname    = 'parseur';
 $userbd='root';
 $mdpbd='root';
 
 $connexion = new mysqli($serveurbd, $userbd, $mdpbd, $bdname);
-//$connexion = mysql_connect($serveurbd,$userbd,$mdpbd);
-//mysql_set_charset('utf8', $connexion);
-//mysql_select_db($bdname,$connexion);
 mysqli_set_charset('utf8', $connexion);
 mysqli_select_db($bdname,$connexion);
-
+*/
 //Inclusion de PHPExcel
 
 include 'PHPExcel.php';
@@ -68,6 +69,10 @@ $activite=file_get_contents('Fichiers/activiteafinal.txt');
 $activitetb=unserialize($activite);
 $activitebis=file_get_contents('Fichiers/activitebfinal.txt');
 $activitebistb=unserialize($activitebis);
+$position=file_get_contents('Fichiers/position384conv.txt');
+$positiontb=unserialize($position);
+$view=file_get_contents('Fichiers/viewfinal.txt');
+$viewtb=unserialize($view);
 
 // On recupere le numero de l'experience sur le fichier .XLSX
 
@@ -76,17 +81,16 @@ $numexp="'".$numexpe."'";
 
 // Requete pour connaitre le nombre de position, ce qui nous donnera le nombre de feuilles .
 
-$requete="SELECT `resultat_metabolite`.`Id_Position` FROM `resultat_metabolite` WHERE `resultat_metabolite`.`Num_Experience`= ".$numexp."  Group BY `resultat_metabolite`.`Id_Position`";
+$requete="SELECT `resultat_metabolite`.`Position`,`Num_Plaque`FROM `resultat_metabolite` WHERE `resultat_metabolite`.`Num_Experience` = ".$numexp." GROUP BY `resultat_metabolite`.`Position`,`Num_Plaque`";
 
-//$resultat= mysql_query($requete,$connexion);
-$resultat= mysqli_query($connexion,$requete);
+$resultat= mysql_query($requete,$connexion);
+//$resultat= mysqli_query($connexion,$requete);
 
 
 $nbfeuille=1;
 $element=0;
-while ($test = mysqli_fetch_assoc($resultat)) {
-//while ($test = mysql_fetch_array($resultat)) {
-
+//while ($test = mysqli_fetch_assoc($resultat)) {
+while ($test = mysql_fetch_array($resultat)) {
 //Reglage du nombre de feuille
 $element=$element+1;
 if ($element % (241+($nbfeuille-1)*240) ==0){
@@ -97,16 +101,16 @@ if ($element % (241+($nbfeuille-1)*240) ==0){
 
 // Requete pour connaitre le nombre de position, ce qui nous donnera le nombre de feuilles.
 
-$requete="SELECT `resultat_cellule`.`Id_Position` FROM `resultat_cellule` WHERE `resultat_cellule`.`Num_Experience`= ".$numexp."  Group BY `resultat_cellule`.`Id_Position`";
+$requete="SELECT `resultat_cellule`.`Position`,`Num_Plaque`FROM `resultat_cellule` WHERE `resultat_cellule`.`Num_Experience` = ".$numexp." GROUP BY `resultat_cellule`.`Position`,`Num_Plaque`";
 
-//$resultat= mysql_query($requete,$connexion);
-$resultat= mysqli_query($connexion,$requete);
+$resultat= mysql_query($requete,$connexion);
+//$resultat= mysqli_query($connexion,$requete);
 
 
 $nbfeuillebis=1;
 $element=0;
-while ($test = mysqli_fetch_assoc($resultat)) {
-//while ($test = mysql_fetch_array($resultat)) {
+//while ($test = mysqli_fetch_assoc($resultat)) {
+while ($test = mysql_fetch_array($resultat)) {
 
 
 $element=$element+1;
@@ -149,32 +153,47 @@ $compt=0;
 //Activité
 
 
-$requete2="SELECT Valeur, Id_Position FROM `resultat_metabolite` WHERE `resultat_metabolite`.`Num_Experience`= ".$numexp." and Activite='".$activitetb[$i]."' and Id_Metabolite='".$compoundtb[$j]."' Group BY Id_Position";
+$requete2="SELECT Valeur, Position, Num_Plaque FROM `resultat_metabolite` WHERE `resultat_metabolite`.`Num_Experience`= ".$numexp." and Activite='".$activitetb[$i]."' and Id_Metabolite='".$compoundtb[$j]."' Group BY Num_Plaque,Position";
 
 
-//$resultat2= mysql_query($requete2,$connexion);
-$resultat2= mysqli_query($connexion,$requete2);
-
+$resultat2= mysql_query($requete2,$connexion);
+//$resultat2= mysqli_query($connexion,$requete2);
 
 
 $o=0;
 $move=0;
-$alphas=range('F','Z');
+
+$alphas = array();
+$alpha = 'F';
+while ($alpha !== 'AZ') {
+    $alphas[] = $alpha++;
+}
+
 $innid=0;
 $pos=0;
-while ($test2 = mysqli_fetch_assoc($resultat2)) {
-//while ($test2 = mysql_fetch_array($resultat2)) {
+$idposition=2;
+
+
+//while ($test2 = mysqli_fetch_assoc($resultat2)) {
+while ($test2 = mysql_fetch_array($resultat2)) {
+if (array_search($test2['Position'], $positiontb)!=""){
+$idposition= array_search($test2['Position'], $positiontb);
+}
+else{
+$idposition=$idposition+1;
+}
 $objPHPExcel->setActiveSheetIndex($move);
 if (($j==0) and ($i==0)){
-$objPHPExcel->getActiveSheet()->setCellValue("E".(($test2['Id_Position']+1)-$o),$inn[$innid]);
-if ($inn[$innid]==""){
-cellColor('A'.(($test2['Id_Position']+1)-$o), 'FF4500');
-cellColor('E'.(($test2['Id_Position']+1)-$o), 'FF4500');
+$objPHPExcel->getActiveSheet()->setCellValue("E".$idposition,$inn[($idposition-2)+(240*$move)]);
+if ($inn[($idposition-2)+(240*$move)]==""){
+cellColor('A'.$idposition, 'FF4500');
+cellColor('E'.$idposition, 'FF4500');
+$objPHPExcel->getActiveSheet()->setCellValue("E".$idposition,"DMSO");
 }
 $innid=$innid+1;
-$objPHPExcel->getActiveSheet()->setCellValue("B".(($test2['Id_Position']+1)-$o),$numexpe." MAP TEE".($move+1)." E".((($test2['Id_Position']+1)-$o)-1));
+$objPHPExcel->getActiveSheet()->setCellValue("B".$idposition,$numexpe." MAP TEE".($move+1)." E".$idposition);
 }
-$objPHPExcel->getActiveSheet()->setCellValue($alphas[$a].(($test2['Id_Position']+1)-$o),$test2['Valeur']);
+$objPHPExcel->getActiveSheet()->setCellValue($alphas[$a].$idposition,$test2['Valeur']);
 $compt=$compt+1;
 if ($compt%240==0){
 	$objPHPExcel->getActiveSheet()->setCellValue($alphas[$a]."243",'=AVERAGE('.$alphas[$a].'2:'.$alphas[$a].'241)');
@@ -189,20 +208,32 @@ $a=$a+1;
 }
 
 
+
+for ($j = 0; $j <= sizeof($viewtb); $j++){
 for ($i = 0; $i <= sizeof($activitebistb)-1; $i++){
+
 
 $compt=0;
 
-$requete2="SELECT Valeur,Id_Position FROM `resultat_cellule` WHERE `resultat_cellule`.`Num_Experience`= ".$numexp." and Activite='".$activitebistb[$i]."' Group BY Id_Position";
-//$resultat2= mysql_query($requete2,$connexion);
-$resultat2= mysqli_query($connexion,$requete2);
+$requete2="SELECT Valeur, Position, Num_Plaque FROM `resultat_cellule` WHERE `resultat_cellule`.`Num_Experience`= ".$numexp." and View='".$viewtb[$j]."' and Activite='".$activitebistb[$i]."' Group BY Num_Plaque,Position";
+
+$idposition=2;
+
+$resultat2= mysql_query($requete2,$connexion);
+//$resultat2= mysqli_query($connexion,$requete2);
 $o=0;
 $move=0;
 $pos=0;
-while ($test2 = mysqli_fetch_assoc($resultat2)) {
-//while ($test2 = mysql_fetch_array($resultat2)) {
+//while ($test2 = mysqli_fetch_assoc($resultat2)) {
+while ($test2 = mysql_fetch_array($resultat2)) {
+if (array_search($test2['Position'], $positiontb)!=""){
+$idposition= array_search($test2['Position'], $positiontb);
+}
+else{
+$idposition=$idposition+1;
+}
 $objPHPExcel->setActiveSheetIndex($move);
-$objPHPExcel->getActiveSheet()->setCellValue($alphas[$a].(($test2['Id_Position']+1)-$o),$test2['Valeur']);
+$objPHPExcel->getActiveSheet()->setCellValue($alphas[$a].$idposition,$test2['Valeur']);
 $compt=$compt+1;
 if ($compt%240==0){
 	$move=$move+1;
@@ -214,6 +245,7 @@ $objPHPExcel->getActiveSheet()->setCellValue($alphas[$a]."244",'=STDEV('.$alphas
 }
 $a=$a+1;
 }
+}
 
 // On stocke la lettre de fin qui nous servira  pour savoir ou s'arreter dans le formatage conditionnel
 
@@ -221,7 +253,12 @@ file_put_contents('Fichiers/lettrefin.txt', $alphas[$a-1]);
 
 // On ajuste la taille des colonnes pour toutes les feuilles 
 
-$alphas=range('E','Z');
+$alphas = array();
+$alpha = 'E';
+while ($alpha !== 'AZ') {
+    $alphas[] = $alpha++;
+}
+
 
 for ($i = 0; $i <= ($nbfeuille-1); $i++){
 $objPHPExcel->setActiveSheetIndex($i);
@@ -233,7 +270,12 @@ $objPHPExcel->getActiveSheet()->getColumnDimension('D')->setWidth(6);
 $objPHPExcel->getActiveSheet()->getColumnDimension($alphas[$j])->setWidth(30);
 }
 }
-
+$objPHPExcel->setActiveSheetIndex($nbfeuille-1);
+for ($j = 241; $j >= 1; $j--){
+if (($objPHPExcel->getActiveSheet()->getCell('E'.($j))->getValue())==("")){
+$objPHPExcel->getActiveSheet()->removeRow($j);
+}
+}
 // On sauvegarde le fichier .XLSX
 
 $objWriter = new PHPExcel_Writer_Excel2007($objPHPExcel);

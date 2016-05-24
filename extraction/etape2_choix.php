@@ -45,6 +45,8 @@ $activiteatb=unserialize($activitea);
 $activiteb=file_get_contents('Fichiers/activiteb.txt');
 $activitebtb=unserialize($activiteb);
 
+$view=file_get_contents('Fichiers/view.txt');
+$viewtb=unserialize($view);
 
 echo '<div id="global">';
 echo '<div id="cadre1">';
@@ -89,6 +91,20 @@ echo '<input type="checkbox" name="actb[]" value='.$i.' checked="checked" />';
 echo $activitebtb[$i];
 echo'<br>';
 }
+
+//Choix des activités cellules
+echo "<br>";
+echo "Sélectionnez vos vues";
+echo'<br>';
+echo'<br>';
+
+echo '<form action="etape3_recuperation.php" method="post">';
+for ($i = 0; $i <= sizeof($viewtb)-1; $i++){
+echo '<input type="checkbox" name="view[]" value='.$i.' checked="checked" />';
+echo $viewtb[$i];
+echo'<br>';
+}
+
 
 echo '<br>';
 echo '<input type="submit" value="Envoyer" />';

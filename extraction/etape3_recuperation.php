@@ -22,11 +22,15 @@ $activiteatb=unserialize($activitea);
 $activiteb=file_get_contents('Fichiers/activiteb.txt');
 $activitebtb=unserialize($activiteb);
 
+$view=file_get_contents('Fichiers/view.txt');
+$viewtb=unserialize($view);
+
 //Creation de listes qui stockeront les choix de l'utilisateur
 
 $compoundtbfinal=array();
 $activiteatbfinal=array();
 $activitebtbfinal=array();
+$viewtbfinal=array();
 
 $i=0;
 // Recupération des choix 
@@ -57,7 +61,21 @@ foreach($_POST['actb'] as $valeur)
 
 }
 
-$alphas=range('F', 'Z');
+$i=0;
+//Activités Cellules
+foreach($_POST['view'] as $valeur)
+{
+    $viewtbfinal[$i]=$viewtb[$valeur];
+    $i=$i+1;
+
+}
+
+$alphas = array();
+$alpha = 'F';
+while ($alpha !== 'AZ') {
+    $alphas[] = $alpha++;
+}
+
 
 //On commence à la suite du document colonne F
 
@@ -73,9 +91,14 @@ $a=$a+1;
 $z=$z+1;
 }
 //On met les entetes de colonnes composées du nom des activités cellules
-for ($f = 0; $f <= sizeof($activitebtbfinal)-1; $f++){
-$objPHPExcel->getActiveSheet()->setCellValue($alphas[$a]."1",$activitebtbfinal[$f]);
+$z=0;
+
+for ($i = 0; $i <= sizeof($activitebtbfinal)-1; $i++){
+for ($j = 0; $j <= sizeof($viewtbfinal)-1; $j++){
+$objPHPExcel->getActiveSheet()->setCellValue($alphas[$a]."1",$activitebtbfinal[$z]." ".$viewtbfinal[$j]);
 $a=$a+1;
+}
+$z=$z+1;
 }
 
 // On sauvegarde ces choix dans de nouveaux fichiers .TXT
@@ -89,6 +112,9 @@ file_put_contents('Fichiers/metabolitesfinal.txt', $metabolites);
 
 $incell =  serialize($activitebtbfinal);
 file_put_contents('Fichiers/activitebfinal.txt', $incell);
+
+$view =  serialize($viewtbfinal);
+file_put_contents('Fichiers/viewfinal.txt', $view);
 
 //On crée notre nouveau fichier .XLSX
 

@@ -3,7 +3,13 @@
 $feuille=file_get_contents("Fichiers/nbfeuille.txt");
 $lettre=file_get_contents("Fichiers/lettrefin.txt");
 
-$alphas=range('E','Z');
+
+$alphas = array();
+$alpha = 'E';
+while ($alpha !== 'AZ') {
+    $alphas[] = $alpha++;
+}
+
 $a=0;
 $formattingpart="";
 
