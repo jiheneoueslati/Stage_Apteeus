@@ -1,9 +1,7 @@
 <?php
-
 header( 'content-type: text/html; charset=utf-8' );
 if ((isset($_POST['type_exp']))&& (isset($_POST['température']))&& (isset($_POST['temps_incubation']))&& (isset($_POST['cellule'])))
 {
-
 	$uploads_dir = './Xevo';
 	foreach ($_FILES["file"]["error"] as $key => $error)
 	{
@@ -14,7 +12,6 @@ if ((isset($_POST['type_exp']))&& (isset($_POST['température']))&& (isset($_POS
 			move_uploaded_file($tmp_name, "$uploads_dir/$name");
 		}
 	}
-
 	$uploads_dir2 = './Incell';
 	foreach ($_FILES["file2"]["error"] as $key => $error) 
 	{
@@ -34,6 +31,9 @@ if ((isset($_POST['type_exp']))&& (isset($_POST['température']))&& (isset($_POS
 	//1- Vérifier le nombre des fichiers à uploader
 	$Xevo=array_fichiers('./Xevo', 'txt');
 	$nb_fichiers_xevo=count ($Xevo);
+	$incell_xls=array_fichiers('./Incell', 'xls');// parcouir les fichiers excel
+	require_once 'Extraction/PHPExcel/IOFactory.php';
+	xls_to_txt('./Incell',$incell_xls);
 	$Incell=array_fichiers('./Incell', 'txt');
 	$nb_fichiers_incell=count ($Incell);
 	if($nb_fichiers_incell!=$nb_fichiers_xevo)
@@ -63,9 +63,7 @@ if ((isset($_POST['type_exp']))&& (isset($_POST['température']))&& (isset($_POS
 	connexxion();
 	$sql= "insert into  experience (Num_Experience, Type, Mois, Annee, Id_Cellule, Temperature, Temps_Incubation) values ('$numexp','$type_exp' ,'$mois', $année,'$cellule', $température,$temps_incubation)";
 	mysql_query($sql);
-
 // insertion des fichiers incell
-
 		for ($i=0;$i<=$nb_fichiers_incell-1;$i++)
 		{
 			$fich1=$Incell[$i];
@@ -89,6 +87,5 @@ if ((isset($_POST['type_exp']))&& (isset($_POST['température']))&& (isset($_POS
 			unlink($Incell[$i]);
 		}
 	}
-
 }
 ?>

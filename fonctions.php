@@ -1,22 +1,17 @@
 <?php
-
 function connexxion ()
 { 
-	$serveurbd = 'formationweb-peda.univ-lille3.fr';
-$userbd    = 'joueslati';
-$mdpbd     = 'toto';
+	$serveurbd = 'localhost';
+$userbd    = 'root';
+$mdpbd     = '';
 $bdname    = 'sages_femmes_jo';
-
 	$connexion = mysql_connect($serveurbd,$userbd,$mdpbd);
 	mysql_set_charset('utf8', $connexion);
 	mysql_select_db($bdname,$connexion);
 	return $connexion;
 }
-
-
-
  ////********* fonction prend en paramètre un dossier et retourne une liste contenant les noms des fichiers dans le dosssier ******////
- 
+ set_time_limit ( 1000 );
 function array_fichiers($path, $extension) //$Xevo=array_fichiers('./Xevo', 'txt');
 {
     $files = array();
@@ -29,6 +24,20 @@ function array_fichiers($path, $extension) //$Xevo=array_fichiers('./Xevo', 'txt
  
     return $files;
 }
+
+require_once 'Extraction/PHPExcel/IOFactory.php';
+function xls_to_txt($path,$file_list)	
+{
+	for($i=0;$i<=count($file_list)-1;$i++)
+	{
+		$objPHPExcel = PHPExcel_IOFactory::load("$file_list[$i]");
+		$objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'csv');
+		$objWriter->setDelimiter("\t");
+		$objWriter->save($path.'\incell '.$i.'.txt');// les noms des fichiers seront incel1, incell2... 
+		unlink($file_list[$i]);
+	}
+}
+
 ////**** fonction récupére le num_expérience et la date
 function mois_annee_numexperience($fich) // $fich va etre détermineé par la fct array_fichiers lindice 0 qui contient le premier fichier à uploader
 {
@@ -52,13 +61,9 @@ function mois_annee_numexperience($fich) // $fich va etre détermineé par la fc
 		}
 	return $tab_date_num;// une liste contenant la date à lindice0, l'annee à lindice 1 et le numéro de l'expérience à l'indice 2
 }
-
-
 //////***** 2 fonction pour traduire le position en TEE  *****//////
 //1- replir les listes
-
 	
-
 //2- parcourir les lsite
 function nom_TEE ($numero_plaque,$la_position,$plaque_l,$position_l,$TEE_l)// TEE = molécules
 {
@@ -71,8 +76,6 @@ function nom_TEE ($numero_plaque,$la_position,$plaque_l,$position_l,$TEE_l)// TE
 		}
 	return $TEE;
 }
-
-
 ////////////**********************fonction initialse le numéro de passge ****************************///////////////////////////////////////
 function initialiser_passage($nb_fichiers) // nb fichiers va etre déterminé par la fct count(array_fichiers)
 {
@@ -86,9 +89,7 @@ function initialiser_passage($nb_fichiers) // nb fichiers va etre déterminé pa
 	}
 	return($tab_init_Pass);
 }
-
 /////////////************** fonction lit un seul fichier incell***********///////////////
-
 function lire_fichier_incell($num_exp,$fich1,$num_plaque1)// $fich: indice tab noms fichiers; $init_Pos: indice tab initialisation TEE, le num exp est en paramétre car ne se trouve pas dans le fichier et on doit linsérer dans la bdd  
 {
 	$plaque_list1=file_get_contents('Extraction/Fichiers/plaque384conv.txt');
@@ -102,9 +103,7 @@ function lire_fichier_incell($num_exp,$fich1,$num_plaque1)// $fich: indice tab n
 		
 	
 	$activite_cellules=explode("	",$filearray_incell[2]); // les activités (Area, form factor...)
-
 	$target=explode("	",$filearray_incell[3]); // les targets (mean, count, median...)
-
 	for ($i=4;$i<=count($filearray_incell)-1;$i++) // lignes des valeurs
 	{
 		$ttt[]=explode("	",$filearray_incell[$i]);
@@ -132,10 +131,7 @@ function lire_fichier_incell($num_exp,$fich1,$num_plaque1)// $fich: indice tab n
 		}
 	}
 }
-
-
 /////////////************** fonction lit un seul fichier xevo***********////////////////
-
 function lire_fichier_xevo($numexp,$fich2,$init_num_passage,$num_plaque2)
 {
 	$plaque_list2=file_get_contents('Extraction/Fichiers/plaque384conv.txt');
