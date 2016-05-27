@@ -55,11 +55,20 @@ function mois_annee_numexperience($fich) // $fich va etre détermineé par la fc
 			$tab_date_num[1]=trim($annee);
 			if(preg_match('#TEE#',$f))
 			{
-				$num_exp= substr($f,8,5); // pour le moment le numéro de l'expérience ne dépasse pas les 5 caractères
+				$Name=explode("	",$f);
 			}
-			$tab_date_num[2]=trim($num_exp);
 		}
-	return $tab_date_num;// une liste contenant la date à lindice0, l'annee à lindice 1 et le numéro de l'expérience à l'indice 2
+		$Name=explode(" ",$Name[2]);print_r($Name);
+		if(preg_match('#-#',$Name[0]))
+		{
+			$num_exp=$Name[0];
+		}
+		else
+		{
+			$num_exp=$Name[1];
+		}
+		$tab_date_num[2]=trim($num_exp);
+	return $tab_date_num;
 }
 //////***** 2 fonction pour traduire le position en TEE  *****//////
 //1- replir les listes
@@ -143,9 +152,9 @@ function lire_fichier_incell($num_exp,$fich1,$num_plaque1)// $fich: indice tab n
 			$a=trim($activite_cellules[$i]);
 			$tar=trim($target[$i]);
 			$val=str_replace(',','.',$t[$i]); // remplacer la virgule par un point pour qu'on puisse l'afficher dans la base avec float	
-		$positionx=str_replace(' - ','',$t[0]);// extraire la position pour la passer en paramètre dans la fonction nom_TEE
-		$position1=trim(substr($positionx,0,3)); // indice 0 3 caractètres
-		$TEE1=nom_TEE($num_plaque1,$position1,$plaque_l1,$position_l1,$TEE_l1);
+			$positionx=str_replace(' - ','',$t[0]);// extraire la position pour la passer en paramètre dans la fonction nom_TEE
+			$position1=trim(substr($positionx,0,3)); // indice 0 3 caractètres
+			$TEE1=nom_TEE($num_plaque1,$position1,$plaque_l1,$position_l1,$TEE_l1);
 		
 			echo '<pre>'.$num_exp.' - '.$TEE1.' - '.$v.' - '.$a.' - '.$val. ' - '.$num_plaque1.' - '.$position1.'</pre>';
 				$sql= "insert into resultat_cellule (Num_Experience,TEE,View,Activite,Target,Valeur,Num_Plaque,Position) values ('$num_exp','$TEE1','$v','$a','$tar',$val,$num_plaque1,'$position1')";
