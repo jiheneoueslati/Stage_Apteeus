@@ -49,6 +49,7 @@ While ($alphas[$a]!=$lettre){
 $objPHPExcel->getActiveSheet()->setCellValue($alphas[$a]."243","=AVERAGE(".$alphas[$a]."2:".$alphas[$a]."241)");
 $objPHPExcel->getActiveSheet()->setCellValue($alphas[$a]."244","=STDEV(".$alphas[$a]."2:".$alphas[$a]."241)");
 $objPHPExcel->getActiveSheet()->setCellValue($alphas[$a]."245","=".$alphas[$a]."244*100/".$alphas[$a]."243");
+$objPHPExcel->getActiveSheet()->setCellValue($alphas[$a]."249","=".$alphas[$a]."248*100/".$alphas[$a]."247");
 $a=$a+1;
 }
 }
@@ -62,23 +63,78 @@ While ($alphas[$a]!=$lettre){
 $objPHPExcel->getActiveSheet()->setCellValue($alphas[$a].($dernierepage+3),"=AVERAGE(".$alphas[$a]."2:".$alphas[$a].($dernierepage+1).")");
 $objPHPExcel->getActiveSheet()->setCellValue($alphas[$a].($dernierepage+4),"=STDEV(".$alphas[$a]."2:".$alphas[$a].($dernierepage+1).")");
 $objPHPExcel->getActiveSheet()->setCellValue($alphas[$a].($dernierepage+5),"=".$alphas[$a].($dernierepage+4)."*100/".$alphas[$a].($dernierepage+3));
+$objPHPExcel->getActiveSheet()->setCellValue($alphas[$a].($dernierepage+9),"=".$alphas[$a].($dernierepage+8)."*100/".$alphas[$a].($dernierepage+7));
 $a=$a+1;
 }
 }
 
+//Pour le calcul dmso des premieres pages
 
-/*
-$position=array();
-$b=0;
-$positiondmso=array('F22','G15','G16','H4','H15','I9','I10','J9','J22','L4','N22','D4');
+$a=0;
+$txt="(";
+$objPHPExcel->setActiveSheetIndex(0);
 for ($j = 2; $j <= (241); $j++){
+$num=$objPHPExcel->getActiveSheet()->getCell('D'.$j)->getValue();
 $col=$objPHPExcel->getActiveSheet()->getCell('C'.$j)->getValue();
-$num=$objPHPExcel->getActiveSheet()->getCell('D'.$j)->getValue();	
-if (is_numeric(array_search((($col.$num),$positiondmso)))){
-	$position[$b]=$j;
+$nom=$objPHPExcel->getActiveSheet()->getCell('E'.$j)->getValue();	
+if ($nom=="DMSO"){
+$txt=$txt."F".$j.",";
 }
 }
-*/	
+$txt=substr($txt, 0, -1);
+$txt=$txt.')';
+
+$alphas = array();
+$alpha = 'F';
+while ($alpha !== 'AZ') {
+    $alphas[] = $alpha++;
+}
+
+for ($j =0; $j <= ($feuille-2); $j++){
+$a=0;
+$objPHPExcel->setActiveSheetIndex($j);
+While ($alphas[$a]!=$lettre){
+$txtbis=str_replace("F", $alphas[($a)], $txt);
+$objPHPExcel->getActiveSheet()->setCellValue($alphas[$a]."247","=AVERAGE".$txtbis);
+$objPHPExcel->getActiveSheet()->setCellValue($alphas[$a]."248","=STDEV".$txtbis);
+$a=$a+1;
+}
+}
+
+//Pour le calcul dmso des dernieres pages
+
+$a=0;
+$txt="(";
+$objPHPExcel->setActiveSheetIndex($feuille-1);
+for ($j = 2; $j <= ($dernierepage+1); $j++){
+$num=$objPHPExcel->getActiveSheet()->getCell('D'.$j)->getValue();
+$col=$objPHPExcel->getActiveSheet()->getCell('C'.$j)->getValue();
+$nom=$objPHPExcel->getActiveSheet()->getCell('E'.$j)->getValue();	
+if ($nom=="DMSO"){
+$txt=$txt."F".$j.",";
+}
+}
+$txt=substr($txt, 0, -1);
+$txt=$txt.')';
+
+$alphas = array();
+$alpha = 'F';
+while ($alpha !== 'AZ') {
+    $alphas[] = $alpha++;
+}
+
+for ($j=0; $j <= ($feuille-1); $j++){
+$a=0;
+$objPHPExcel->setActiveSheetIndex($j);
+While ($alphas[$a]!=$lettre){
+$txtbis=str_replace("F", $alphas[($a)], $txt);
+$objPHPExcel->getActiveSheet()->setCellValue($alphas[$a].($dernierepage+7),"=AVERAGE".$txtbis);
+$objPHPExcel->getActiveSheet()->setCellValue($alphas[$a].($dernierepage+8),"=STDEV".$txtbis);
+$a=$a+1;
+}
+}
+
+//Enregistrement du fichier
 
 $objWriter = new PHPExcel_Writer_Excel2007($objPHPExcel);
 $objWriter->save(str_replace('.php', '.xlsx', __FILE__));

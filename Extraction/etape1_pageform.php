@@ -118,7 +118,7 @@ while ($test2bis = mysqli_fetch_assoc($resultat2bis)) {
 	$q=$q+1;
 	}
 
-//Requete Activite Cellule
+//Requete View Cellule
 
 $requete2bis="SELECT View FROM `resultat_cellule` WHERE `Num_Experience`= ".$numexp." Group BY `View`";
 $actview=array();
