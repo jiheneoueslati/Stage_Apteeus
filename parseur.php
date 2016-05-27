@@ -40,7 +40,7 @@ if ((isset($_POST['type_exp']))&& (isset($_POST['température']))&& (isset($_POS
 	$nb_fichiers_incell=count ($Incell);
 	if($num_plaques_incell!=$num_plaques_xevo)
 	{
-		echo "Echec d'insertion: Le nombre des plaques n'est pas compatible";
+		echo "Echec d'insertion: Les numéros des plaques ne sont pas compatibles";
 		for ($i=0;$i<=$nb_fichiers_xevo-1;$i++) // vider le dossier xevo
 		{
 			unlink($Xevo[$i]); 
