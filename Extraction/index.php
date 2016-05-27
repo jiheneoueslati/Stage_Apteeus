@@ -27,7 +27,33 @@
 <br>
 <img src="Fichiers/molecule.png" border="0" />
 <br>
-<p>molecules.xlsx</p>
+<p>molecules.xlsx à inserer dans Extraction/Fichiers</p>
+
+<p>
+ Si vous voulez rajouter ou enlever un test DMSO pour la dernière plaque
+</p>
+
+<form action="dmsoderniereplaque.php" method="post">
+<p>
+    <input type="text" name="position" placeholder="ex: C5,D3..."/>
+    <input type="submit" value="Valider" />
+</p>
+</form>
+<?php
+$position = file_get_contents('Fichiers/listepositionderplaque.txt');
+$positiontb = unserialize($position);
+
+$keys=array_keys($positiontb); 
+
+
+echo "Actuellement pour la derniere plaque les tests DMSO sont en: ";
+for ($i = 0; $i <= sizeof($positiontb)-1; $i++){
+if ($positiontb!=""){
+echo $positiontb[$keys[$i]];
+echo " ";
+	}
+}	
+?>
 
 </body>
 </html>

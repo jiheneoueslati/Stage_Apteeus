@@ -1,8 +1,7 @@
 <?php
 
-
 //Connexion à la BDD
-
+/*
 $serveurbd = 'formationweb-peda.univ-lille3.fr';
 $userbd    = 'joueslati';
 $mdpbd     = 'toto';
@@ -10,8 +9,8 @@ $bdname    = 'sages_femmes_jo';
 $connexion = mysql_connect($serveurbd,$userbd,$mdpbd);
 mysql_set_charset('utf8', $connexion);
 mysql_select_db($bdname,$connexion);
+*/
 
-/*
 $bdname    = 'sages_femmes_jo';
 $serveurbd = 'localhost';
 $userbd='root';
@@ -19,7 +18,12 @@ $mdpbd='root';
 $connexion = new mysqli($serveurbd, $userbd, $mdpbd, $bdname);
 mysqli_set_charset('utf8', $connexion);
 mysqli_select_db($bdname,$connexion);
-*/
+
+//Renommer le fichier precedent pour ne pas saturer le serveur
+
+$exp=file_get_contents("Fichiers/numexp.txt");
+rename ('Results '.$exp.'.xlsx', 'Results.xlsx');
+
 //Inclusion de phpExcel
 
 include 'PHPExcel.php';
@@ -73,12 +77,12 @@ $o=$o+1;
 
 $requete1="SELECT `Id_Metabolite` FROM `resultat_metabolite` WHERE `resultat_metabolite`.`Num_Experience`= ".$numexp." GROUP BY `resultat_metabolite`.`Id_Metabolite`";
 
-//$resultat1= mysqli_query($connexion,$requete1);
-$resultat1= mysql_query($requete1,$connexion);
+$resultat1= mysqli_query($connexion,$requete1);
+//$resultat1= mysql_query($requete1,$connexion);
 $i=0;
 $compoundid=array();
-//while ($test1 = mysqli_fetch_assoc($resultat1)) {
-while ($test1 = mysql_fetch_array($resultat1)) {
+while ($test1 = mysqli_fetch_assoc($resultat1)) {
+//while ($test1 = mysql_fetch_array($resultat1)) {
 	$compoundid[$i]=$test1['Id_Metabolite'];
 	$i=$i+1;
 	}
@@ -89,13 +93,13 @@ while ($test1 = mysql_fetch_array($resultat1)) {
 $compoundtb=$compoundid;
 $requete2="SELECT `Activite` FROM `resultat_metabolite` WHERE `resultat_metabolite`.`Num_Experience`= ".$numexp." GROUP BY `resultat_metabolite`.`Activite`";
 
-//$resultat2= mysqli_query($connexion,$requete2);
-$resultat2= mysql_query($requete2,$connexion);
+$resultat2= mysqli_query($connexion,$requete2);
+//$resultat2= mysql_query($requete2,$connexion);
 $i=0;
 $activitetb=array();
 
-//while ($test2 = mysqli_fetch_assoc($resultat2)) {
-while ($test2 = mysql_fetch_array($resultat2)) {
+while ($test2 = mysqli_fetch_assoc($resultat2)) {
+//while ($test2 = mysql_fetch_array($resultat2)) {
 	$activitetb[$i]=$test2['Activite'];
 	$i=$i+1;
 	}
@@ -106,10 +110,10 @@ while ($test2 = mysql_fetch_array($resultat2)) {
 $requete2bis="SELECT Activite FROM `resultat_cellule` WHERE `Num_Experience`= ".$numexp." Group BY `Activite`";
 $actincell=array();
 $q=0;
-//$resultat2bis= mysqli_query($connexion,$requete2bis);
-$resultat2bis= mysql_query($requete2bis,$connexion);
-//while ($test2bis = mysqli_fetch_assoc($resultat2bis)) {
-while ($test2bis = mysql_fetch_array($resultat2bis)) {
+$resultat2bis= mysqli_query($connexion,$requete2bis);
+//$resultat2bis= mysql_query($requete2bis,$connexion);
+while ($test2bis = mysqli_fetch_assoc($resultat2bis)) {
+//while ($test2bis = mysql_fetch_array($resultat2bis)) {
 	$actincell[$q]=$test2bis['Activite'];
 	$q=$q+1;
 	}
@@ -119,14 +123,26 @@ while ($test2bis = mysql_fetch_array($resultat2bis)) {
 $requete2bis="SELECT View FROM `resultat_cellule` WHERE `Num_Experience`= ".$numexp." Group BY `View`";
 $actview=array();
 $q=0;
-//$resultat2bis= mysqli_query($connexion,$requete2bis);
-$resultat2bis= mysql_query($requete2bis,$connexion);
-//while ($test2bis = mysqli_fetch_assoc($resultat2bis)) {
-while ($test2bis = mysql_fetch_array($resultat2bis)) {
+$resultat2bis= mysqli_query($connexion,$requete2bis);
+//$resultat2bis= mysql_query($requete2bis,$connexion);
+while ($test2bis = mysqli_fetch_assoc($resultat2bis)) {
+//while ($test2bis = mysql_fetch_array($resultat2bis)) {
 	$actview[$q]=$test2bis['View'];
 	$q=$q+1;
 	}
 
+//Requete numéro plaque
+
+$requete2bis="SELECT Num_Plaque FROM `resultat_metabolite` WHERE `Num_Experience`= ".$numexp." Group BY `Num_plaque`";
+$numplaque=array();
+$q=0;
+$resultat2bis= mysqli_query($connexion,$requete2bis);
+//$resultat2bis= mysql_query($requete2bis,$connexion);
+while ($test2bis = mysqli_fetch_assoc($resultat2bis)) {
+//while ($test2bis = mysql_fetch_array($resultat2bis)) {
+	$numplaque[$q]=$test2bis['Num_Plaque'];
+	$q=$q+1;
+	}
 
 //Sauvegarde des fichiers .TXT
 
@@ -138,13 +154,16 @@ $incell = serialize($actincell);
 file_put_contents('Fichiers/activiteb.txt', $incell);
 $view = serialize($actview);
 file_put_contents('Fichiers/view.txt', $view);
-
+file_put_contents('Fichiers/numexp.txt', $numexpe);
+$numplaque= serialize($numplaque);
+file_put_contents('Fichiers/numplaque.txt', $numplaque);
 //Enregistrement du fichier
 
 $objWriter = new PHPExcel_Writer_Excel2007($objPHPExcel);
 $objWriter->save(str_replace('.php', '.xlsx', __FILE__));
 
 //Redirection 
+
 
 header('Location:etape2_choix.php');
 

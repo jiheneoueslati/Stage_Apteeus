@@ -38,9 +38,8 @@ $objPHPExcel->getActiveSheet()->setCellValue("A1","INN");
 $objPHPExcel->getActiveSheet()->setCellValue("B1","Position_384");
 $objPHPExcel->getActiveSheet()->setCellValue("C1","Num_plaque384");
 $objPHPExcel->getActiveSheet()->setCellValue("D1","TEE");
-
-for ($id=1; $id<=1900-1; $id++){
-
+$inntrie=array();
+for ($id=1; $id<=3200-1; $id++){
 $positionplaque=array();
 $position="";
 $plaque="";
@@ -70,22 +69,22 @@ $position_384array[$id]=$position384conv[$keyplaque[$i]];
 }
 }
 $idarray[$id]=$id;
+$inntrie[$id-1]=$element;
 $objPHPExcel->getActiveSheet()->setCellValue("A".($id+1),$element);
 }
-
 $objPHPExcel->getActiveSheet()->getColumnDimension('A')->setWidth(20);
 $objPHPExcel->getActiveSheet()->getColumnDimension('B')->setWidth(30);
 $objPHPExcel->getActiveSheet()->getColumnDimension('C')->setWidth(30);
 $objPHPExcel->getActiveSheet()->getColumnDimension('D')->setWidth(30);
 
 file_put_contents('Fichiers/TEEclasse.txt', serialize($teearray));
-
+file_put_contents('Fichiers/innclasse.txt', serialize($inntrie));
 
 $objWriter = new PHPExcel_Writer_Excel2007($objPHPExcel);
 $objWriter->save(str_replace('.php', '.xlsx', __FILE__));
 
 
-header('Location:depart.php');
+header('Location:index.php');
 
 
 ?>
