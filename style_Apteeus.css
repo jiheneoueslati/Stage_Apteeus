@@ -1,0 +1,50 @@
+﻿
+body{
+    
+	font-family: "Arial";
+	width:100%;
+	background-size: cover;
+	}
+
+	 div {
+background: url('Apteeus.jpg') no-repeat 100%;
+width:60%;
+height:10%;
+text-align: center;
+}
+	
+}
+note {
+	color: rgb(199, 21, 133);
+	font-size: small;
+	}
+
+
+h2 {
+    color: red;
+    margin-left: 40px;
+}
+
+
+
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+
+
+th {
+    background-color: #ccccff;
+    color: #4d4dff;
+}
+
+
+
+
