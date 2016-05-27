@@ -26,14 +26,14 @@ function array_fichiers($path, $extension) //$Xevo=array_fichiers('./Xevo', 'txt
 }
 
 require_once 'Extraction/PHPExcel/IOFactory.php';
-function xls_to_txt($path,$file_list)	
+function xls_to_txt($path,$file_list,$list_plaque)	
 {
 	for($i=0;$i<=count($file_list)-1;$i++)
 	{
 		$objPHPExcel = PHPExcel_IOFactory::load("$file_list[$i]");
 		$objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'csv');
 		$objWriter->setDelimiter("\t");
-		$objWriter->save($path.'\incell '.$i.'.txt');// les noms des fichiers seront incel1, incell2... 
+		$objWriter->save($path.'\incell '.$list_plaque[$i].'.txt');// les noms des fichiers seront incel1, incell2... 
 		unlink($file_list[$i]);
 	}
 }
@@ -76,6 +76,28 @@ function nom_TEE ($numero_plaque,$la_position,$plaque_l,$position_l,$TEE_l)// TE
 		}
 	return $TEE;
 }
+
+////////////**********************fonction extrait les num plaque à partir des noms des fichiers ****************************///////////////////////////////////////
+function num_plaque_list($file_list)
+{
+	foreach($file_list as $fl)
+	{
+		$num_p = explode("TEE", $fl);
+		$num_p = substr($num_p[1],0,2);
+		$deuxieme_chiffre=substr($num_p,1,1);
+		if (is_numeric($deuxieme_chiffre))
+		{
+			$num_plaquelist=$num_p;
+		}
+		else
+		{
+			$num_plaquelist=substr($num_p,0,1);
+		}
+	$list_num_plaque[]=$num_plaquelist;
+	}
+	return $list_num_plaque;
+}
+
 ////////////**********************fonction initialse le numéro de passge ****************************///////////////////////////////////////
 function initialiser_passage($nb_fichiers) // nb fichiers va etre déterminé par la fct count(array_fichiers)
 {
@@ -127,7 +149,7 @@ function lire_fichier_incell($num_exp,$fich1,$num_plaque1)// $fich: indice tab n
 		
 			echo '<pre>'.$num_exp.' - '.$TEE1.' - '.$v.' - '.$a.' - '.$val. ' - '.$num_plaque1.' - '.$position1.'</pre>';
 				$sql= "insert into resultat_cellule (Num_Experience,TEE,View,Activite,Target,Valeur,Num_Plaque,Position) values ('$num_exp','$TEE1','$v','$a','$tar',$val,$num_plaque1,'$position1')";
-			    mysql_query($sql);
+				mysql_query($sql);
 		}
 	}
 }
@@ -160,8 +182,8 @@ function lire_fichier_xevo($numexp,$fich2,$init_num_passage,$num_plaque2)
 	
 	for ($i=0;$i<=count($comp)-1;$i++) // les composants(métabolites)	
 	{
-		$explod_composants[] = explode(" ",$comp[$i]);// séparer le num compound du nom, j'ai utilisé l'espace au lieu ":" car le fichier3 ne cintient ":"
-		$composants[]=$explod_composants[$i][3]; // je sauvegarde que les noms des composants ils sont à l'indice 3 car j'ai utilisé l'espace comme séparateur et la ligne contient 3 espace 
+		$explod_composants[] = explode(":",$comp[$i]);// séparer le num compound du nom, j'ai utilisé l'espace au lieu ":" car le fichier3 ne cintient ":"
+		$composants[]=$explod_composants[$i][1]; // je sauvegarde que les noms des composants ils sont à l'indice 3 car j'ai utilisé l'espace comme séparateur et la ligne contient 3 espace 
 	}
 	
 	foreach($fich as $f) //table des activités 
@@ -222,8 +244,8 @@ function lire_fichier_xevo($numexp,$fich2,$init_num_passage,$num_plaque2)
 			$TEE2=nom_TEE ($num_plaque2,$position2,$plaque_l2,$position_l2,$TEE_l2); // appel à la fonction qui détermine le TEE de la molécule à partir du num de la plaque et la pos
 			$ligne= $numexp.','.$TEE2.','.$metabolite.','.$activite2 .','.$valeur2.','.$num_plaque2.','.$position2.','.$num_passage ;
 		    echo $ligne."<br>";
-			$sql= "insert into resultat_metabolite (Num_Experience, TEE, Id_Metabolite, Activite, Valeur,Num_Plaque, Position, Num_Passage) values ('$numexp','$TEE2','$metabolite','$activite2',$valeur2,$num_plaque2,'$position2',$num_passage)";
-			mysql_query($sql);
+				$sql= "insert into resultat_metabolite (Num_Experience, TEE, Id_Metabolite, Activite, Valeur,Num_Plaque, Position, Num_Passage) values ('$numexp','$TEE2','$metabolite','$activite2',$valeur2,$num_plaque2,'$position2',$num_passage)";
+				mysql_query($sql);
 		}
 	
 	

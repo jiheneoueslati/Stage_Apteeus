@@ -1,5 +1,5 @@
 <?php
-header( 'content-type: text/html; charset=utf-8' );
+//header( 'content-type: text/html; charset=utf-8' );
 if ((isset($_POST['type_exp']))&& (isset($_POST['température']))&& (isset($_POST['temps_incubation']))&& (isset($_POST['cellule'])))
 {
 	$uploads_dir = './Xevo';
@@ -31,14 +31,16 @@ if ((isset($_POST['type_exp']))&& (isset($_POST['température']))&& (isset($_POS
 	//1- Vérifier le nombre des fichiers à uploader
 	$Xevo=array_fichiers('./Xevo', 'txt');
 	$nb_fichiers_xevo=count ($Xevo);
-	$incell_xls=array_fichiers('./Incell', 'xls');// parcouir les fichiers excel
+	$num_plaques_xevo=num_plaque_list($Xevo);
+	$incell_xls=array_fichiers('./Incell', 'xls');
+	$num_plaques_incell=num_plaque_list($incell_xls);
 	require_once 'Extraction/PHPExcel/IOFactory.php';
-	xls_to_txt('./Incell',$incell_xls);
+	xls_to_txt('./Incell',$incell_xls,$num_plaques_incell);
 	$Incell=array_fichiers('./Incell', 'txt');
 	$nb_fichiers_incell=count ($Incell);
-	if($nb_fichiers_incell!=$nb_fichiers_xevo)
+	if($num_plaques_incell!=$num_plaques_xevo)
 	{
-		echo "Echec d'insertion: Le nombre des fichiers Xevo est différent du nombres des fichiers Incell";
+		echo "Echec d'insertion: Le nombre des plaques n'est pas compatible";
 		for ($i=0;$i<=$nb_fichiers_xevo-1;$i++) // vider le dossier xevo
 		{
 			unlink($Xevo[$i]); 
@@ -50,7 +52,7 @@ if ((isset($_POST['type_exp']))&& (isset($_POST['température']))&& (isset($_POS
 	}
 	else
 	{		
-	echo "Succés d'insertion:  &nbsp" .$nb_fichiers_xevo."&nbspfichiers Xevo et &nbsp".$nb_fichiers_incell."&nbspfichiers Incell <br>";
+	
 	
 	//2- déterminer la mois et le numéro de l'expérience et les stocker dans des variables
 	$fichier1=$Xevo[0]; // le premier fichier dans la liste des fichiers xevo
@@ -64,23 +66,25 @@ if ((isset($_POST['type_exp']))&& (isset($_POST['température']))&& (isset($_POS
 	$sql= "insert into  experience (Num_Experience, Type, Mois, Annee, Id_Cellule, Temperature, Temps_Incubation) values ('$numexp','$type_exp' ,'$mois', $année,'$cellule', $température,$temps_incubation)";
 	mysql_query($sql);
 // insertion des fichiers incell
+
+
 		for ($i=0;$i<=$nb_fichiers_incell-1;$i++)
 		{
-			$fich1=$Incell[$i];
-			lire_fichier_incell($numexp,$fich1,$i+1);
+			
+			lire_fichier_incell($numexp,$Incell[$i],$num_plaques_incell[$i]);
 		}
 	
+	
 // insertion des fichiers Xevo
+
 	
 		$init_Passage_list=initialiser_passage($nb_fichiers_xevo);
 		for ($j=0;$j<=$nb_fichiers_xevo-1;$j++)
 		{
-			$fich2=$Xevo[$j];
-			$init_num_passage=$init_Passage_list[$j];
-			lire_fichier_xevo($numexp,$fich2,$init_num_passage,$j+1);
+			lire_fichier_xevo($numexp,$Xevo[$j],$init_Passage_list[$j],$num_plaques_xevo[$j]);
 		}
 		//6- supprimer les fichiers xevo et incell des sous répertoires
-	
+	echo "Succés d'insertion:  &nbsp" .$nb_fichiers_xevo."&nbspfichiers Xevo et &nbsp".$nb_fichiers_incell."&nbspfichiers Incell <br>";
 		for ($i=0;$i<=$nb_fichiers_xevo-1;$i++)
 		{
 			unlink($Xevo[$i]); 
