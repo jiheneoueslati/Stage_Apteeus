@@ -10,10 +10,14 @@
 </head>
 <body>
 
-<div class="container">
-  <div class="jumbotron">
-    <h2>Choix des éléments</h2> 
-  </div>
+<div class="container-fluid" style="background-color:#33383c;color:#fff;height:45px;">
+ <h4>Choix des éléments</h4>
+</div>
+
+<div class="container-fluid" style="background-color:#D40000;color:#fff;height:60px;">
+<img src="logo.png">
+
+</div>
 
 <?php
  
@@ -34,8 +38,8 @@ $viewtb=unserialize($view);
 
 //Choix des métabolites
 
-echo '<div class="row">';
-echo '<div class="col-sm-4">';
+echo '<div class="row" style=margin:20px;>';
+echo '<div class="col-sm-4" style=margin:20px;>';
 echo '<h3>'."Sélectionnez vos Métabolites".'</h3>';
 echo '<form action="etape3_recuperation.php" method="post">';
 for ($i = 0; $i <= sizeof($compoundtb)-1; $i++){
@@ -53,7 +57,9 @@ echo '<form action="etape3_recuperation.php" method="post">';
 for ($i = 0; $i <= sizeof($activiteatb)-1; $i++){
 echo '<input type="checkbox" name="act[]" value='.$i.' checked="checked"  />';
 echo " ".$activiteatb[$i];
+if ($i!=(sizeof($activiteatb)-1)){
 echo'<br>';
+}
 }
 echo "</div>";
 
@@ -61,8 +67,8 @@ echo "</div>";
 //Choix des activités cellules
 
 
-echo  '<div class="row">';
-echo   '<div class="col-sm-4">';
+echo  '<div class="row" style=margin:10px;>';
+echo   '<div class="col-sm-4" style=margin:10px;>';
 echo   '<h3>'."Sélectionnez vos Activités Cellules".'</h3>';
 echo '<form action="etape3_recuperation.php" method="post">';
 for ($i = 0; $i <= sizeof($activitebtb)-1; $i++){
@@ -83,6 +89,7 @@ echo " ".$viewtb[$i];
 echo'<br>';
 }
 echo "</div>";
+echo "<br>";
 echo "<br>";
 echo '<input type="submit" class="btn btn-danger"  value="Envoyer" />';
 echo'</form>';

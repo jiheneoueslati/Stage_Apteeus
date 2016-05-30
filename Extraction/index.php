@@ -13,19 +13,17 @@
 
 
 
+<div class="container-fluid" style="background-color:#33383c;color:#fff;height:45px;">
+ <h4>Extraction depuis la base de données</h4>
+</div>
+
+<div class="container-fluid" style="background-color:#D40000;color:#fff;height:60px;">
+<img src="logo.png">
+
+</div>
 
 
 
-
-
-
-
-
-
-<div class="container">
-  <div class="jumbotron">
-    <h2>Extraction depuis la base de données</h2> 
-  </div>
 
 
 <div class="container">

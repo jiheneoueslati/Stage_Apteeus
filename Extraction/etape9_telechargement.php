@@ -10,10 +10,16 @@
 </head>
 <body>
 
-<div class="container">
-  <div class="jumbotron">
-    <h2>Téléchargement</h2> 
-  </div>
+
+<div class="container-fluid" style="background-color:#33383c;color:#fff;height:45px;">
+ <h4>Téléchargement</h4>
+</div>
+
+<div class="container-fluid" style="background-color:#D40000;color:#fff;height:60px;">
+<img src="logo.png">
+
+</div>
+
 
 
 <?php
