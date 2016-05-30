@@ -1,9 +1,21 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Page de Téléchargement</title>
-        <meta charset="utf-8" />
-  </head>
+<html lang="en">
+<head>
+  <title>Téléchargement</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <div class="jumbotron">
+    <h2>Téléchargement</h2> 
+  </div>
+
+
 <?php
 
 function Delete($path)

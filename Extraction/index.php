@@ -1,42 +1,61 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8" />
-        <title>Accueil</title>
- 
-    </head>
-    <body> 
+<html lang="en">
+<head>
+  <title>Choix</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="bootstrap/jquery.min.js"></script>
+  <script src="bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
 
-<p>
-    Veuillez taper un numéro d'expérience :
-</p>
+
+
+
+
+
+
+
+
+
+
+
+<div class="container">
+  <div class="jumbotron">
+    <h2>Extraction depuis la base de données</h2> 
+  </div>
+
+
+<div class="container">
+
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#home">Création de fichiers</a></li>
+    <li><a data-toggle="tab" href="#menu1">Tests DMSO</a></li>
+    <li><a data-toggle="tab" href="#menu2">Mise à jour du fichier molécules</a></li>
+  </ul>
+
+  <div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+      <h3>Veuillez taper un numéro d'expérience </h3>
 
 <form action="etape1_pageform.php" method="post">
 <p>
-    <input type="text" name="numexp" placeholder="ex: 10-12 ou 10-13..."/>
-    <input type="submit" value="Valider" />
+    <input  type="text" name="numexp" placeholder="ex: 10-12 ou 10-13..."/>
+    <input type="submit" value="Valider"  class="btn btn-danger" />
 </p>
 </form>
 
-<p>
-    Vous pouvez aussi choisir de mettre à jour le fichier de correspondance entre molécules et positions.
-</p>
 
-<a href="etape1bis_alimentation.php">Mise à jour des fichiers de correspondance</a>
 
-<br>
-<img src="Fichiers/molecule.png" border="0" />
-<br>
-<p>molecules.xlsx à inserer dans Extraction/Fichiers</p>
-
-<p>
- Si vous voulez rajouter ou enlever un test DMSO pour la dernière plaque
-</p>
-
-<form action="dmsoderniereplaque.php" method="post">
+    </div>
+    <div id="menu1" class="tab-pane fade">
+      <h3>Mettre à jour les tests DMSO pour la dernière plaque</h3>
+      <form action="dmsoderniereplaque.php" method="post">
 <p>
     <input type="text" name="position" placeholder="ex: C5,D3..."/>
-    <input type="submit" value="Valider" />
+    <input type="submit" value="Valider" class="btn btn-danger" />
 </p>
 </form>
 <?php
@@ -54,6 +73,25 @@ echo " ";
 	}
 }	
 ?>
+
+
+    </div>
+    <div id="menu2" class="tab-pane fade">
+      <h3>Mettre à jour le fichier de correspondance entre molécules et positions.</h3>
+<form action="upload.php" method="post" enctype="multipart/form-data">
+    Sélectionner molecules.xlsx:
+    <input type="file" name="fileToUpload" id="fileToUpload" class="btn btn-link" >
+    <input type="submit" value="Upload" name="submit" class="btn btn-danger">
+</form>
+</h3>
+      
+          </div>
+
+
+
+</div>
+</div>
+
 
 </body>
 </html>

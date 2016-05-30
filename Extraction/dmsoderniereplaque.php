@@ -1,10 +1,14 @@
 <?php
 $pos=$_POST['position'];
+$pos = explode(",", $pos);
+
 
 $position = file_get_contents('Fichiers/listepositionderplaque.txt');
 $positiontb = unserialize($position);
 
-$key = array_search($pos, $positiontb);
+
+for ($i=0; $i<=sizeof($pos);$i++){
+$key = array_search($pos[$i], $positiontb);
 
 $taille=sizeof($positiontb);
 if (is_numeric($key)){
@@ -14,10 +18,10 @@ if (is_numeric($key)){
 else
 {
 	
-	$positiontb[($taille)]=$pos;
+	$positiontb[($taille)]=$pos[$i];
 }
 
-
+}
 
 $position =  serialize($positiontb);
 file_put_contents('Fichiers/listepositionderplaque.txt', $position);

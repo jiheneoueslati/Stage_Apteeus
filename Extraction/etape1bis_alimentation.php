@@ -24,7 +24,7 @@ $plaque_96conv[$i]=$objPHPExcel->getActiveSheet()->getCell('D'.$i)->getValue();
 $i=$i+1;
 }
 
-$inputFileName = 'Fichiers/molecules.xlsx';
+$inputFileName = 'Depot_Molecules/molecules.xlsx';
 
 /** Load $inputFileName to a PHPExcel Object  **/
 $objPHPExcel = PHPExcel_IOFactory::load($inputFileName);

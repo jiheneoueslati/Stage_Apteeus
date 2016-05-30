@@ -39,7 +39,7 @@ $objPHPExcel->getActiveSheet()->setCellValue("B1","Position_384");
 $objPHPExcel->getActiveSheet()->setCellValue("C1","Num_plaque384");
 $objPHPExcel->getActiveSheet()->setCellValue("D1","TEE");
 $inntrie=array();
-for ($id=1; $id<=3200-1; $id++){
+for ($id=1; $id<=4800-1; $id++){
 $positionplaque=array();
 $position="";
 $plaque="";

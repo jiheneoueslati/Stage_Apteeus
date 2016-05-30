@@ -6,19 +6,6 @@ include 'PHPExcel.php';
 include 'PHPExcel/Writer/Excel2007.php';
 
 
-//Fonction pour colorer des cellules dans PHPEXCEL
-
-function cellColor($cells,$color){
-    global $objPHPExcel;
-
-    $objPHPExcel->getActiveSheet()->getStyle($cells)->getFill()->applyFromArray(array(
-        'type' => PHPExcel_Style_Fill::FILL_SOLID,
-        'startcolor' => array(
-             'rgb' => $color
-        )
-    ));
-}
-
 
 //On récupére le fichiers .XLSX avec les données
 
@@ -133,6 +120,7 @@ $objPHPExcel->getActiveSheet()->setCellValue($alphas[$a].($dernierepage+8),"=STD
 $a=$a+1;
 }
 }
+
 
 //Enregistrement du fichier
 

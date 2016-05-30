@@ -2,6 +2,7 @@
 $feuille=file_get_contents("Fichiers/nbfeuille.txt");
 $lettre=file_get_contents("Fichiers/lettrefin.txt");
 $rt=file_get_contents("Fichiers/rtposition.txt");
+
 $rtarray=unserialize($rt);
 
 
@@ -10,6 +11,7 @@ $alpha = 'E';
 while ($alpha !== 'AZ') {
     $alphas[] = $alpha++;
 }
+
 
 for ($j = (sizeof($rtarray)-1); $j >= 0; $j--){
 $keyrt=array_search($rtarray[$j],$alphas);
