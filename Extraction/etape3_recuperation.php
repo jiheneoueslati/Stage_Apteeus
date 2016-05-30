@@ -83,13 +83,21 @@ $z=0;
 $a=0;
 
 //On met les entetes de colonnes composées du nom de l'activité et du métabolite
+$rtarray=array();
+$cpt=0;
 for ($i = 0; $i <= sizeof($compoundtbfinal)-1; $i++){
 for ($j = 0; $j <= sizeof($activiteatbfinal)-1; $j++){
 $objPHPExcel->getActiveSheet()->setCellValue($alphas[$a]."1",$compoundtbfinal[$z]." ".$activiteatbfinal[$j]);
+if (preg_match('#RT#', $activiteatbfinal[$j]))
+{
+    $rtarray[$cpt]=$alphas[$a];
+    $cpt=$cpt+1;
+}
 $a=$a+1;
 }
 $z=$z+1;
 }
+
 //On met les entetes de colonnes composées du nom des activités cellules
 $z=0;
 
@@ -115,6 +123,9 @@ file_put_contents('Fichiers/activitebfinal.txt', $incell);
 
 $view =  serialize($viewtbfinal);
 file_put_contents('Fichiers/viewfinal.txt', $view);
+
+$rtarray2 =  serialize($rtarray);
+file_put_contents('Fichiers/rtposition.txt', $rtarray2);
 
 //On crée notre nouveau fichier .XLSX
 
