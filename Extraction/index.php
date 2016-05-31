@@ -64,9 +64,12 @@ $keys=array_keys($positiontb);
 
 
 echo "Actuellement pour la derniere plaque les tests DMSO sont en: ";
+echo "<br>";
 for ($i = 0; $i <= sizeof($positiontb)-1; $i++){
 if ($positiontb!=""){
+echo "<h5>";	
 echo $positiontb[$keys[$i]];
+echo "</h5>";
 echo " ";
 	}
 }	
@@ -82,7 +85,7 @@ echo " ";
     <input type="submit" value="Upload" name="submit" class="btn btn-danger">
 </form>
 
-      
+<br>      
 <a href="Fichiers/molecules.png" class="btn btn-danger" role="button">Extrait du fichier à importer</a>
 
 </div>

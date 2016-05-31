@@ -50,11 +50,37 @@ Delete('fichierfinal');
 
 $exp=file_get_contents("Fichiers/numexp.txt");
 rename ("Results.xlsx", 'Results '.$exp.'.xlsx');
+
+
+
+
+echo '<div class="col-sm-6" style=margin:30px;>';
+echo'<a href="Results '.$exp.'.xlsx">';
+echo'</span>';
+echo '<h3>';
+echo'Téléchargement du fichier avec formatage conditionnel';
+echo '</h3>';
+echo '<h1>';
+echo '<span class="glyphicon glyphicon-download">';
+echo '</h1>';
+echo'</span>';
+echo '</div>';
+
+
+
+
+
+echo '<div class="col-sm-6" style=margin:30px;>';
 echo "<br>";
-echo '<a href="Results '.$exp.'.xlsx">'.'Télecharger le fichier avec formatage conditionnel'.'</a>';
-echo '<br>';
-echo '<br>';
-echo '<a href="etape5_calcul.xlsx">'.'Télecharger le fichier sans formatage conditionnel'.'</a>';
+echo'<a href="etape5_calcul.xlsx">';
+echo '<h3>';
+echo'Téléchargement du fichier sans formatage conditionnel';
+echo '</h3>';
+echo '<h1>';
+echo '<span class="glyphicon glyphicon-download">';
+echo '</h1>';
+echo'</span>';
+echo '</div>';
 
 
 ?>
