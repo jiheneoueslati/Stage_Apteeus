@@ -202,8 +202,8 @@ cellColor('E'.$idposition, 'FF4500');
 }
 }
 $innid=$innid+1;
-$objPHPExcel->getActiveSheet()->setCellValue("A".$idposition,$test2['Num_Passage']);
-$objPHPExcel->getActiveSheet()->setCellValue("B".$idposition,$numexpe." MAP TEE".($test2['Num_Plaque'])." E".($test2['Num_Passage']));
+$objPHPExcel->getActiveSheet()->setCellValue("A".$idposition,$test2['Num_Passage']-((($test2['Num_Plaque'])-1)*240));
+$objPHPExcel->getActiveSheet()->setCellValue("B".$idposition,$numexpe." MAP TEE".($test2['Num_Plaque'])." E".($test2['Num_Passage']-((($test2['Num_Plaque'])-1)*240)));
 }
 $objPHPExcel->getActiveSheet()->setCellValue($alphas[$a].$idposition,$test2['Valeur']);
 $compt=$compt+1;

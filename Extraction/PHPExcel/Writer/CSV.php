@@ -46,7 +46,7 @@ class PHPExcel_Writer_CSV extends PHPExcel_Writer_Abstract implements PHPExcel_W
      *
      * @var string
      */
-    private $enclosure    = '"';
+    private $enclosure    = '';
 
     /**
      * Line ending
@@ -119,7 +119,7 @@ class PHPExcel_Writer_CSV extends PHPExcel_Writer_Abstract implements PHPExcel_W
         if ($this->excelCompatibility) {
             $this->setUseBOM(true);                //  Enforce UTF-8 BOM Header
             $this->setIncludeSeparatorLine(true);  //  Set separator line
-            $this->setEnclosure('"');              //  Set enclosure to "
+            $this->setEnclosure('');              //  Set enclosure to "
             $this->setDelimiter(";");              //  Set delimiter to a semi-colon
             $this->setLineEnding("\r\n");
         }

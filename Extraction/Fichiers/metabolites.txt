@@ -1,9 +1,7 @@
-a:8:{i:0;s:5:"C10
-";i:1;s:8:"C10-d3
-";i:2;s:4:"C2
-";i:3;s:7:"C2-d3
-";i:4;s:4:"C6
-";i:5;s:7:"C6-d3
-";i:6;s:4:"C8
-";i:7;s:7:"C8-d3
+a:7:{i:0;s:25:"  Aminomethylhexanoic Aci";i:1;s:12:"  Creatine
+";i:2;s:15:"  Creatine-d3
+";i:3;s:13:"  Glutamate
+";i:4;s:7:"  GPC
+";i:5;s:11:"  N-AcGly
+";i:6;s:11:"  Proline
 ";}
