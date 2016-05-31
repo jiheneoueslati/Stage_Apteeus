@@ -1,0 +1,3200 @@
+INN	Position_384	Num_plaque384	TEE
+Flufenamic Acid	1	C3	PRC_0011
+ClomiPRamine Hydrochloride	1	C4	PRC_0091
+ValPRoic Acid	1	C5	PRC_0012
+Fenoterol Hydrobromide	1	C6	PRC_0092
+Nicotinamide	1	C7	PRC_0013
+Pirenzepine Dihydrochloride	1	C8	PRC_0093
+ChlorPRopamide	1	C9	PRC_0014
+Rolitetracycline	1	C10	PRC_0094
+IPRiflavone	1	C11	PRC_0015
+CyPRoheptadine Hydrochloride	1	C12	PRC_0095
+Etidronic Acid	1	C13	PRC_0016
+Ethambutol Dihydrochloride	1	C14	PRC_0096
+Cromolyn Sodium	1	C15	PRC_0017
+3,5,5,-Trimethyloxazolidine-2,4-Dione	1	C16	PRC_0097
+Raloxifene Hydrochloride	1	C17	PRC_0018
+Tenoxicam	1	C18	PRC_0098
+Carbinoxamine Maleate	1	C19	PRC_0019
+Sodium Glycerophosphate Hydrate	1	C20	PRC_0020
+Sulfacetamide Sodium	1	C21	PRC_0100
+Theobromine	1	C22	PRC_0099
+Midodrine Hydrochloride	1	D3	PRC_0171
+			
+CyPRoheptadine Hydrochloride	1	D5	PRC_0172
+Guaietolin	1	D6	PRC_0002
+Nipecotic Acid	1	D7	PRC_0173
+Glycerol	1	D8	PRC_0003
+Mefentermine Hemisulfate	1	D9	PRC_0174
+Naringin Hydrate	1	D10	PRC_0004
+Triethanolamine	1	D11	PRC_0175
+Alverine Citrate	1	D12	PRC_0005
+DroPRopizine	1	D13	PRC_0176
+Sodium Clodronate	1	D14	PRC_0006
+2-Aminobenzenesulfonamide	1	D15	PRC_0177
+Chlorzoxazone	1	D16	PRC_0007
+Flunarizine Dihydrochloride	1	D17	PRC_0178
+Amantadine Hydrochloride	1	D18	PRC_0008
+Sodium Phosphonoformate Tribasic Hexahydrate	1	D19	PRC_0179
+Terbutaline Hemisulfate	1	D20	PRC_0009
+Cloperastine Hydrochloride	1	D21	PRC_0180
+Ethacrynic Acid	1	D22	PRC_0010
+Dl-Aminoglutethimide	1	E3	PRC_0021
+Trazodone Hydrochloride	1	E4	PRC_0101
+Verapamil Hydrochloride	1	E5	PRC_0022
+Disopyramide	1	E6	PRC_0102
+Harmaline	1	E7	PRC_0023
+Benfluorex Hydrochloride	1	E8	PRC_0103
+Iodoquinol	1	E9	PRC_0024
+Yohimbine Hydrochloride	1	E10	PRC_0104
+Methazolamide	1	E11	PRC_0025
+Trihexyphenidyl Hydrochloride	1	E12	PRC_0105
+Riluzole	1	E13	PRC_0026
+Tetracaine Hydrochloride	1	E14	PRC_0106
+Piperazine Hexahydrate	1	E15	PRC_0027
+Meclofenamic Acid Sodium	1	E16	PRC_0107
+Albendazole	1	E17	PRC_0028
+IPRatropium Bromide	1	E18	PRC_0108
+Sparteine	1	E19	PRC_0029
+Levofloxacin	1	E20	PRC_0109
+Tetrahydrozoline Hydrochloride	1	E21	PRC_0030
+Rauwolscine Hydrochloride	1	E22	PRC_0110
+CaptoPRil	1	F3	PRC_0181
+Troxerutin	1	F4	PRC_0071
+Benoxinate Hydrochloride	1	F5	PRC_0182
+Chlorotrianisene	1	F6	PRC_0072
+Homochlorcyclizine Dihydrochloride	1	F7	PRC_0183
+Glipizide	1	F8	PRC_0073
+MetaPRoterenol Hemisulfate	1	F9	PRC_0184
+Selegiline Hcl	1	F10	PRC_0074
+Mepyrapone	1	F11	PRC_0185
+Famotidine	1	F12	PRC_0075
+(+)-Camphor	1	F13	PRC_0186
+Mephenesin	1	F14	PRC_0076
+Benserazide Hydrochloride	1	F15	PRC_0187
+Ranitidine Hydrochloride	1	F16	PRC_0077
+Hydroxyurea	1	F17	PRC_0188
+Ketorolac Tris	1	F18	PRC_0078
+Succinic Acid	1	F19	PRC_0189
+Hydroflumethiazide	1	F20	PRC_0079
+Calcium Fluoride	1	F21	PRC_0190
+			
+FenoPRofen Calcium	1	G3	PRC_0031
+Meticrane	1	G4	PRC_0111
+N,N-Diethylnicotinamide	1	G5	PRC_0032
+Dyclonine Hydrochloride	1	G6	PRC_0112
+Harmane	1	G7	PRC_0033
+Phenolphthalein	1	G8	PRC_0113
+7-Hydroxyethyltheophylline	1	G9	PRC_0034
+Trichlormethiazide	1	G10	PRC_0114
+Dextromethorphan Hydrobromide	1	G11	PRC_0035
+4-Chlorophenol	1	G12	PRC_0115
+Berberine Chloride	1	G13	PRC_0036
+Gemfibrozil	1	G14	PRC_0116
+			
+			
+Pentamidine Isethionate	1	G17	PRC_0038
+Astemizole	1	G18	PRC_0118
+Phenylbutazone	1	G19	PRC_0039
+Tolazamide	1	G20	PRC_0119
+(S,R)-Noscapine	1	G21	PRC_0040
+D-Penicillamine	1	G22	PRC_0120
+4,4?-Diaminobenzophenone	1	H3	PRC_0191
+			
+Cefamandole Sodium	1	H5	PRC_0192
+Ethylenediaminetetraacetic Acid Calcium Disodium	1	H6	PRC_0082
+Adiphenine Hydrochloride	1	H7	PRC_0193
+Diphenidol Hydrochloride	1	H8	PRC_0083
+Gramine	1	H9	PRC_0194
+Quinine	1	H10	PRC_0084
+4-Biphenylacetic Acid	1	H11	PRC_0195
+Thiamphenicol	1	H12	PRC_0085
+5-Aminosalicylic Acid	1	H13	PRC_0196
+Saccharin	1	H14	PRC_0086
+			
+AlPRenolol Hydrochloride	1	H16	PRC_0087
+EnalaPRil Maleate	1	H17	PRC_0198
+Lorglumide Sodium	1	H18	PRC_0088
+Dequalinium Chloride	1	H19	PRC_0199
+Diloxanide Furoate	1	H20	PRC_0089
+Neomycin Trisulfate Hydrate	1	H21	PRC_0200
+Succinylsulfathiazole	1	H22	PRC_0090
+2,2-Dihydroxy-4-Methoxybenzophenone	1	I3	PRC_0041
+Fenofibrate	1	I4	PRC_0121
+Nizatidine	1	I5	PRC_0042
+Fenspiride Hydrochloride	1	I6	PRC_0122
+Hexamethylenetetramine	1	I7	PRC_0043
+Cinoxacin	1	I8	PRC_0123
+			
+			
+MinaPRine Dihydrochloride	1	I11	PRC_0045
+Methapyrilene Hydrochloride	1	I12	PRC_0125
+Furosemide	1	I13	PRC_0046
+NaPRoxen	1	I14	PRC_0126
+L-Arginine	1	I15	PRC_0047
+4-Phenylbutyric Acid	1	I16	PRC_0127
+IbuPRofen Sodium	1	I17	PRC_0048
+Fenbufen	1	I18	PRC_0128
+Flutamide	1	I19	PRC_0049
+Fluphenazine Dihydrochloride	1	I20	PRC_0050
+Metaraminol (+)-Bitartrate	1	I21	PRC_0130
+Xylometazoline Hydrochloride	1	I22	PRC_0129
+2,6-DiisoPRopylphenol	1	J3	PRC_0201
+CyclobenzaPRine Hydrochloride	1	J4	PRC_0151
+FamPRofazone	1	J5	PRC_0202
+Hydroxyzine Dihydrochloride	1	J6	PRC_0152
+Diphenylpyraline	1	J7	PRC_0203
+Diphenhydramine Hydrochloride	1	J8	PRC_0153
+			
+Althiazide	1	J10	PRC_0154
+Quinidine	1	J11	PRC_0205
+IndoPRofen	1	J12	PRC_0155
+Bumetanide	1	J13	PRC_0206
+Guanabenz Acetate	1	J14	PRC_0156
+DeferiPRone	1	J15	PRC_0207
+Paromomycin Sulfate	1	J16	PRC_0157
+Adenine Hydrochloride	1	J17	PRC_0208
+Diclofenac Sodium	1	J18	PRC_0158
+BenazePRil Hydrochloride	1	J19	PRC_0209
+Lidocaine Hydrochloride	1	J20	PRC_0159
+Barium Sulfate	1	J21	PRC_0210
+			
+DL-Tryptophan	1	K3	PRC_0051
+Oxyphencyclimine Hydrochloride	1	K4	PRC_0131
+D-Salicin	1	K5	PRC_0052
+Labetalol Hydrochloride	1	K6	PRC_0132
+Acetazolamide	1	K7	PRC_0053
+6-Acetamidohexanoic Acid	1	K8	PRC_0133
+Riboflavin	1	K9	PRC_0054
+Sulfinpyrazone	1	K10	PRC_0134
+Econazole Nitrate	1	K11	PRC_0055
+Sulindac	1	K12	PRC_0135
+Dibenzothiophene	1	K13	PRC_0056
+PRobenecid	1	K14	PRC_0136
+Thiamine Hydrochloride	1	K15	PRC_0057
+Chlorpheniramine Maleate	1	K16	PRC_0137
+Ethosuximide	1	K17	PRC_0058
+Tacrine	1	K18	PRC_0138
+TrifluPRomazine Hydrochloride	1	K19	PRC_0059
+3-Methyl-3-Ethylglutarimide	1	K20	PRC_0139
+Tolmetin Sodium	1	K21	PRC_0060
+2-Chloropyrazine	1	K22	PRC_0140
+Dihydrostreptomycin Sesquisulfate	1	L3	PRC_0211
+			
+Benzoic Acid	1	L5	PRC_0212
+Azlocillin Sodium	1	L6	PRC_0162
+Pentetic Acid	1	L7	PRC_0213
+Clidinium Bromide	1	L8	PRC_0163
+Sulfaphenazole	1	L9	PRC_0214
+Brompheniramine Maleate	1	L10	PRC_0164
+Nicotinic Acid	1	L11	PRC_0215
+Mefenamic Acid	1	L12	PRC_0165
+L-Mimosine From Koa Hoale Seeds	1	L13	PRC_0216
+Harmine	1	L14	PRC_0166
+Metformin, Hcl	1	L15	PRC_0217
+Amodiaquine Dihydrochloride Dihydrate	1	L16	PRC_0167
+Dirithromycin	1	L17	PRC_0218
+PRilocaine Hydrochloride	1	L18	PRC_0168
+Fluspirilene	1	L19	PRC_0219
+Lobeline Hydrochloride	1	L20	PRC_0169
+Chlormadinone Acetate	1	L21	PRC_0220
+Chromium(Iii) Chloride	1	L22	PRC_0170
+Sulfamerazine	1	M3	PRC_0061
+MaPRotiline Hydrochloride	1	M4	PRC_0141
+Coumarin	1	M5	PRC_0062
+Pipemidic Acid	1	M6	PRC_0142
+Dicumarol	1	M7	PRC_0063
+Trifluoperazine Dihydrochloride	1	M8	PRC_0143
+PRednisone	1	M9	PRC_0064
+Spiperone	1	M10	PRC_0144
+KetoPRofen	1	M11	PRC_0065
+Doxepin Hydrochloride	1	M12	PRC_0145
+Clemizole Hydrochloride	1	M13	PRC_0066
+3-Acetamidocoumarin	1	M14	PRC_0146
+Hexetidine,Mixture Of Stereoisomers	1	M15	PRC_0067
+Hemicholinium-3	1	M16	PRC_0147
+Triamterene	1	M17	PRC_0068
+Diflunisal	1	M18	PRC_0148
+2-Amino-5-Chlorobenzoxazole	1	M19	PRC_0069
+PRimidone	1	M20	PRC_0149
+Buflomedil Hydrochloride	1	M21	PRC_0070
+Loperamide Hydrochloride	1	M22	PRC_0150
+Penicillin G Sodium	1	N3	PRC_0221
+Fendiline Hydrochloride	1	N4	PRC_0231
+Chloroiodoquin	1	N5	PRC_0222
+Bufexamac	1	N6	PRC_0232
+L-Cystine	1	N7	PRC_0223
+2-Hydroxybenzyl Alcohol	1	N8	PRC_0233
+Folinic Acid Calcium Pentahydrate	1	N9	PRC_0224
+Pyrilamine Maleate	1	N10	PRC_0234
+Niflumic Acid	1	N11	PRC_0225
+Salicylamide	1	N12	PRC_0235
+Dicyclomine Hydrochloride	1	N13	PRC_0226
+Nialamide	1	N14	PRC_0236
+Terazosin Hydrochloride	1	N15	PRC_0227
+PRocaine Hydrochloride	1	N16	PRC_0237
+CuPRic Chloride Solution	1	N17	PRC_0228
+Serotonin Hydrogen Oxalate	1	N18	PRC_0238
+Butamben	1	N19	PRC_0229
+Sulfachloropyridazine	1	N20	PRC_0239
+Doxylamine Succinate	1	N21	PRC_0230
+			
+Hexestrol	2	C3	PRC_0251
+D-(+)-Galactose	2	C4	PRC_0331
+IsoxsuPRine Hydrochloride	2	C5	PRC_0252
+L-Methionine Sulfoximine	2	C6	PRC_0332
+Nimodipine	2	C7	PRC_0253
+PRoparacaine Hydrochloride	2	C8	PRC_0333
+Ethisterone	2	C9	PRC_0254
+MetocloPRamide Hydrochloride	2	C10	PRC_0334
+Estrone	2	C11	PRC_0255
+Hydrocortisone	2	C12	PRC_0335
+Nifuroxazide	2	C13	PRC_0256
+Estradiol 17-Acetate	2	C14	PRC_0336
+Harmol Hydrochloride Dihydrate	2	C15	PRC_0257
+Dienestrol	2	C16	PRC_0337
+Moroxydine Hydrochloride	2	C17	PRC_0258
+Fenbendazole	2	C18	PRC_0338
+HydroxyPRogesterone CaPRoate	2	C19	PRC_0259
+L-Carnitine Hydrochloride	2	C20	PRC_0260
+Naringenin	2	C21	PRC_0340
+Flumethasone Pivalate	2	C22	PRC_0339
+PRocainamide Hydrochloride	2	D3	PRC_0411
+			
+(+)-Bicuculline	2	D5	PRC_0412
+Sulfamethazine	2	D6	PRC_0242
+Danazol	2	D7	PRC_0413
+Sulfamethizole	2	D8	PRC_0243
+4-Chloro-3,5-Dimethylphenol	2	D9	PRC_0414
+Acetylcholine Chloride	2	D10	PRC_0244
+PRobucol	2	D11	PRC_0415
+Sulfacetamide	2	D12	PRC_0245
+Diacerein	2	D13	PRC_0416
+Aciclovir	2	D14	PRC_0246
+(R)-6-Methoxy-Alpha-Methyl-2-Naphthaleneacetic Acid	2	D15	PRC_0417
+Methyldopa	2	D16	PRC_0247
+Oxeladin Citrate	2	D17	PRC_0418
+Benzyl Nicotinate	2	D18	PRC_0248
+L-Valine	2	D19	PRC_0419
+Ethynodiol Diacetate	2	D20	PRC_0249
+Acetaminophen	2	D21	PRC_0420
+Sulfabenzamide	2	D22	PRC_0250
+Betamethasone 17,21-DiPRopionate	2	E3	PRC_0261
+Pindione	2	E4	PRC_0341
+Streptomycin Sulfate	2	E5	PRC_0262
+Carbetapentane Citrate	2	E6	PRC_0342
+Pyrazinamide	2	E7	PRC_0263
+Oxybutynin Chloride	2	E8	PRC_0343
+Sodium Salicylate	2	E9	PRC_0264
+ValPRoic Acid Sodium	2	E10	PRC_0344
+Amiloride Hydrochloride Hydrate	2	E11	PRC_0265
+Flumequine	2	E12	PRC_0345
+Chloroquine Diphosphate	2	E13	PRC_0266
+3-Acetylcoumarin	2	E14	PRC_0346
+4-Hydroxyantipyrine	2	E15	PRC_0267
+Amoxapine	2	E16	PRC_0347
+Erythromycin	2	E17	PRC_0268
+Indapamide	2	E18	PRC_0348
+Spironolactone	2	E19	PRC_0269
+Chrysin	2	E20	PRC_0349
+Perhexiline Maleate	2	E21	PRC_0270
+Mefloquine Hydrochloride	2	E22	PRC_0350
+Silver(I) Sulfadiazine	2	F3	PRC_0421
+Pirenperone	2	F4	PRC_0311
+Beta-Estradiol 17-Valerate	2	F5	PRC_0422
+(-)-Scopolamine N-Butyl Bromide	2	F6	PRC_0312
+Nalidixic Acid	2	F7	PRC_0423
+6-MethylPRednisolone	2	F8	PRC_0313
+(+/-)-MetoPRolol (+)-Tartrate	2	F9	PRC_0424
+Digitoxigenin	2	F10	PRC_0314
+Corticosterone	2	F11	PRC_0425
+Tilorone Dihydrochloride	2	F12	PRC_0315
+EthylenediaminetetraPRopionic Acid	2	F13	PRC_0426
+Oxethazaine	2	F14	PRC_0316
+Nitrofurantoin	2	F15	PRC_0427
+Ticlopidine Hydrochloride	2	F16	PRC_0317
+Crystal Violet Solution	2	F17	PRC_0428
+Hydrocortisone 21-Acetate	2	F18	PRC_0318
+Tolbutamide	2	F19	PRC_0429
+Clofazimine	2	F20	PRC_0319
+PRegnenolone	2	F21	PRC_0430
+			
+Sulconazole Nitrate	2	G3	PRC_0271
+N,N-Diethyl-3-Methylbenzamide	2	G4	PRC_0351
+Chloramphenicol	2	G5	PRC_0272
+Thip Hydrochloride	2	G6	PRC_0352
+Boric Acid	2	G7	PRC_0273
+Clofibrate	2	G8	PRC_0353
+Quinacrine Dihydrochloride	2	G9	PRC_0274
+Nabumetone	2	G10	PRC_0354
+Tripelennamine Hydrochloride	2	G11	PRC_0275
+Succinylcholine Chloride Dihydrate	2	G12	PRC_0355
+L-Cysteine Hydrochloride	2	G13	PRC_0276
+(Dl)-Octopamine Hydrochloride	2	G14	PRC_0356
+			
+			
+Clofibric Acid	2	G17	PRC_0278
+CiPRofloxacin	2	G18	PRC_0358
+Dl-Panthenol	2	G19	PRC_0279
+Gliclazide	2	G20	PRC_0359
+Fipexide Hydrochloride	2	G21	PRC_0280
+Haloperidol	2	G22	PRC_0360
+Decamethonium Bromide	2	H3	PRC_0431
+			
+Phenelzine Sulfate	2	H5	PRC_0432
+Betahistine Dihydrochloride	2	H6	PRC_0322
+6-Aminohexanoic Acid	2	H7	PRC_0433
+Phenytoin	2	H8	PRC_0323
+AlaPRoclate Hydrochloride	2	H9	PRC_0434
+PRochlorperazine Dimaleate	2	H10	PRC_0324
+6,7-Dihydroxycoumarin	2	H11	PRC_0435
+Sulfaguanidine	2	H12	PRC_0325
+Urea	2	H13	PRC_0436
+Metacycline Hydrochloride	2	H14	PRC_0326
+			
+2-Phenylethanol	2	H16	PRC_0327
+Glyceryl Triacetate	2	H17	PRC_0438
+Tramadol Hydrochloride	2	H18	PRC_0328
+MedroxyPRogesterone 17-Acetate	2	H19	PRC_0439
+Suxibuzone	2	H20	PRC_0329
+Sodium Arsenite Solution	2	H21	PRC_0440
+Fluorometholone	2	H22	PRC_0330
+S-(-)-EticloPRide Hydrochloride	2	I3	PRC_0281
+Chloropyramine Hydrochloride	2	I4	PRC_0361
+Aluminum Hydroxide	2	I5	PRC_0282
+Flunisolide	2	I6	PRC_0362
+Nitrendipine	2	I7	PRC_0283
+Nylidrin Hydrochloride	2	I8	PRC_0363
+			
+			
+Cefaclor	2	I11	PRC_0285
+Dithranol	2	I12	PRC_0365
+Esculin Hydrate	2	I13	PRC_0286
+Diperodon Hydrochloride	2	I14	PRC_0366
+Yohimbinic Acid Monohydrate	2	I15	PRC_0287
+Enoxolone	2	I16	PRC_0367
+Pindolol	2	I17	PRC_0288
+Megestrol Acetate	2	I18	PRC_0368
+Nadolol	2	I19	PRC_0289
+Melatonin	2	I20	PRC_0290
+IsoPRoterenol Hydrochloride	2	I21	PRC_0370
+Urapidil Hydrochloride	2	I22	PRC_0369
+Adrenosterone	2	J3	PRC_0441
+Trigonelline Hydrochloride	2	J4	PRC_0391
+Phenyltoloxamine Citrate	2	J5	PRC_0442
+Flupenthixol Dihydrochloride	2	J6	PRC_0392
+BuPRopion Hydrochloride	2	J7	PRC_0443
+Thioridazine Hydrochloride	2	J8	PRC_0393
+			
+4-Dimethylaminoantipyrine	2	J10	PRC_0394
+Memantine	2	J11	PRC_0445
+Trolox	2	J12	PRC_0395
+Triamcinolone Acetonide	2	J13	PRC_0446
+4-Aminomethylbenzenesulfonamide Hydrochloride	2	J14	PRC_0396
+L-Pyroglutamic Acid	2	J15	PRC_0447
+L-Ascorbic Acid	2	J16	PRC_0397
+PRednisolone 21-Acetate	2	J17	PRC_0448
+Canrenoic Acid Potassium	2	J18	PRC_0398
+Morantel Tartrate Hydrate	2	J19	PRC_0449
+Harmalol Hydrochloride Dihydrate	2	J20	PRC_0399
+4-Chloro-3-Methylphenol	2	J21	PRC_0450
+			
+Kanamycin B Sulfate	2	K3	PRC_0291
+Pinacidil	2	K4	PRC_0371
+Isoxicam	2	K5	PRC_0292
+Loxapine Succinate	2	K6	PRC_0372
+Lactic Acid	2	K7	PRC_0293
+Timolol Maleate	2	K8	PRC_0373
+Salbutamol Hemisulfate	2	K9	PRC_0294
+PRotriptyline Hydrochloride	2	K10	PRC_0374
+Isoniazid	2	K11	PRC_0295
+(+)-Tocopherol	2	K12	PRC_0375
+DiPRophylline	2	K13	PRC_0296
+Cysteine Methyl Ester Hydrochloride	2	K14	PRC_0376
+4-(Benzyloxy)Phenol	2	K15	PRC_0297
+Betamethasone 21-Phosphate Disodium	2	K16	PRC_0377
+Phenacetin	2	K17	PRC_0298
+PRamoxine Hydrochloride	2	K18	PRC_0378
+Allopurinol	2	K19	PRC_0299
+Ketotifen Fumarate	2	K20	PRC_0379
+Piracetam	2	K21	PRC_0300
+Hydrochlorothiazide	2	K22	PRC_0380
+8-Ethoxy-5-Quinolinesulfonic Acid	2	L3	PRC_0451
+			
+PRazosin Hydrochloride	2	L5	PRC_0452
+Methylergonovine Maleate	2	L6	PRC_0402
+Doxycycline Hyclate	2	L7	PRC_0453
+Oxybenzone	2	L8	PRC_0403
+Eucalyptol	2	L9	PRC_0454
+Rifamycin Sv Sodium	2	L10	PRC_0404
+Domiphen Bromide	2	L11	PRC_0455
+Sucrose	2	L12	PRC_0405
+Bamethane Hemisulfate	2	L13	PRC_0456
+Salicylic Acid	2	L14	PRC_0406
+N-Acetyl-L-Methionine	2	L15	PRC_0457
+D-Mannitol	2	L16	PRC_0407
+PRogesterone	2	L17	PRC_0458
+Dexamethasone	2	L18	PRC_0408
+Thalidomide	2	L19	PRC_0459
+L-Threonine	2	L20	PRC_0409
+Antazoline Phosphate	2	L21	PRC_0460
+Doxazosin Mesylate	2	L22	PRC_0410
+Cefadroxil	2	M3	PRC_0301
+Zimelidine Dihydrochloride	2	M4	PRC_0381
+4-Aminophenyl Sulfone	2	M5	PRC_0302
+Pheniramine Maleate	2	M6	PRC_0382
+Azelaic Acid	2	M7	PRC_0303
+Enrofloxacin	2	M8	PRC_0383
+Phthalylsulfacetamide	2	M9	PRC_0304
+Antipyrine	2	M10	PRC_0384
+S-Carbidopa	2	M11	PRC_0305
+Vanillic Acid Diethylamide	2	M12	PRC_0385
+(S)-(+)-IbuPRofen	2	M13	PRC_0306
+Guaiacol Glyceryl Ether Carbamate	2	M14	PRC_0386
+Pamoic Acid	2	M15	PRC_0307
+Glafenine	2	M16	PRC_0387
+Fludrocortisone Acetate	2	M17	PRC_0308
+Scopoletin	2	M18	PRC_0388
+Hydroquinonesulfonic Acid Potassium	2	M19	PRC_0309
+Mepivacaine Hydrochloride	2	M20	PRC_0389
+Rimantadine	2	M21	PRC_0310
+Myricetin	2	M22	PRC_0390
+Levodopa	2	N3	PRC_0461
+S-Atenolol	2	N4	PRC_0471
+Naphazoline Hydrochloride	2	N5	PRC_0462
+Dexchlorpheniramine Maleate	2	N6	PRC_0472
+Acetarsone	2	N7	PRC_0463
+D-Sorbitol	2	N8	PRC_0473
+Urethane	2	N9	PRC_0464
+Meloxicam Sodium	2	N10	PRC_0474
+Diflorasone Diacetate	2	N11	PRC_0465
+L-Tyrosine	2	N12	PRC_0475
+Resorcinol	2	N13	PRC_0466
+Adenosine 5-Monophosphate Disodium	2	N14	PRC_0476
+Menthol	2	N15	PRC_0467
+4-Hexylresorcinol	2	N16	PRC_0477
+Eugenol	2	N17	PRC_0468
+PRednisolone	2	N18	PRC_0478
+Budesonide	2	N19	PRC_0469
+Clozapine	2	N20	PRC_0479
+Menadione (K3)	2	N21	PRC_0470
+			
+Pempidine	3	C3	PRC_0891
+PRoadifen Hydrochloride	3	C4	PRC_1051
+17-Ethynylestradiol	3	C5	PRC_0892
+Metergoline	3	C6	PRC_1052
+Nortriptyline Hydrochloride	3	C7	PRC_0893
+Hycanthone	3	C8	PRC_1053
+Atenolol	3	C9	PRC_0894
+Butacaine	3	C10	PRC_1054
+Ofloxacin	3	C11	PRC_0895
+Deferoxamine Mesylate	3	C12	PRC_1055
+Sarafloxacin Hcl	3	C13	PRC_0896
+Meso-2,3-Dimercaptosuccinic Acid	3	C14	PRC_1056
+Ethylenediaminetetraacetic Acid Ferric Sodium	3	C15	PRC_0920
+Apigenin	3	C16	PRC_1057
+L-Methionine	3	C17	PRC_0898
+Retinol	3	C18	PRC_1058
+Reserpine	3	C19	PRC_0899
+Benzyl 4-Hydroxybenzoate	3	C20	PRC_0900
+Estrone 3-Sulfate Potassium	3	C21	PRC_1060
+Pentylenetetrazole	3	C22	PRC_1059
+Adenosine 5'-Monophosphate	3	D3	PRC_0491
+			
+Dl-Carnitine Hydrochloride	3	D5	PRC_0492
+2,4-Dichlorobenzyl Alcohol	3	D6	PRC_0882
+Dl-Arginine Hydrochloride	3	D7	PRC_0493
+Dexamethasone 21-Acetate	3	D8	PRC_0883
+L-Citrulline	3	D9	PRC_0494
+Arecoline Hydrobromide	3	D10	PRC_0884
+Uracil	3	D11	PRC_0495
+Domperidone	3	D12	PRC_0960
+Carbachol	3	D13	PRC_0496
+Niclosamide	3	D14	PRC_0886
+L-Isoleucine	3	D15	PRC_0497
+Cinnarizine	3	D16	PRC_0887
+Benzocaine	3	D17	PRC_0498
+FlurbiPRofen	3	D18	PRC_0888
+Cimetidine	3	D19	PRC_0499
+Artemisinin	3	D20	PRC_0889
+Digoxin	3	D21	PRC_0500
+Sulfadiazine	3	D22	PRC_0890
+Phenformin Hydrochloride	3	E3	PRC_0901
+Alendronate Sodium Trihydrate	3	E4	PRC_1061
+10-Undecenoic Acid	3	E5	PRC_0902
+Cytidine 5-Diphosphocholine Sodium Dihydrate	3	E6	PRC_1062
+Methylbenzethonium Chloride	3	E7	PRC_0903
+Ergocryptine	3	E8	PRC_1063
+Acetylsalicylic Acid	3	E9	PRC_0904
+Griseofulvin	3	E10	PRC_1064
+Citric Acid	3	E11	PRC_0905
+Trimethylcolchicinic Acid	3	E12	PRC_1065
+R(+)-Atenolol	3	E13	PRC_0906
+Pargyline Hydrochloride	3	E14	PRC_1066
+Fenchone	3	E15	PRC_0897
+#REF!	3	E16	PRC_1067
+Sodium 2-Mercaptoethanesulfonate	3	E17	PRC_0908
+(6R)-5,6,7,8-Tetrahydrobiopterin Dihydrochloride	3	E18	PRC_1068
+Chlorogenic Acid	3	E19	PRC_0909
+Pyridoxal 5'-Phosphate Hydrate	3	E20	PRC_1069
+Thiabendazole	3	E21	PRC_0910
+(±)-Quinpirole Dihydrochloride	3	E22	PRC_1070
+Kaempferol	3	F3	PRC_0501
+Naftazone	3	F4	PRC_0951
+Fulvestrant	3	F5	PRC_0502
+Anetholtrithion	3	F6	PRC_0952
+Cefoperazone	3	F7	PRC_0503
+AlminoPRofen	3	F8	PRC_0953
+Estriol	3	F9	PRC_0504
+CeliPRolol	3	F10	PRC_0954
+Cortisone	3	F11	PRC_0505
+Tetrazepam	3	F12	PRC_0955
+Dl-Homocysteine	3	F13	PRC_0506
+PRistinamycine 1A	3	F14	PRC_0956
+Acetyl-Dl-Arginine Dihydrate	3	F15	PRC_0507
+TiaPRofenic Acid	3	F16	PRC_0957
+Sorafenib	3	F17	PRC_0508
+PantoPRazole	3	F18	PRC_0958
+Dl-Norvaline	3	F19	PRC_0509
+Pinaverium	3	F20	PRC_0959
+Creatine Monohydrate	3	F21	PRC_0510
+			
+Tranexamic Acid	3	G3	PRC_0911
+N-Acetyl-D-Glucosamine	3	G4	PRC_1071
+Flubendazole	3	G5	PRC_0907
+Josamycin	3	G6	PRC_1072
+Dopamine Hydrochloride	3	G7	PRC_0885
+Ebselen	3	G8	PRC_1073
+Methoxyverapamil Hydrochloride	3	G9	PRC_0914
+Parthenolide	3	G10	PRC_1074
+Aniracetam	3	G11	PRC_0915
+OxacePRol	3	G12	PRC_1075
+Dizocilpine Maleate	3	G13	PRC_0916
+Sulmazole	3	G14	PRC_1076
+			
+			
+Indomethacin	3	G17	PRC_0918
+Metopimazine	3	G18	PRC_1078
+Cortisone 21-Acetate	3	G19	PRC_0919
+PRoguanil	3	G20	PRC_1079
+EthoPRopazine Hydrochloride	3	G21	PRC_0924
+Flecainide	3	G22	PRC_1080
+Sibutramine Hydrochloride	3	H3	PRC_0511
+			
+Tylosin Tartrate	3	H5	PRC_0512
+D-Cycloserine	3	H6	PRC_1042
+Ketoconazole	3	H7	PRC_0513
+Lomefloxacin Hcl	3	H8	PRC_1043
+Gliquidone	3	H9	PRC_0514
+N-Benzoyl-B-Alanine	3	H10	PRC_1044
+Dehydroepiandrosterone Acetate	3	H11	PRC_0515
+Hydrastine	3	H12	PRC_1045
+Rocuronium Bromide	3	H13	PRC_0516
+Fusaric Acid	3	H14	PRC_1046
+			
+Dipyridamole	3	H16	PRC_1047
+Atracurium Besylate	3	H17	PRC_0518
+Cyclopentolate Hydrochloride	3	H18	PRC_1048
+Vecuronium Bromide	3	H19	PRC_0519
+Carotene	3	H20	PRC_1049
+Digitoxin	3	H21	PRC_0520
+D-Panthenol	3	H22	PRC_1050
+Lipoic Acid, Reduced	3	I3	PRC_0921
+Oxatomide	3	I4	PRC_1081
+MedroxyPRogesterone	3	I5	PRC_0922
+LevomePRomazine	3	I6	PRC_1082
+Tizanidine	3	I7	PRC_0923
+Benzylthiouracil	3	I8	PRC_1083
+			
+			
+L-Phenylalanine	3	I11	PRC_0925
+Floctafenine	3	I12	PRC_1085
+L-Lysine	3	I13	PRC_0926
+Pivmecillinam	3	I14	PRC_1086
+Guanfacine Hydrochloride	3	I15	PRC_0927
+Naftidrofuryl	3	I16	PRC_1087
+Telenzepine Dihydrochloride	3	I17	PRC_0928
+Carbutamide	3	I18	PRC_1088
+Nocodazole	3	I19	PRC_0929
+L-Serine	3	I20	PRC_0930
+MoexiPRil Hydrochloride	3	I21	PRC_1090
+Glibornuride	3	I22	PRC_1089
+Oxiconazole Nitrate	3	J3	PRC_0521
+TioPRonine	3	J4	PRC_1111
+Lomerizine dihydrochloride	3	J5	PRC_0522
+Lorazepam	3	J6	PRC_1112
+Clarithromycin	3	J7	PRC_0523
+Thiocolchicoside	3	J8	PRC_1113
+			
+Ethyl Loflazepate	3	J10	PRC_1114
+Imipenem	3	J11	PRC_0525
+Cefpodoxime PRoxetil	3	J12	PRC_1115
+Forskolin	3	J13	PRC_0526
+Cyamemazine	3	J14	PRC_1116
+Lapatinib	3	J15	PRC_0527
+Metformine hydrochloride	3	J16	PRC_1117
+Tropisetron Hydrochloride	3	J17	PRC_0528
+Irbesartan	3	J18	PRC_1118
+Moclobemide	3	J19	PRC_0529
+Theophylline	3	J20	PRC_1119
+Tocainide	3	J21	PRC_0530
+			
+Sulfamethoxazole	3	K3	PRC_0931
+Rifabutine	3	K4	PRC_1091
+Ursolic Acid	3	K5	PRC_0932
+Midecamycine Diacetate	3	K6	PRC_1092
+Acetohydroxamic Acid	3	K7	PRC_0933
+Tropatepine hydrochloride	3	K8	PRC_1093
+Nisoxetine Hydrochloride	3	K9	PRC_0934
+Temazepam	3	K10	PRC_1094
+Diazoxide	3	K11	PRC_0935
+Clotiazepam	3	K12	PRC_1095
+L-PRoline	3	K13	PRC_0936
+Nomegestrol Acetate	3	K14	PRC_1096
+L-Asparagine	3	K15	PRC_0937
+MePRobamate	3	K16	PRC_1097
+Nomifensine Maleate	3	K17	PRC_0938
+Cibenzoline	3	K18	PRC_1098
+Betamethasone	3	K19	PRC_0939
+Cicletanine	3	K20	PRC_1099
+Sr-95531	3	K21	PRC_0940
+ZofenoPRil	3	K22	PRC_1100
+Maraviroc	3	L3	PRC_0531
+			
+Tamsulosin Hydrochloride	3	L5	PRC_0532
+Methimazole	3	L6	PRC_0482
+Fenoldopam Mesylate	3	L7	PRC_0533
+Acemetacin	3	L8	PRC_0483
+Sitagliptin Phosphate	3	L9	PRC_0534
+O-Carboxyphenyl Phosphate	3	L10	PRC_0484
+Calcipotriol	3	L11	PRC_0535
+Fumaric Acid	3	L12	PRC_0485
+Erlotinib	3	L13	PRC_0536
+Ginkgolide A	3	L14	PRC_0486
+Sunitinib Maleate	3	L15	PRC_0537
+Androsterone	3	L16	PRC_0487
+Dasatinib	3	L17	PRC_0538
+Clemastine Fumarate	3	L18	PRC_0488
+Artesunate	3	L19	PRC_0539
+Uric Acid	3	L20	PRC_0489
+Acetamide	3	L21	PRC_0540
+Androstenedione	3	L22	PRC_0490
+Vanorexine	3	M3	PRC_0941
+Oxitriptan	3	M4	PRC_1101
+Pyridoxine	3	M5	PRC_0942
+Fluindione	3	M6	PRC_1102
+Mecamylamine Hydrochloride	3	M7	PRC_0943
+Pyridostigmine	3	M8	PRC_1103
+Phentolamine Hydrochloride	3	M9	PRC_0944
+Eplerenone	3	M10	PRC_1104
+L-Ornithine	3	M11	PRC_0945
+Bromazepam	3	M12	PRC_1105
+8-Methoxypsoralen	3	M13	PRC_0946
+Telithromycine	3	M14	PRC_1106
+Androstanedione	3	M15	PRC_0947
+Cefatrizine	3	M16	PRC_1107
+Meso-Erythritol	3	M17	PRC_0948
+AlPRazolam	3	M18	PRC_1108
+Calcitriol	3	M19	PRC_0949
+Adrafinil	3	M20	PRC_1109
+Oxazepam	3	M21	PRC_0950
+PRocarbazine Hydrochloride	3	M22	PRC_1110
+Lumiracoxib	3	N3	PRC_0541
+L-Glutamine	3	N4	PRC_0551
+Voglibose	3	N5	PRC_0542
+2,6-Diaminopimelic Acid	3	N6	PRC_0552
+Octreotide Acetate	3	N7	PRC_0543
+PerindoPRil	3	N8	PRC_0553
+Zolpidem Tartrate	3	N9	PRC_0544
+Loratadine	3	N10	PRC_0554
+Letrozole	3	N11	PRC_0545
+Vardenafil Citrate	3	N12	PRC_0555
+Orlistat	3	N13	PRC_0546
+Rufloxacin Hcl	3	N14	PRC_0556
+Dl-Methionine Sulfoxide	3	N15	PRC_0547
+Lonidamine	3	N16	PRC_0557
+Deferasirox	3	N17	PRC_0548
+Orazamide	3	N18	PRC_0558
+Pergolide Mesylate	3	N19	PRC_0549
+Bromfenac	3	N20	PRC_0559
+Salmeterol Xinafoate	3	N21	PRC_0550
+			
+Verapamil	4	C3	PRC_0571
+Mycophenolate Mofetil	4	C4	PRC_0651
+Pazufloxacin	4	C5	PRC_0572
+Nifekalant Hcl	4	C6	PRC_0652
+Rimonabant	4	C7	PRC_0573
+Midazolam Hydrochloride	4	C8	PRC_0653
+Tiagabine Hcl	4	C9	PRC_0574
+Miglitol	4	C10	PRC_0654
+Tibolone	4	C11	PRC_0575
+Mirtazapine	4	C12	PRC_0655
+Troglitazone	4	C13	PRC_0576
+Levosimendan	4	C14	PRC_0656
+Ropinirole Hydrochloride	4	C15	PRC_0577
+Nevirapine	4	C16	PRC_0657
+Toremifene Citrate	4	C17	PRC_0578
+Meropenem	4	C18	PRC_0658
+Roxatidine Acetate Hydrochloride	4	C19	PRC_0579
+Rizatriptan Benzoate	4	C20	PRC_0580
+Montelukast Sodium	4	C21	PRC_0660
+Manidipine Dihydrochloride	4	C22	PRC_0659
+Clobazam	4	D3	PRC_0731
+			
+Cilnidipine	4	D5	PRC_0732
+Ranolazine Dihydrochloride	4	D6	PRC_0562
+Clopidogrel Hydrogen Sulfate	4	D7	PRC_0733
+Risedronate Sodium	4	D8	PRC_0563
+Dofetilide	4	D9	PRC_0734
+RamiPRil	4	D10	PRC_0564
+Fluocinolone Acetonide	4	D11	PRC_0735
+Pioglitazone Hydrochloride	4	D12	PRC_0565
+Diethylstilbestrol	4	D13	PRC_0736
+Tadalafil	4	D14	PRC_0566
+CitaloPRam Hydrobromide	4	D15	PRC_0737
+Stanolone	4	D16	PRC_0567
+Diphenoxylate Hydrochloride	4	D17	PRC_0738
+Olanzapine	4	D18	PRC_0568
+Dexbrompheniramine Maleate	4	D19	PRC_0739
+Rosiglitazone	4	D20	PRC_0569
+CarPRofen	4	D21	PRC_0740
+Sildenafil Citrate	4	D22	PRC_0570
+Valacyclovir Hydrochloride	4	E3	PRC_0581
+Nitazoxanide	4	E4	PRC_0661
+Sparfloxacin	4	E5	PRC_0582
+Nefazodone Hydrochloride	4	E6	PRC_0662
+Zonisamide	4	E7	PRC_0583
+Mianserin Hydrochloride	4	E8	PRC_0663
+Valdecoxib	4	E9	PRC_0584
+Nicorandil	4	E10	PRC_0664
+Zaleplon	4	E11	PRC_0585
+Nicardipine	4	E12	PRC_0665
+Testosterone	4	E13	PRC_0586
+Levamisole Hydrochloride	4	E14	PRC_0666
+Ritodrine Hydrochloride	4	E15	PRC_0587
+Mestranol	4	E16	PRC_0667
+Tosufloxacin Tosilate	4	E17	PRC_0588
+Milrinone	4	E18	PRC_0668
+Topiramate	4	E19	PRC_0589
+Miconazole Nitrate	4	E20	PRC_0669
+TrandolaPRil	4	E21	PRC_0590
+Terbinafine Hydrochloride	4	E22	PRC_0670
+Celecoxib	4	F3	PRC_0741
+Telmisartan	4	F4	PRC_0631
+Cefdinir	4	F5	PRC_0742
+Zileuton	4	F6	PRC_0632
+Clenbuterol Hydrochloride	4	F7	PRC_0743
+Levetiracetam	4	F8	PRC_0633
+Clobetasol PRopionate	4	F9	PRC_0744
+Pefloxacin Mesylate	4	F10	PRC_0634
+ItoPRide Hydrochloride	4	F11	PRC_0745
+Pentoxifylline	4	F12	PRC_0635
+Felodipine	4	F13	PRC_0746
+Phentolamine Mesylate	4	F14	PRC_0636
+Epinastine Hydrochloride	4	F15	PRC_0747
+Penciclovir	4	F16	PRC_0637
+Etodolac	4	F17	PRC_0748
+Beta-Alanine	4	F18	PRC_0638
+Ethyloestrenol	4	F19	PRC_0749
+OxaPRozin	4	F20	PRC_0639
+Donepezil Hydrochloride	4	F21	PRC_0750
+			
+Eletriptan	4	G3	PRC_0591
+Mazindol	4	G4	PRC_0671
+AripiPRazole	4	G5	PRC_0592
+Methyltestosterone	4	G6	PRC_0672
+ZiPRasidone	4	G7	PRC_0593
+Lamivudine	4	G8	PRC_0673
+Secnidazole	4	G9	PRC_0594
+Metronidazole	4	G10	PRC_0674
+Tranilast	4	G11	PRC_0595
+Minoxidil	4	G12	PRC_0675
+Voriconazole	4	G13	PRC_0596
+Amorolfine Hcl	4	G14	PRC_0676
+			
+			
+Zopiclone	4	G17	PRC_0598
+Mycophenolate Sodium	4	G18	PRC_0678
+Zafirlukast	4	G19	PRC_0599
+LisinoPRil	4	G20	PRC_0679
+Paroxetine Hydrochloride	4	G21	PRC_0600
+Nateglinide	4	G22	PRC_0680
+Doxofylline	4	H3	PRC_0751
+			
+Clindamycin Phosphate	4	H5	PRC_0752
+LotePRednol Etabonate	4	H6	PRC_0642
+Clotrimazole	4	H7	PRC_0753
+Lovastatin	4	H8	PRC_0643
+FosinoPRil Sodium	4	H9	PRC_0754
+Nelfinavir Mesylate	4	H10	PRC_0644
+Efavirenz	4	H11	PRC_0755
+Nandrolone	4	H12	PRC_0645
+Carbimazole	4	H13	PRC_0756
+Methohexital	4	H14	PRC_0646
+			
+Moxonidine Hydrochloride	4	H16	PRC_0647
+Gatifloxacin	4	H17	PRC_0758
+Mebendazole	4	H18	PRC_0648
+Amikacin Sulfate	4	H19	PRC_0759
+Tulobuterol Hydrochloride	4	H20	PRC_0649
+Duloxetine Hydrochloride	4	H21	PRC_0760
+Moxifloxacin Hcl	4	H22	PRC_0650
+Ondansetron Hydrochloride	4	I3	PRC_0601
+Khellin	4	I4	PRC_0681
+PRavastatin Sodium	4	I5	PRC_0602
+Fluoxetine Hydrochlorate	4	I6	PRC_0682
+Repaglinide	4	I7	PRC_0603
+Finasteride	4	I8	PRC_0683
+			
+			
+Rivastigmine Tartrate	4	I11	PRC_0605
+Kanamycin Sulfate	4	I12	PRC_0685
+PRavastatin Lactone	4	I13	PRC_0606
+Imatinib Mesylate	4	I14	PRC_0686
+Ritonavir	4	I15	PRC_0607
+Indinavir Sulfate	4	I16	PRC_0687
+Simvastatin	4	I17	PRC_0608
+Lamotrigine	4	I18	PRC_0688
+Rebamipide	4	I19	PRC_0609
+Cerivastatin Sodium	4	I20	PRC_0610
+Norethisterone	4	I21	PRC_0690
+Modafinil	4	I22	PRC_0689
+Bosentan	4	J3	PRC_0761
+Tenofovir	4	J4	PRC_0711
+5-Aminolevulinic Acid Hydrochloride	4	J5	PRC_0762
+Nadifloxacin	4	J6	PRC_0712
+Alendronate Sodium	4	J7	PRC_0763
+DoxaPRam Hydrochloride	4	J8	PRC_0713
+			
+Fluticasone PRopionate	4	J10	PRC_0714
+Dorzolamide Hcl	4	J11	PRC_0765
+Famciclovir	4	J12	PRC_0715
+Carvedilol	4	J13	PRC_0766
+Formestane	4	J14	PRC_0716
+Cilostazol	4	J15	PRC_0767
+Fexofenadine Hydrochloride	4	J16	PRC_0717
+ChlorPRomazine Hydrochloride	4	J17	PRC_0768
+EPRosartan Mesylate	4	J18	PRC_0718
+CleboPRide Maleate	4	J19	PRC_0769
+KetoPRofen	4	J20	PRC_0719
+Cefalexin Monohydrate	4	J21	PRC_0770
+			
+Sotalol Hydrochloride	4	K3	PRC_0611
+Fluconazole	4	K4	PRC_0691
+Racecadotril	4	K5	PRC_0612
+EscitaloPRam Oxalate	4	K6	PRC_0692
+Levulinic Acid	4	K7	PRC_0613
+Boldenone	4	K8	PRC_0693
+Oxcarbazepine	4	K9	PRC_0614
+Flumazenil	4	K10	PRC_0694
+Sertindole	4	K11	PRC_0615
+Lacidipine	4	K12	PRC_0695
+StePRonin	4	K13	PRC_0616
+Ibudilast	4	K14	PRC_0696
+Lofexidine Hcl	4	K15	PRC_0617
+Drospirenone	4	K16	PRC_0697
+PRanlukast	4	K17	PRC_0618
+Lercanidipine Hydrochloride	4	K18	PRC_0698
+Olopatadine Hydrochloride	4	K19	PRC_0619
+Etoricoxib	4	K20	PRC_0699
+Oseltamivir Phosphate	4	K21	PRC_0620
+Gabapentin	4	K22	PRC_0700
+Azelastine Hydrochloride	4	L3	PRC_0771
+			
+Bambuterol Hydrochloride	4	L5	PRC_0772
+Ceftazidime	4	L6	PRC_0722
+Aztreonam	4	L7	PRC_0773
+Gefitinib	4	L8	PRC_0723
+Argatroban	4	L9	PRC_0774
+Emtricitabine	4	L10	PRC_0724
+Amlodipine	4	L11	PRC_0775
+Grepafloxacin	4	L12	PRC_0725
+Anagrelide Hydrochloride	4	L13	PRC_0776
+Ezetimibe	4	L14	PRC_0726
+Acipimox	4	L15	PRC_0777
+Entacapone	4	L16	PRC_0727
+Bicalutamide	4	L17	PRC_0778
+Granisetron Hydrochloride	4	L18	PRC_0728
+Anastrozole	4	L19	PRC_0779
+Exemestane	4	L20	PRC_0729
+Aceclofenac	4	L21	PRC_0780
+Darifenacin Hydrobromide	4	L22	PRC_0730
+Olmesartan Medoxomil	4	M3	PRC_0621
+EnalaPRilat	4	M4	PRC_0701
+Sulfadoxine	4	M5	PRC_0622
+Gestrinone	4	M6	PRC_0702
+Sertraline Hydrochloride	4	M7	PRC_0623
+Idebenone	4	M8	PRC_0703
+Salbutamol	4	M9	PRC_0624
+Isradipine	4	M10	PRC_0704
+Pemoline	4	M11	PRC_0625
+ImiPRamine Hydrochloride	4	M12	PRC_0705
+Pamidronate Disodium	4	M13	PRC_0626
+Glycopyrrolate	4	M14	PRC_0706
+Nisoldipine	4	M15	PRC_0627
+Hydroxychloroquine Sulfate	4	M16	PRC_0707
+PRegabalin	4	M17	PRC_0628
+Ibandronate Sodium	4	M18	PRC_0708
+Risperidone	4	M19	PRC_0629
+21-HydroxyPRogesterone	4	M20	PRC_0709
+Sumatriptan Succinate	4	M21	PRC_0630
+Losartan Potassium	4	M22	PRC_0710
+Ozagrel Hydrochloride	4	N3	PRC_0781
+Rofecoxib	4	N4	PRC_0791
+Alfuzosin	4	N5	PRC_0782
+RabePRazole	4	N6	PRC_0792
+Alosetron Hydrochloride	4	N7	PRC_0783
+Linezolid	4	N8	PRC_0793
+BisoPRolol Fumarate	4	N9	PRC_0784
+Bortezomib	4	N10	PRC_0794
+Butenafine Hcl	4	N11	PRC_0785
+PRamipexole Dihydrochloride	4	N12	PRC_0795
+Amlexanox	4	N13	PRC_0786
+Dobutamine Hydrochloride	4	N14	PRC_0796
+Atomoxetine Hydrochloride	4	N15	PRC_0787
+Rapamycin	4	N16	PRC_0797
+Beta-Estradiol	4	N17	PRC_0788
+Rasagiline Mesylate	4	N18	PRC_0798
+Ampiroxicam	4	N19	PRC_0789
+Fluvastatin Sodium	4	N20	PRC_0799
+Bromhexine Hydrochloride	4	N21	PRC_0790
+			
+Ebastine	5	C3	PRC_1131
+Hesperetin	5	C4	PRC_0811
+Desmethyldiazepam	5	C5	PRC_1132
+Mexiletine Hydrochloride	5	C6	PRC_0812
+Saquinavir Mesylate	5	C7	PRC_1133
+Tolazoline	5	C8	PRC_0813
+PRazepam	5	C9	PRC_1134
+Cloxacillin Sodium Monohydrate	5	C10	PRC_0814
+Rosuvastatin Calcium	5	C11	PRC_1135
+Nafcillin Sodium Monohydrate	5	C12	PRC_0815
+PRopylthiouracile	5	C13	PRC_1136
+Perphenazine	5	C14	PRC_0816
+Nitrazepam	5	C15	PRC_1137
+Lipoic Acid	5	C16	PRC_0817
+Halofantrine Hydrochloride	5	C17	PRC_1138
+Chlorthalidone	5	C18	PRC_0818
+Dihexyverine	5	C19	PRC_1139
+Tiadenol	5	C20	PRC_1140
+Tobramycin	5	C21	PRC_0820
+Glybenclamide	5	C22	PRC_0819
+Tropicamide	5	D3	PRC_0971
+			
+Penicillin V Potassium	5	D5	PRC_0972
+Trimetazidin	5	D6	PRC_1122
+CarisoPRodol	5	D7	PRC_0973
+Pyrvinium	5	D8	PRC_1123
+Trans-Anethole	5	D9	PRC_0974
+ImidaPRil Chlorhydrate	5	D10	PRC_1124
+Cefoxitin Sodium	5	D11	PRC_0975
+Indoramin	5	D12	PRC_1125
+Gentamicin Sulfate	5	D13	PRC_0976
+Piretanide	5	D14	PRC_1126
+Amphotericin B Solubilized	5	D15	PRC_0977
+Meclizine	5	D16	PRC_1127
+Quipazine Maleate	5	D17	PRC_0978
+Pipotiazine	5	D18	PRC_1128
+Carbenicillin Disodium	5	D19	PRC_0979
+Dosulepin	5	D20	PRC_1129
+Naltrexone Hydrochloride	5	D21	PRC_0980
+Etilefrine	5	D22	PRC_1130
+Ambenonium Chloride	5	E3	PRC_1141
+Oxacillin Sodium	5	E4	PRC_0821
+Mequitazine	5	E5	PRC_1142
+Amitriptyline Hydrochloride	5	E6	PRC_0822
+Glimepiride	5	E7	PRC_1143
+MifePRistone	5	E8	PRC_0823
+Tritoqualine	5	E9	PRC_1144
+Benzydamine Hydrochloride	5	E10	PRC_0824
+Pseudoephedrine Hydrochloride	5	E11	PRC_1145
+Buspirone Hydrochloride	5	E12	PRC_0825
+Norethandrolone	5	E13	PRC_1146
+Imidazolidinyl Urea	5	E14	PRC_0826
+Alimemazine	5	E15	PRC_1147
+Mepirizole	5	E16	PRC_0827
+Solifenacin	5	E17	PRC_1148
+Ambroxol Hydrochloride	5	E18	PRC_0828
+Medrogestone	5	E19	PRC_1149
+Amrinone	5	E20	PRC_0829
+Olsalazine	5	E21	PRC_1150
+Betamethasone Valerate	5	E22	PRC_0830
+Synephrine	5	F3	PRC_0981
+Tertatolol Chlorhydrate	5	F4	PRC_1191
+Ticarcillin Disodium	5	F5	PRC_0982
+Dantrolene	5	F6	PRC_1192
+Itraconazole	5	F7	PRC_0983
+Lopinavir	5	F8	PRC_1193
+Acebutolol Hydrochloride	5	F9	PRC_0984
+Valsartan	5	F10	PRC_1194
+Cysteamine	5	F11	PRC_0985
+Dihydroergotamine Mesylate	5	F12	PRC_1195
+Amiodarone Hydrochloride	5	F13	PRC_0986
+Trospium Chloride	5	F14	PRC_1196
+PRaziquantel	5	F15	PRC_0987
+Acenocoumarol	5	F16	PRC_1197
+Gossypol	5	F17	PRC_0988
+Brinzolamide	5	F18	PRC_1198
+Trioxsalen	5	F19	PRC_0989
+Levocabastine Hydrochloride	5	F20	PRC_1199
+6-Methoxyharmalan	5	F21	PRC_0990
+			
+Diazepam	5	G3	PRC_1151
+Clorgyline Hydrochloride	5	G4	PRC_0880
+Zolmitriptan	5	G5	PRC_1152
+Piperacillin Sodium	5	G6	PRC_0832
+Sulbutiamine	5	G7	PRC_1153
+Minocycline Hydrochloride	5	G8	PRC_0833
+Mizolastine	5	G9	PRC_1154
+DesiPRamine Hydrochloride	5	G10	PRC_0834
+Lormetazepam	5	G11	PRC_1155
+N-AcetylPRocainamide Hydrochloride	5	G12	PRC_0835
+APRepitant	5	G13	PRC_1156
+Baclofen	5	G14	PRC_0836
+			
+			
+Dienogest	5	G17	PRC_1158
+Benzbromarone	5	G18	PRC_0838
+Glubionate Calcium	5	G19	PRC_1159
+Isoetharine Mesylate	5	G20	PRC_0839
+Fondaparinux Sodium	5	G21	PRC_1160
+Dexamethasone 21-Phosphate Disodium	5	G22	PRC_0840
+CyPRoterone Acetate	5	H3	PRC_0991
+			
+Hydroxocobalamin Acetate	5	H5	PRC_0992
+Tolnaftate	5	H6	PRC_0802
+(S)-Sulpiride	5	H7	PRC_0993
+Trimebutine	5	H8	PRC_0803
+Ampicillin Sodium	5	H9	PRC_0994
+ChlorPRothixene Hydrochloride	5	H10	PRC_0804
+Choline Base Solution	5	H11	PRC_0995
+S-Benzoylthiamine O-Monophosphate	5	H12	PRC_0805
+Cefsulodin Sodium Hydrate	5	H13	PRC_0996
+Flupirtine Maleate	5	H14	PRC_0806
+			
+Colistin Sulfate	5	H16	PRC_0807
+QuinaPRil  Hydrochloride	5	H17	PRC_0998
+Clopamide	5	H18	PRC_0808
+Norgestrel	5	H19	PRC_0999
+Mebeverine Hydrochloride	5	H20	PRC_0809
+Corynanthine	5	H21	PRC_1000
+Carbamazepine	5	H22	PRC_0810
+AurotioPRol	5	I3	PRC_1161
+TrimethoPRim	5	I4	PRC_0841
+Estazolam	5	I5	PRC_1162
+Dipyrone	5	I6	PRC_0842
+Isothipendyl	5	I7	PRC_1163
+Nicardipine Hydrochloride	5	I8	PRC_0843
+			
+			
+Ergotamine	5	I11	PRC_1165
+BromoPRide	5	I12	PRC_0845
+Alpha-Dihydroergocryptine	5	I13	PRC_1166
+Methyl-Aminolevulinate Hydrochloride	5	I14	PRC_0846
+Captodiamine	5	I15	PRC_1167
+Diosmin	5	I16	PRC_0847
+Biperiden	5	I17	PRC_1168
+Molsidomine	5	I18	PRC_0848
+Oxetorone	5	I19	PRC_1169
+Dihydroergocristine	5	I20	PRC_1170
+Cefradine	5	I21	PRC_0850
+Carbenoxolone Disodium	5	I22	PRC_0849
+Chlortetracycline Hcl	5	J3	PRC_1001
+fosfomycin Calcium	5	J4	PRC_0870
+Vancomycin Hydrochloride	5	J5	PRC_1002
+Myosmine	5	J6	PRC_0871
+6,9-DifluoroPRednisolone 21-Acetate 17-Butyrate	5	J7	PRC_1003
+Nifedipine	5	J8	PRC_0872
+			
+Bisacodyl	5	J10	PRC_0873
+Phylloquinone (K1)	5	J11	PRC_1005
+Naloxone Hydrochloride Dihydrate	5	J12	PRC_0874
+Betulinic Acid	5	J13	PRC_1006
+Chlorothiazide	5	J14	PRC_0875
+Sulfadimethoxine	5	J15	PRC_1007
+TriPRolidine Hydrochloride	5	J16	PRC_0876
+Riboflavin 5'-Monophosphate Sodium	5	J17	PRC_1008
+Betulin	5	J18	PRC_0877
+Oxytetracycline Hemicalcium	5	J19	PRC_1009
+Roxithromycin	5	J20	PRC_0878
+Leflunomide	5	J21	PRC_1010
+			
+Chlordiazepoxide	5	K3	PRC_1171
+Tamoxifen	5	K4	PRC_0851
+Tetrabenazine	5	K5	PRC_1172
+Ethionamide	5	K6	PRC_0852
+Vigabatrin	5	K7	PRC_1173
+Norfloxacin	5	K8	PRC_0853
+Bamifylline	5	K9	PRC_1174
+Terfenadine	5	K10	PRC_0854
+Phenobarbital	5	K11	PRC_1175
+TiaPRide Hydrochloride	5	K12	PRC_0855
+Almitrine Bismesylate	5	K13	PRC_1176
+PRopafenone Hydrochloride	5	K14	PRC_0856
+Papaverine Hydrochloride	5	K15	PRC_1177
+PRidinol Methanesulfonate	5	K16	PRC_0857
+Capecitabine	5	K17	PRC_1178
+Nimesulide	5	K18	PRC_0858
+OxPRenolol Hydrochloride	5	K19	PRC_1179
+Pimozide	5	K20	PRC_0859
+DextroPRopoxyphene Hydrochloride	5	K21	PRC_1180
+Spectinomycin Dihydrochloride Hydrate	5	K22	PRC_0860
+OmePRazole	5	L3	PRC_1011
+			
+PRocyclidine Hydrochloride	5	L5	PRC_1012
+Epinephrine	5	L6	PRC_0962
+Amoxicillin	5	L7	PRC_1013
+Cyclothiazide	5	L8	PRC_0963
+(1R,2R)-1,2-Diaminocyclohexane	5	L9	PRC_1014
+N-Acetyl-L-Cysteine	5	L10	PRC_0964
+Cyclosporin A	5	L11	PRC_1015
+Methoxamine Hydrochloride	5	L12	PRC_0965
+Cefazolin Sodium	5	L13	PRC_1016
+Oxolinic Acid	5	L14	PRC_0966
+Retinyl Palmitate	5	L15	PRC_1017
+PRoPRanolol	5	L16	PRC_0967
+Catechin Hydrate	5	L17	PRC_1018
+Novobiocin Sodium	5	L18	PRC_0968
+Rifampicin	5	L19	PRC_1019
+6-Methyl-11-HydroxyPRogesterone	5	L20	PRC_0969
+Cefalotin Sodium	5	L21	PRC_1020
+Folic Acid	5	L22	PRC_0970
+Quinagolide Hydrochloride	5	M3	PRC_1181
+Gallamine Triethiodide	5	M4	PRC_0861
+ValPRomide	5	M5	PRC_1182
+Cefmetazole Sodium	5	M6	PRC_0862
+Tolcapone	5	M7	PRC_1183
+Droperidol	5	M8	PRC_0863
+Erdosteine	5	M9	PRC_1184
+Suloctidil	5	M10	PRC_0831
+Chlorquinaldol	5	M11	PRC_1185
+LansoPRazole	5	M12	PRC_0864
+Tiliquinol	5	M13	PRC_1186
+Tetracycline	5	M14	PRC_0865
+Tilbroquinol	5	M15	PRC_1187
+(+)-Cis-Diltiazem Hydrochloride	5	M16	PRC_0866
+Pyrimethamine	5	M17	PRC_1188
+Nifenazone	5	M18	PRC_0867
+Ceftriaxone	5	M19	PRC_1189
+Enoxacin	5	M20	PRC_0868
+Cafedrine Chlorhydrate	5	M21	PRC_1190
+TrimiPRamine Maleate	5	M22	PRC_0869
+Potassium Clavulanate	5	N3	PRC_1021
+Adenosine	5	N4	PRC_1031
+AmisulPRide	5	N5	PRC_1022
+L-Glutathione Reduced	5	N6	PRC_1032
+Furaltadone	5	N7	PRC_1023
+Phenoxybenzamine Hydrochloride	5	N8	PRC_1033
+Piroxicam	5	N9	PRC_1024
+Cefuroxime Sodium	5	N10	PRC_1034
+Bromocriptine Mesylate	5	N11	PRC_1025
+2,3-Dimercapto-1-PRopanol	5	N12	PRC_1035
+Flumethasone	5	N13	PRC_1026
+PRalidoxime	5	N14	PRC_1036
+Sulfameter	5	N15	PRC_1027
+Biotin	5	N16	PRC_1037
+Glutathione Oxidized	5	N17	PRC_1028
+Pyridoxal Hydrochloride	5	N18	PRC_1038
+Dicloxacillin Sodium Hydrate	5	N19	PRC_1029
+Spermine	5	N20	PRC_1039
+Amikacin Hydrate	5	N21	PRC_1030
+			
+Aceglutamide	6	C3	PRC_1211
+Pyritinol	6	C4	PRC_1337
+Acetanilide	6	C5	PRC_1212
+Rifaximin	6	C6	PRC_1338
+Acetohexamide	6	C7	PRC_1213
+Rutoside	6	C8	PRC_1339
+Altrenogest	6	C9	PRC_1214
+Sodium NitroPRusside	6	C10	PRC_1340
+Aminohippuric Acid	6	C11	PRC_1215
+Spiramycin A	6	C12	PRC_1341
+Aminohydroxybutyric Acid	6	C13	PRC_1216
+Sulfanilamide	6	C14	PRC_1342
+Aminosalicylate Sodium	6	C15	PRC_1217
+Sulfathiazole	6	C16	PRC_1343
+Aminothiazole	6	C17	PRC_1218
+Taurine	6	C18	PRC_1344
+Ascorbyl Palmitate	6	C19	PRC_1219
+Azaperone	6	C20	PRC_1220
+Teicoplanin	6	C21	PRC_1345
+Tazobactam	6	C22	PRC_1354
+Dexfenfluramine	6	D3	PRC_1361
+			
+Methysergide	6	D5	PRC_1369
+Nefopam	6	D6	PRC_1202
+Oxymetazoline Hydrochloride	6	D7	PRC_1377
+AlizaPRide	6	D8	PRC_1203
+8-Chloro Theophylline	6	D9	PRC_1385
+FosamPRenavir	6	D10	PRC_1204
+viloxazine	6	D11	PRC_1392
+Fleroxacin	6	D12	PRC_1205
+Tianeptine Sodium	6	D13	PRC_1400
+Lincomycin	6	D14	PRC_1206
+sultoPRide	6	D15	PRC_1408
+Cilastatin	6	D16	PRC_1207
+Phloroglucinol	6	D17	PRC_1415
+Ricobendazole	6	D18	PRC_1208
+CiPRofibrate	6	D19	PRC_1423
+TranylcyPRomine Hydrochloride	6	D20	PRC_1209
+Clindamycin Hydrochloride	6	D21	PRC_1431
+Acedoben	6	D22	PRC_1210
+Benzthiazide	6	E3	PRC_1221
+Tioxolone	6	E4	PRC_1346
+Benztropine	6	E5	PRC_1222
+Tolfenamic Acid	6	E6	PRC_1355
+Bephenium Hydroxynapthoate	6	E7	PRC_1223
+Trimetozine	6	E8	PRC_1347
+Beta-Escin	6	E9	PRC_1224
+6-Hydroxydopamine Hydrochloride	6	E10	PRC_1286
+Bethanechol Chloride	6	E11	PRC_1225
+Fomepizole	6	E12	PRC_1287
+Bornyl Acetate	6	E13	PRC_1226
+N6,2'-O-Dibutyryladenosine 3',5'-Cyclic Monophosphate Sodium	6	E14	PRC_1290
+Bromindione	6	E15	PRC_1227
+Dilazep Dihydrochloride	6	E16	PRC_1295
+Camylofine Dihydrochloride	6	E17	PRC_1228
+Apomorphine	6	E18	PRC_1297
+Candesartan	6	E19	PRC_1229
+Drofenine Hydrochloride	6	E20	PRC_1299
+Carsalam	6	E21	PRC_1230
+Amethopterin	6	E22	PRC_1301
+Diethylcarbamazine Citrate	6	F3	PRC_1362
+Mepenzolate Bromide	6	F4	PRC_1271
+Vinburnine	6	F5	PRC_1370
+Metacetamol	6	F6	PRC_1272
+Dolasetron	6	F7	PRC_1378
+Methicillin Sodium	6	F8	PRC_1273
+Atazanavir	6	F9	PRC_1386
+Methscopolamine Bromide	6	F10	PRC_1274
+Rufinamide	6	F11	PRC_1393
+Miltefosine	6	F12	PRC_1275
+Sulfamidine	6	F13	PRC_1401
+Natamycin	6	F14	PRC_1276
+benzoctamine	6	F15	PRC_1409
+Nitrofurazone	6	F16	PRC_1277
+amineptine	6	F17	PRC_1416
+Norethynodrel	6	F18	PRC_1278
+apixaban	6	F19	PRC_1424
+Oxfendazole	6	F20	PRC_1279
+Cefuroxime Axetil	6	F21	PRC_1432
+			
+Carzenide	6	G3	PRC_1231
+Metanephrine Hydrochloride	6	G4	PRC_1305
+Cefapirin Sodium	6	G5	PRC_1232
+Tocopherol Acetate Semisynthetic	6	G6	PRC_1307
+Chenodeoxycholic Acid	6	G7	PRC_1233
+N4-Phthalylsulfathiazole	6	G8	PRC_1309
+Chlormezanone	6	G9	PRC_1234
+Isoamyl Salicylate	6	G10	PRC_1312
+Cholesterol	6	G11	PRC_1235
+IPRoniazid Phosphate	6	G12	PRC_1315
+Chromocarb	6	G13	PRC_1236
+Triethylenetetramine Dihydrochloride	6	G14	PRC_1282
+			
+			
+Cinchonidine	6	G17	PRC_1238
+Cotinine	6	G18	PRC_1289
+Cinchophen	6	G19	PRC_1239
+(R)-Phenylephrine Hydrochloride	6	G20	PRC_1291
+Clofoctol	6	G21	PRC_1240
+Denatonium Benzoate	6	G22	PRC_1292
+Pholcodine	6	H3	PRC_1363
+			
+Bupivacaine Hydrochloride	6	H5	PRC_1371
+Penfluridol	6	H6	PRC_1328
+Sulbactam	6	H7	PRC_1379
+Phensuccimide	6	H8	PRC_1329
+CisaPRide	6	H9	PRC_1387
+Pipenzolate Bromide	6	H10	PRC_1330
+loPRazolam mesylate	6	H11	PRC_1394
+Piromidic Acid	6	H12	PRC_1331
+Ropivacaine hydrochloride monohydrate	6	H13	PRC_1402
+Polymyxin B Sulfate	6	H14	PRC_1314
+			
+PRactolol	6	H16	PRC_1332
+Agomelatine	6	H17	PRC_1417
+PRopantheline Bromide	6	H18	PRC_1333
+Remifentanil	6	H19	PRC_1425
+PRulifloxacin	6	H20	PRC_1335
+Homatropine Hydrochloride	6	H21	PRC_1433
+Pyrithyldione	6	H22	PRC_1336
+Coenzyme B12	6	I3	PRC_1241
+Bismuth(Iii) Salicylate Basic	6	I4	PRC_1311
+Colistimethate Sodium	6	I5	PRC_1242
+Fluorescein	6	I6	PRC_1283
+Cortisone Acetate	6	I7	PRC_1243
+R-OmePRazole	6	I8	PRC_1357
+			
+			
+Debrisoquin Sulfate	6	I11	PRC_1245
+Codeine Hydrochloride	6	I12	PRC_1304
+Dehydrocholic Acid	6	I13	PRC_1246
+Acarbose	6	I14	PRC_1316
+Dichlorisone Acetate	6	I15	PRC_1247
+Bretylium Tosylate	6	I16	PRC_1302
+Dinitolmide	6	I17	PRC_1248
+Meclofenoxate	6	I18	PRC_1325
+D-Lactitol Monohydrate	6	I19	PRC_1249
+Doramectin	6	I20	PRC_1250
+QuinuPRamine	6	I21	PRC_1358
+Nicotine	6	I22	PRC_1284
+Secobarbital	6	J3	PRC_1364
+Medazepam	6	J4	PRC_1348
+Nalbuphine Hydrochloride	6	J5	PRC_1372
+PRoscillaridin	6	J6	PRC_1334
+Clonazepam	6	J7	PRC_1380
+Piribedil	6	J8	PRC_1308
+			
+Pipamperone	6	J10	PRC_1318
+Glutethimide	6	J11	PRC_1395
+Pilocarpine Hydrochloride	6	J12	PRC_1288
+Levobupivacaine hydrochloride	6	J13	PRC_1403
+Pentobarbital	6	J14	PRC_1353
+dabigatran etexilate	6	J15	PRC_1410
+Oxomemazine	6	J16	PRC_1360
+Tri-Methylphloroglucinol	6	J17	PRC_1418
+OpiPRamol	6	J18	PRC_1356
+febarbamate	6	J19	PRC_1426
+(+)-Norephedrine Hydrochloride	6	J20	PRC_1310
+Ursodeoxycholic Acid	6	J21	PRC_1434
+			
+D-Phenylalanine	6	K3	PRC_1251
+Zuclopenthixol	6	K4	PRC_1319
+Edaravone	6	K5	PRC_1252
+Betaxolol Hydrochloride	6	K6	PRC_1313
+Edoxudine	6	K7	PRC_1253
+Benorilate	6	K8	PRC_1324
+Efaroxan Hydrochloride	6	K9	PRC_1254
+Beclomethasone	6	K10	PRC_1317
+Epiestriol	6	K11	PRC_1255
+Barbital	6	K12	PRC_1323
+Ethopabate	6	K13	PRC_1256
+Amobarbital	6	K14	PRC_1303
+Ethoxzolamide	6	K15	PRC_1257
+Ajmaline Hydrochloride	6	K16	PRC_1322
+Febuxostat	6	K17	PRC_1258
+AcePRometazine	6	K18	PRC_1359
+Flurandrenolide	6	K19	PRC_1259
+AcePRomazine Maleate	6	K20	PRC_1321
+Inositol	6	K21	PRC_1260
+Flunitrazepam	6	K22	PRC_1294
+Efloxate	6	L3	PRC_1365
+			
+Rilmenidine	6	L5	PRC_1373
+Triazolam	6	L6	PRC_1368
+Vinbarbital	6	L7	PRC_1381
+Doripenem	6	L8	PRC_1376
+AmPRenavir	6	L9	PRC_1388
+Zidovudine	6	L10	PRC_1384
+Etravirine	6	L11	PRC_1396
+Dulcitol	6	L12	PRC_1391
+Thiopental Sodium	6	L13	PRC_1404
+Alpidem	6	L14	PRC_1399
+rivaroxaban	6	L15	PRC_1411
+Warfarin	6	L16	PRC_1407
+AcamPRosate Calcium	6	L17	PRC_1419
+PRopericiazine	6	L18	PRC_1414
+difebarbamate	6	L19	PRC_1427
+Nebivolol Hydrochloride	6	L20	PRC_1422
+Dihydrocodeine	6	L21	PRC_1435
+retigabine	6	L22	PRC_1430
+Ftaxilide	6	M3	PRC_1261
+Clorazepate Dipotassium	6	M4	PRC_1349
+Gramicidin	6	M5	PRC_1262
+Methimazole	6	M6	PRC_1351
+Guanadrel Sulfate	6	M7	PRC_1263
+Clobutinol	6	M8	PRC_1350
+Hydralazine Hydrochloride	6	M9	PRC_1264
+Carteolol	6	M10	PRC_1320
+Hydroquinidine	6	M11	PRC_1265
+CarpiPRamine	6	M12	PRC_1352
+Inosine	6	M13	PRC_1266
+Caffeine	6	M14	PRC_1306
+Ketanserin Tartrate	6	M15	PRC_1267
+Nicergoline	6	M16	PRC_1296
+Lanatoside C	6	M17	PRC_1268
+Neostigmine Bromide	6	M18	PRC_1298
+Meclocycline Sulfosalicylate	6	M19	PRC_1269
+MisoPRostol	6	M20	PRC_1300
+Mepartricin	6	M21	PRC_1270
+Mefexamide	6	M22	PRC_1293
+Flurazepam Dihydrochloride	6	N3	PRC_1366
+Tofizopam	6	N4	PRC_1367
+Cefepime Hydrochloride	6	N5	PRC_1374
+Ertapenem	6	N6	PRC_1375
+Abacavir	6	N7	PRC_1382
+Darunavir	6	N8	PRC_1383
+Sulfisoxazole	6	N9	PRC_1389
+Atorvastatin	6	N10	PRC_1390
+Felbamate	6	N11	PRC_1397
+DexlansoPRazole	6	N12	PRC_1398
+Desvenlafaxine	6	N13	PRC_1405
+DidesmethylcitaloPRam tartrate	6	N14	PRC_1406
+Bifonazole	6	N15	PRC_1412
+N-acetyl-5-aminosalicylic acid	6	N16	PRC_1413
+lacosamide	6	N17	PRC_1420
+Tenofovir DisoPRoxil	6	N18	PRC_1421
+Rimexolone	6	N19	PRC_1428
+Azithromycin	6	N20	PRC_1429
+Naratriptan	6	N21	PRC_1436
+			
+Sulfasalazine	7	C3	PRC_0001
+FamPRidine	7	C4	
+Nilutamide	7	C5	PRC_0161
+Methyclothiazide	7	C6	
+Methyl-L-Tyrosine	7	C7	PRC_0321
+E216	7	C8	
+Cetirizin Dihydrochloride	7	C9	PRC_0881
+E122	7	C10	
+Fluvoxamine	7	C11	PRC_1120
+E308	7	C12	
+Quetiapine Hemifumarate	7	C13	PRC_0640
+E950	7	C14	
+TenatoPRazole	7	C15	PRC_0800
+E490	7	C16	
+5,5-Dimethyl-2,4-Oxazolidinedione	7	C17	PRC_0837
+E570	7	C18	
+Cinchonine	7	C19	PRC_1237
+dapagliflozin	7	C20	PRC_1444
+PRopiverine hydrochloride	7	C21	
+			
+			
+			
+			
+Ouabain	7	D6	PRC_0160
+			
+Methiothepin Mesylate	7	D8	PRC_0320
+			
+BePRidil Hydrochloride	7	D10	PRC_0480
+			
+Cefixime	7	D12	PRC_1077
+			
+Zoledronic Acid	7	D14	PRC_0597
+			
+Clinafloxacin Hcl	7	D16	PRC_0757
+			
+Asp-Phe Methyl Ester	7	D18	PRC_0844
+			
+Cytisine	7	D20	PRC_1244
+			
+Posaconazole	7	D22	PRC_1440
+Adenine	7	E3	PRC_0044
+Docusate	7	E4	
+Sulfamonomethoxine	7	E5	PRC_0204
+Fluphenazine Decanoate	7	E6	
+PRomethazine Hydrochloride	7	E7	PRC_0364
+E965	7	E8	
+Enoximone	7	E9	PRC_0913
+Geraniol	7	E10	
+Canthaxanthin	7	E11	PRC_0481
+E313	7	E12	
+Mecillinam	7	E13	PRC_0641
+Hydroxy Citronellal	7	E14	
+Etifoxine	7	E15	PRC_1121
+E131	7	E16	
+Bacitracin Bacillus Licheniformis	7	E17	PRC_0879
+E160e	7	E18	
+Oxyquinoline Hemisulfate	7	E19	PRC_1280
+Clotiapine	7	E20	
+Cefamandole Nafate sodium salt	7	E21	PRC_1439
+Saxagliptin hydrochloride	7	E22	
+			
+PRimaquine Bisphosphate	7	F4	PRC_0117
+			
+Vincamine	7	F6	PRC_0277
+			
+L-Tryptophan	7	F8	PRC_0437
+			
+Triclabendazole	7	F10	PRC_1084
+			
+RoliPRam	7	F12	PRC_0604
+			
+Clonidine Hydrochloride	7	F14	PRC_0764
+			
+Cefotaxime Sodium	7	F16	PRC_0801
+			
+EsomePRazole	7	F18	PRC_1201
+			
+Raltegravir	7	F20	PRC_1443
+			
+			
+L-Aspartic Acid	7	G3	PRC_0037
+Lisuride	7	G4	
+Lithium Carbonate	7	G5	PRC_0197
+Isoconazole	7	G6	
+Disulfiram	7	G7	PRC_0357
+E132	7	G8	
+Desoximetasone	7	G9	PRC_0917
+Cinnamyl Alcohol	7	G10	
+Adefovir Dipivoxil	7	G11	PRC_0524
+E710	7	G12	
+Flavoxate	7	G13	PRC_0684
+E285	7	G14	
+			
+			
+Anisomycin From Streptomyces Griseolus	7	G17	PRC_0961
+E142	7	G18	
+Pantethine	7	G19	PRC_1327
+Heptaminol Hydrochloride	7	G20	
+CilazaPRil	7	G21	PRC_1438
+			
+			
+			
+			
+SaPRopterine	7	H6	
+			
+Stigmasterol	7	H8	
+			
+E214	7	H10	
+			
+E319	7	H12	
+			
+E129	7	H14	
+			
+E577	7	H16	
+			
+E312	7	H18	
+			
+			
+			
+			
+Bendroflumethiazide	7	I3	PRC_0080
+Atropine	7	I4	
+PRomazine Hydrochloride	7	I5	PRC_0240
+E311	7	I6	
+Orphenadrine Hydrochloride	7	I7	PRC_0400
+E230	7	I8	
+			
+			
+Galanthamine Hydrochloride	7	I11	PRC_0517
+E100	7	I12	
+Tinidazole	7	I13	PRC_0677
+E324	7	I14	
+Pizotifen	7	I15	PRC_1164
+E127	7	I16	
+Clomifene Citrate	7	I17	PRC_1004
+Sarcosine	7	I18	
+MilnaciPRan	7	I19	PRC_1326
+Ornidazole	7	I20	PRC_1437
+			
+Meglumine Antimoniate	7	I22	
+			
+acetylisoniazid	7	J4	
+			
+E355	7	J6	
+			
+E218	7	J8	
+			
+E310	7	J10	
+			
+E151	7	J12	
+			
+Butyl Paraben	7	J14	
+			
+E481	7	J16	
+			
+Ivacaftor	7	J18	
+			
+Glycine	7	J20	
+			
+			
+Bezafibrate	7	K3	PRC_0081
+Morniflumate	7	K4	
+Furazolidone	7	K5	PRC_0241
+E307	7	K6	
+PRoglumide Sodium	7	K7	PRC_0401
+E1000	7	K8	
+Dihydroartemisinine	7	K9	PRC_0912
+E493	7	K10	
+Luteolin	7	K11	PRC_0560
+E1505	7	K12	
+IfenPRodil Tartrate	7	K13	PRC_0720
+E321	7	K14	
+PRalidoxime Methylsulfate	7	K15	PRC_1157
+E124	7	K16	
+Ribavirin	7	K17	PRC_0997
+Histidine	7	K18	
+Histamine	7	K19	PRC_1285
+Flucloxacilline	7	K20	
+Frovatriptan	7	K21	PRC_1441
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+Moxisylyte Hydrochloride	7	M3	PRC_0124
+Silodosin	7	M4	
+Lactulose	7	M5	PRC_0284
+Benzyl Cinnamate	7	M6	
+Deoxycorticosterone Acetate	7	M7	PRC_0444
+E231	7	M8	
+Demeclocycline Hydrochloride	7	M9	PRC_1041
+E200	7	M10	
+Venlafaxine Hydrochloride	7	M11	PRC_0561
+Triglyceride Octanoate	7	M12	
+Desloratadine	7	M13	PRC_0721
+E320	7	M14	
+Didanosine	7	M15	PRC_1200
+E110	7	M16	
+Fusidic Acid	7	M17	PRC_1040
+E572	7	M18	
+Capsaicin	7	M19	PRC_1281
+			
+Haloperidol Decanoate	7	M21	PRC_1442
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
