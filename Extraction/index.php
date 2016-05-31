@@ -75,17 +75,15 @@ echo " ";
 
     </div>
     <div id="menu2" class="tab-pane fade">
-      <h3>Mettre à jour le fichier de correspondance entre molécules et positions.</h3>
+      <h3>Mettre à jour le fichier de correspondance entre molécules et positions</h3>
 <form action="upload.php" method="post" enctype="multipart/form-data">
     Sélectionner molecules.xlsx:
     <input type="file" name="fileToUpload" id="fileToUpload" class="btn btn-link" >
     <input type="submit" value="Upload" name="submit" class="btn btn-danger">
 </form>
-</h3>
+
       
-          </div>
-
-
+<a href="Fichiers/molecules.png" class="btn btn-danger" role="button">Extrait du fichier à importer</a>
 
 </div>
 </div>

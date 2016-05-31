@@ -50,7 +50,7 @@ Delete('fichierfinal');
 
 $exp=file_get_contents("Fichiers/numexp.txt");
 rename ("Results.xlsx", 'Results '.$exp.'.xlsx');
-
+echo "<br>";
 echo '<a href="Results '.$exp.'.xlsx">'.'Télecharger le fichier avec formatage conditionnel'.'</a>';
 echo '<br>';
 echo '<br>';

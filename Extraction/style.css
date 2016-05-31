@@ -3,3 +3,24 @@
     color: #ffffff;
 }
 
+.pages-link {
+     margin:2em 0;
+     word-spacing:.25em;
+}
+
+.pages-link a {
+     background:#d7d7d7;
+     border:1px solid #ccc;
+     -moz-border-radius:3px;
+     -webkit-border-radius:3px;
+     -khtml-border-radius:3px;
+     border-radius:3px;
+     color:#333;
+     padding:.3em .5em;
+     text-decoration:none;
+}
+
+#exemple img: hoover
+{
+     background-image: url("logo");
+}
