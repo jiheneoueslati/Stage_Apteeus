@@ -65,7 +65,6 @@ if (($i-1) % 20 == 0){
 	$range=0;
 	}
 
-$objPHPExcel->getActiveSheet()->setCellValue("A".$o, $i);
 $objPHPExcel->getActiveSheet()->setCellValue("B".$o,$numexpe);
 $objPHPExcel->getActiveSheet()->setCellValue("C".$o, $alphaplaque[$pos]);
 $objPHPExcel->getActiveSheet()->setCellValue("D".$o, $posalpha[$range]);

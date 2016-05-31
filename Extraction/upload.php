@@ -32,7 +32,9 @@ if ($uploadOk == 0) {
      echo "<br>";
 // if everything is ok, try to upload file
 } 
-
+ if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+ 	
+ }
 
 header('Location: etape1bis_alimentation.php');
 

@@ -145,7 +145,7 @@ $compt=0;
 //Activité
 
 
-$requete2="SELECT Valeur, Position, Num_Plaque FROM `resultat_metabolite` WHERE `resultat_metabolite`.`Num_Experience`= ".$numexp." and Activite='".$activitetb[$i]."' and Id_Metabolite='".$compoundtb[$j]."' Group BY Num_Plaque,Position";
+$requete2="SELECT Valeur, Position, Num_Plaque, Num_Passage FROM `resultat_metabolite` WHERE `resultat_metabolite`.`Num_Experience`= ".$numexp." and Activite='".$activitetb[$i]."' and Id_Metabolite='".$compoundtb[$j]."' Group BY Num_Plaque,Position";
 
 
 //$resultat2= mysql_query($requete2,$connexion);
@@ -178,13 +178,6 @@ $idposition=$idposition+1;
 }
 $objPHPExcel->setActiveSheetIndex($keyplaque);
 if (($j==0) and ($i==0)){
-if (($nbfeuille-1)==$move){
-for ($f = 0; $f <= sizeof($dmsopostb)-1; $f++){
-if (($dmsopostb[$keysdmso[$f]])==($test2['Position'])){
-$objPHPExcel->getActiveSheet()->setCellValue("E".$idposition,"oui");
-}
-}
-}
 $objPHPExcel->getActiveSheet()->setCellValue("E".$idposition,$inntrie[($idposition-2)+(240*(($numplaquetb[$keyplaque])-1))]);
 if ($inntrie[($idposition-2)+(240*(($numplaquetb[$keyplaque])-1))]==""){
 
@@ -209,7 +202,8 @@ cellColor('E'.$idposition, 'FF4500');
 }
 }
 $innid=$innid+1;
-$objPHPExcel->getActiveSheet()->setCellValue("B".$idposition,$numexpe." MAP TEE".($move+1)." E".($idposition-1));
+$objPHPExcel->getActiveSheet()->setCellValue("A".$idposition,$test2['Num_Passage']);
+$objPHPExcel->getActiveSheet()->setCellValue("B".$idposition,$numexpe." MAP TEE".($test2['Num_Plaque'])." E".($test2['Num_Passage']));
 }
 $objPHPExcel->getActiveSheet()->setCellValue($alphas[$a].$idposition,$test2['Valeur']);
 $compt=$compt+1;

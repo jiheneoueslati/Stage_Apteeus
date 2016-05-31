@@ -5,6 +5,18 @@
 include 'PHPExcel.php';
 include 'PHPExcel/Writer/Excel2007.php';
 
+//Fonction pour colorer les cellules
+function cellColor($cells,$color){
+    global $objPHPExcel;
+
+    $objPHPExcel->getActiveSheet()->getStyle($cells)->getFill()->applyFromArray(array(
+        'type' => PHPExcel_Style_Fill::FILL_SOLID,
+        'startcolor' => array(
+             'rgb' => $color
+        )
+    ));
+}
+
 
 //Recuperation du fichier .XLSX de base
 
@@ -76,6 +88,7 @@ while ($alpha !== 'AZ') {
     $alphas[] = $alpha++;
 }
 
+$colors=array('d8c08d','e9df15','ffa500','c0edff','9cbed8','00688b','d8c08d','f6d8ea','c0edff','228b22');
 
 //On commence à la suite du document colonne F
 
@@ -88,6 +101,7 @@ $cpt=0;
 for ($i = 0; $i <= sizeof($compoundtbfinal)-1; $i++){
 for ($j = 0; $j <= sizeof($activiteatbfinal)-1; $j++){
 $objPHPExcel->getActiveSheet()->setCellValue($alphas[$a]."1",$compoundtbfinal[$z]." ".$activiteatbfinal[$j]);
+cellColor($alphas[$a]."1", $colors[$i]);
 if (preg_match('#RT#', $activiteatbfinal[$j]))
 {
     $rtarray[$cpt]=$alphas[$a];
@@ -104,6 +118,7 @@ $z=0;
 for ($i = 0; $i <= sizeof($activitebtbfinal)-1; $i++){
 for ($j = 0; $j <= sizeof($viewtbfinal)-1; $j++){
 $objPHPExcel->getActiveSheet()->setCellValue($alphas[$a]."1",$activitebtbfinal[$z]." ".$viewtbfinal[$j]);
+cellColor($alphas[$a]."1", $colors[$j]);
 $a=$a+1;
 }
 $z=$z+1;

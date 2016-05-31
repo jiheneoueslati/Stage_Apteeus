@@ -36,7 +36,7 @@
 
   <div class="tab-content">
     <div id="home" class="tab-pane fade in active">
-      <h3>Veuillez taper un numéro d'expérience </h3>
+      <h3>Veuillez entrer un numéro d'expérience </h3>
 
 <form action="etape1_pageform.php" method="post">
 <p>

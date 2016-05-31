@@ -31,6 +31,7 @@ while ($alpha !== 'AZ') {
 
 for ($j = 0; $j <= ($feuille-2); $j++){
 $a=0;
+$objPHPExcel->getActiveSheet()->freezePane('F2');
 $objPHPExcel->setActiveSheetIndex($j);
 While ($alphas[$a]!=$lettre){
 $objPHPExcel->getActiveSheet()->setCellValue($alphas[$a]."243","=AVERAGE(".$alphas[$a]."2:".$alphas[$a]."241)");
@@ -45,6 +46,7 @@ $a=$a+1;
 
 for ($j = ($feuille-1); $j <= ($feuille-1); $j++){
 $a=0;
+$objPHPExcel->getActiveSheet()->freezePane('F2');
 $objPHPExcel->setActiveSheetIndex($j);
 While ($alphas[$a]!=$lettre){
 $objPHPExcel->getActiveSheet()->setCellValue($alphas[$a].($dernierepage+3),"=AVERAGE(".$alphas[$a]."2:".$alphas[$a].($dernierepage+1).")");
