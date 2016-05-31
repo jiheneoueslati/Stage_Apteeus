@@ -33,7 +33,7 @@ function xls_to_txt($path,$file_list,$list_plaque)
 		$objPHPExcel = PHPExcel_IOFactory::load("$file_list[$i]");
 		$objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'csv');
 		$objWriter->setDelimiter("\t");
-		$objWriter->save($path.'\incell '.$list_plaque[$i].'.txt');// les noms des fichiers seront incel1, incell2... 
+		$objWriter->save($path.'\IncellTEE'.$list_plaque[$i].'.txt');// les noms des fichiers seront incel1, incell2... 
 		unlink($file_list[$i]);
 	}
 }
@@ -58,7 +58,7 @@ function mois_annee_numexperience($fich) // $fich va etre détermineé par la fc
 				$Name=explode("	",$f);
 			}
 		}
-		$Name=explode(" ",$Name[2]);print_r($Name);
+		$Name=explode(" ",$Name[2]);
 		if(preg_match('#-#',$Name[0]))
 		{
 			$num_exp=$Name[0];
@@ -71,19 +71,28 @@ function mois_annee_numexperience($fich) // $fich va etre détermineé par la fc
 	return $tab_date_num;
 }
 //////***** 2 fonction pour traduire le position en TEE  *****//////
-//1- replir les listes
-	
-//2- parcourir les lsite
-function nom_TEE ($numero_plaque,$la_position,$plaque_l,$position_l,$TEE_l)// TEE = molécules
+//1- replir la listes bidimentionnel avec indice colonne [0]=> INN [1]=> Position_384,[2]=> Num_plaque384,[3]=> TEE
+
+	function liste_de_conversion($fichier_conversiontxt)
 {
-	for($l=2;$l<=count($TEE_l)-1;$l++)
+	$fich=file($fichier_conversiontxt);
+	foreach($fich as $f)
+	{
+		$list[]=explode("	",$f);
+	}
+	return $list;
+}
+//2- parcourir les lsite
+function nom_TEE ($numero_plaque,$la_position,$conversion_array)// TEE = molécules
+{
+	foreach($conversion_array as $ca)
+	{
+		if(($ca[1]==$numero_plaque)&&($ca[2]==$la_position))
 		{
-			if(($plaque_l[$l]==$numero_plaque)&&($position_l[$l]==$la_position))
-			{
-				$TEE=$TEE_l[$l];
-			}
+			return $ca[3];
 		}
-	return $TEE;
+	}
+	
 }
 
 ////////////**********************fonction extrait les num plaque à partir des noms des fichiers ****************************///////////////////////////////////////
@@ -107,28 +116,11 @@ function num_plaque_list($file_list)
 	return $list_num_plaque;
 }
 
-////////////**********************fonction initialse le numéro de passge ****************************///////////////////////////////////////
-function initialiser_passage($nb_fichiers) // nb fichiers va etre déterminé par la fct count(array_fichiers)
-{
-	$i=0;
-	$pass=0;
-	while($i<=$nb_fichiers)
-	{
-		$tab_init_Pass[]= $pass;
-		$pass=$pass+240;
-		$i++;
-	}
-	return($tab_init_Pass);
-}
+
 /////////////************** fonction lit un seul fichier incell***********///////////////
 function lire_fichier_incell($num_exp,$fich1,$num_plaque1)// $fich: indice tab noms fichiers; $init_Pos: indice tab initialisation TEE, le num exp est en paramétre car ne se trouve pas dans le fichier et on doit linsérer dans la bdd  
 {
-	$plaque_list1=file_get_contents('Extraction/Fichiers/plaque384conv.txt');
-	$plaque_l1=unserialize($plaque_list1);
-	$position_list1=file_get_contents('Extraction/Fichiers/position384conv.txt');
-	$position_l1=unserialize($position_list1);
-	$TEE_list1=file_get_contents('Extraction/Fichiers/TEEclasse.txt');
-	$TEE_l1=unserialize($TEE_list1);
+	
 	$filearray_incell = file($fich1);
 	$vue=explode("	",$filearray_incell[0]); // les vues (noyaux, nucview+...)
 		
@@ -142,7 +134,7 @@ function lire_fichier_incell($num_exp,$fich1,$num_plaque1)// $fich: indice tab n
 	
 	$nb_activités=count($activite_cellules); //le nb des activités qui va servir dans la boucle suivante:
 	
-	
+	$liste_conversiontxt=liste_de_conversion('Extraction/convert.txt');
 	foreach ($ttt as $t) // lire toutes les lignes
 	{
 		for ($i=2;$i<=$nb_activités-1;$i++) // lire toutes les colonnes contenant des acctivités (commencent à partir de la colonne num 3 donc l'indice num 2 ) 
@@ -154,23 +146,18 @@ function lire_fichier_incell($num_exp,$fich1,$num_plaque1)// $fich: indice tab n
 			$val=str_replace(',','.',$t[$i]); // remplacer la virgule par un point pour qu'on puisse l'afficher dans la base avec float	
 			$positionx=str_replace(' - ','',$t[0]);// extraire la position pour la passer en paramètre dans la fonction nom_TEE
 			$position1=trim(substr($positionx,0,3)); // indice 0 3 caractètres
-			$TEE1=nom_TEE($num_plaque1,$position1,$plaque_l1,$position_l1,$TEE_l1);
+			$TEE1=nom_TEE($num_plaque1,$position1,$liste_conversiontxt);
 		
 			echo '<pre>'.$num_exp.' - '.$TEE1.' - '.$v.' - '.$a.' - '.$val. ' - '.$num_plaque1.' - '.$position1.'</pre>';
-				$sql= "insert into resultat_cellule (Num_Experience,TEE,View,Activite,Target,Valeur,Num_Plaque,Position) values ('$num_exp','$TEE1','$v','$a','$tar',$val,$num_plaque1,'$position1')";
-				mysql_query($sql);
+				//$sql= "insert into resultat_cellule (Num_Experience,TEE,View,Activite,Target,Valeur,Num_Plaque,Position) values ('$num_exp','$TEE1','$v','$a','$tar',$val,$num_plaque1,'$position1')";
+				//mysql_query($sql);
 		}
 	}
 }
 /////////////************** fonction lit un seul fichier xevo***********////////////////
-function lire_fichier_xevo($numexp,$fich2,$init_num_passage,$num_plaque2)
+function lire_fichier_xevo($numexp,$fich2,$num_plaque2)
 {
-	$plaque_list2=file_get_contents('Extraction/Fichiers/plaque384conv.txt');
-	$plaque_l2=unserialize($plaque_list2);
-	$position_list2=file_get_contents('Extraction/Fichiers/position384conv.txt');
-	$position_l2=unserialize($position_list2);
-	$TEE_list2=file_get_contents('Extraction/Fichiers/TEEclasse.txt');
-	$TEE_l2=unserialize($TEE_list2);
+	
 	$fich=file($fich2);
 		
 	foreach($fich as $f) // table des lignes valeurs 
@@ -205,6 +192,8 @@ function lire_fichier_xevo($numexp,$fich2,$init_num_passage,$num_plaque2)
 		 
 	$n=count($valeurs); //nb lignes valeurs =960
 	$c=count($comp); //nb  composants =4
+	$nb_lignes_fichier=$n/$c;
+	
 		
 	for ($i=0;$i<=$n-1;$i++) // décomposer chaque ligne valeur par le délimitateur "tabulation"
 	{
@@ -233,15 +222,18 @@ function lire_fichier_xevo($numexp,$fich2,$init_num_passage,$num_plaque2)
 	
 	for($i=0;$i<=$n-1;$i++)//nb lignes
 	{
-		//remplir variable Id_TEE:
-		$num_passage =$init_num_passage + $explod_valeurs[$i][0];
+		//remplir variable $num_passage
+		
+			$num_passage =($num_plaque2-1)*240+$explod_valeurs[$i][0];
+		
+		
 		//remplir variable metabolite:
 		if($explod_valeurs[$i][0]==1)
 		{
 			$k=$k+1;
 			$metabolite=$composants[$k];
      	}
-			
+			$liste_conversiontxt=liste_de_conversion('Extraction/convert.txt');
 		//remplir variables activites et valeurs associées
 		for($j=3;$j<=$a-2;$j++)
 		{
@@ -250,15 +242,48 @@ function lire_fichier_xevo($numexp,$fich2,$init_num_passage,$num_plaque2)
 			$position2=trim(str_replace(',','',$position_pos)); //supprimer le virgule et les espaces pour pouvoir comparer 
 			$activite2=trim($explod_activites[$j]);
 			$valeur2=$explod_valeurs[$i][$j];
-			$TEE2=nom_TEE ($num_plaque2,$position2,$plaque_l2,$position_l2,$TEE_l2); // appel à la fonction qui détermine le TEE de la molécule à partir du num de la plaque et la pos
+			$TEE2=nom_TEE ($num_plaque2,$position2,$liste_conversiontxt); // appel à la fonction qui détermine le TEE de la molécule à partir du num de la plaque et la pos
+			// controle positions DMSO
+			if(empty($TEE2))
+			{
+				$array_DMSO=array("D4","F22","G15","G16","H4","H15","I9","I10","J9","J22","L4","N22");
+				if(in_array($position2, $array_DMSO))
+				{
+					$TEE2="DMSO";
+				}
+				else {$TEE2="Empty";}
+				if (($nb_lignes_fichier<240))
+				{
+					$array_DMSO_derniere_plaque=file_get_contents('Extraction/Fichiers/listepositionderplaque.txt');
+					$array_DMSO_derniere_plaque=unserialize($array_DMSO_derniere_plaque);
+					if(in_array($position2, $array_DMSO_derniere_plaque))
+					{
+						$TEE2="DMSO";
+					}
+									else {$TEE2="Empty";}
+
+				
+				}
+			}
+			
 			$ligne= $numexp.','.$TEE2.','.$metabolite.','.$activite2 .','.$valeur2.','.$num_plaque2.','.$position2.','.$num_passage ;
 		    echo $ligne."<br>";
-				$sql= "insert into resultat_metabolite (Num_Experience, TEE, Id_Metabolite, Activite, Valeur,Num_Plaque, Position, Num_Passage) values ('$numexp','$TEE2','$metabolite','$activite2',$valeur2,$num_plaque2,'$position2',$num_passage)";
-				mysql_query($sql);
+				//$sql= "insert into resultat_metabolite (Num_Experience, TEE, Id_Metabolite, Activite, Valeur,Num_Plaque, Position, Num_Passage) values ('$numexp','$TEE2','$metabolite','$activite2',$valeur2,$num_plaque2,'$position2',$num_passage)";
+				//mysql_query($sql);
 		}
 	
 	
 	}
 	
+}
+function liste_req_sql($req){// fonction qui stocke une requete dans un tableau
+	$resultat = mysql_query($req,connexxion());
+	$yourArray = array();
+	$index = 0;
+	while($ligne = mysql_fetch_array($resultat)) {
+		$yourArray[$index] = $ligne;
+		$index++;
+	}
+	return $yourArray;
 }
 ?>
