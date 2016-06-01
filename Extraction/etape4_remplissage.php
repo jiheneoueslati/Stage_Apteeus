@@ -187,8 +187,8 @@ if (($nbfeuille-1)!=$move){
 for ($f = 0; $f <= sizeof($positionsdmso)-1; $f++){
 if (($positionsdmso[$f])==($test2['Position'])){
 $objPHPExcel->getActiveSheet()->setCellValue("E".$idposition,"DMSO");
-cellColor('A'.$idposition, 'FF4500');
-cellColor('E'.$idposition, 'FF4500');
+cellColor('A'.$idposition, 'ffa500');
+cellColor('E'.$idposition, 'ffa500');
 }
 }
 }
@@ -196,8 +196,8 @@ if (($nbfeuille-1)==$move){
 for ($f = 0; $f <= sizeof($dmsopostb)-1; $f++){
 if (($dmsopostb[$keysdmso[$f]])==($test2['Position'])){
 $objPHPExcel->getActiveSheet()->setCellValue("E".$idposition,"DMSO");
-cellColor('A'.$idposition, 'FF4500');
-cellColor('E'.$idposition, 'FF4500');
+cellColor('A'.$idposition, 'ffa500');
+cellColor('E'.$idposition, 'ffa500');
 }
 }
 }

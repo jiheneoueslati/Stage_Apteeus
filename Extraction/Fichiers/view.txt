@@ -1,1 +1,1 @@
-a:2:{i:0;s:8:""noyaux"";i:1;s:6:"noyaux";}
+a:1:{i:0;s:6:"noyaux";}
