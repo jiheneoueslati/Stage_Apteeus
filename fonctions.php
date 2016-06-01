@@ -131,7 +131,7 @@ function lire_fichier_incell($num_exp,$fich1,$num_plaque1)// $fich: indice tab n
 	{
 		$ttt[]=explode("	",$filearray_incell[$i]);
 	}
-	
+	$nb_lignes_fichier_incell=count($ttt);
 	$nb_activités=count($activite_cellules); //le nb des activités qui va servir dans la boucle suivante:
 	
 	$liste_conversiontxt=liste_de_conversion('Extraction/convert.txt');
@@ -147,6 +147,28 @@ function lire_fichier_incell($num_exp,$fich1,$num_plaque1)// $fich: indice tab n
 			$positionx=str_replace(' - ','',$t[0]);// extraire la position pour la passer en paramètre dans la fonction nom_TEE
 			$position1=trim(substr($positionx,0,3)); // indice 0 3 caractètres
 			$TEE1=nom_TEE($num_plaque1,$position1,$liste_conversiontxt);
+			// controle positions DMSO
+			if(empty($TEE1))
+			{
+				$array_DMSO=array("D4","F22","G15","G16","H4","H15","I9","I10","J9","J22","L4","N22");
+				if(in_array($position1, $array_DMSO))
+				{
+					$TEE1="DMSO";
+				}
+				else {$TEE1="Empty";}
+				if (($nb_lignes_fichier_incell<240))
+				{
+					$array_DMSO_derniere_plaque=file_get_contents('Extraction/Fichiers/listepositionderplaque.txt');
+					$array_DMSO_derniere_plaque=unserialize($array_DMSO_derniere_plaque);
+					if(in_array($position1, $array_DMSO_derniere_plaque))
+					{
+						$TEE1="DMSO";
+					}
+									else {$TEE1="Empty";}
+
+				
+				}
+			}
 		
 			echo '<pre>'.$num_exp.' - '.$TEE1.' - '.$v.' - '.$a.' - '.$val. ' - '.$num_plaque1.' - '.$position1.'</pre>';
 				$sql= "insert into resultat_cellule (Num_Experience,TEE,View,Activite,Target,Valeur,Num_Plaque,Position) values ('$num_exp','$TEE1','$v','$a','$tar',$val,$num_plaque1,'$position1')";
