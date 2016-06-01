@@ -23,7 +23,7 @@
 	
 // insertion des fichiers incell
 
-/*
+
 		for ($i=0;$i<=$nb_fichiers_incell-1;$i++)
 		{
 			
@@ -39,7 +39,7 @@
 		{
 			
 			lire_fichier_xevo($numexp,$Xevo[$j],$num_plaques_xevo[$j]);
-		}*/
+		}
 //6- Verifier les plaques insérées pour cette expérience
 $requete_incell = " SELECT DISTINCT (Num_Plaque) FROM resultat_cellule ORDER BY  Num_Plaque ASC  "; 
 $tab_incell=liste_req_sql($requete_incell);	
