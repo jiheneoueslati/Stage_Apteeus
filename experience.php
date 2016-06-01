@@ -1,23 +1,14 @@
 <html >
 <head>
   <meta charset="utf-8"><link rel="stylesheet" type="text/css" href="style_Apteeus.css">
-  <title>jQuery UI Datepicker - Default functionality</title>
-  <link rel="stylesheet" href="jquery-ui.css">
-  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-  <script src="format_date.js"></script>
-  <link rel="stylesheet" href="/resources/demos/style.css">
-  <script>
-  $(function() {
-    $( "#datepicker" ).datepicker();
-  });
-  </script>
+ 
 </head>
 
 <body>
 
 <form method="post">
 <h2>Ajouter une expérience</h2>
-Date: <input type="text" id="datepicker" name="date">
+Date: <input type="date" name="date">
 <h4>Le type</h4>
 <input type="radio" name="type_exp" value="Screening">Screening<br>
 <input type="radio" name="type_exp" value="DRC-Hit">DRC-Hit   <br>
