@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,6 +41,12 @@
     $( "#datepicker" ).datepicker();
   });
   </script>
+=======
+<html >
+<head>
+  <meta charset="utf-8"><link rel="stylesheet" type="text/css" href="style_Apteeus.css">
+ 
+>>>>>>> origin/master
 </head>
 
 <body>
@@ -48,7 +55,7 @@
 <div class="row" style=margin:20px;>
 <div class="col-sm-6" style=margin:20px;>
 <h2>Ajouter une expérience</h2>
-Date: <input type="text" id="datepicker" name="date">
+Date: <input type="date" name="date">
 <h4>Le type</h4>
 <input type="radio" name="type_exp" value="Screening">Screening<br>
 <input type="radio" name="type_exp" value="DRC-Hit">DRC-Hit   <br>
