@@ -5,7 +5,7 @@ include('fonctions.php');
 $requete = " SELECT DISTINCT (Num_Experience) FROM experience ORDER BY  Num_Experience ASC  "; 
 $tab=liste_req_sql($requete);
 	
-echo '<h2>Sélectionner un numéro expérience:</h2>
+echo '<h2>Liste des numéros des expériences dans la BDD:</h2>
 <form method="post">';
 	echo '<select name="numexp" onchange="this.form.submit()">',"n";
 	echo '<option value="select_numexp"> Num_Experience </option>';
@@ -92,7 +92,7 @@ if(isset($_POST['upload']))
 	else
 	{
 	
-		echo'<a href="echantillon.php" target="iframe_a">Afficher un échantillon avant insertion</a>';
+		echo'<h3>Les fichiers sont uploadés sur le serveur </h3><a href="echantillon.php" target="iframe_a">Afficher un échantillon avant insertion</a>';
 	
 	}
 	

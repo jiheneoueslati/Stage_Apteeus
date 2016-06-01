@@ -1,95 +1,70 @@
 <?php
 //header( 'content-type: text/html; charset=utf-8' );
-if ((isset($_POST['type_exp']))&& (isset($_POST['température']))&& (isset($_POST['temps_incubation']))&& (isset($_POST['cellule'])))
-{
-	$uploads_dir = './Xevo';
-	foreach ($_FILES["file"]["error"] as $key => $error)
-	{
-		if ($error == UPLOAD_ERR_OK) 
-		{
-			$tmp_name = $_FILES["file"]["tmp_name"][$key];
-			$name = $_FILES["file"]["name"][$key];
-			move_uploaded_file($tmp_name, "$uploads_dir/$name");
-		}
-	}
-	$uploads_dir2 = './Incell';
-	foreach ($_FILES["file2"]["error"] as $key => $error) 
-	{
-		if ($error == UPLOAD_ERR_OK)
-		{
-			$tmp_name = $_FILES["file2"]["tmp_name"][$key];
-			$name = $_FILES["file2"]["name"][$key];
-			move_uploaded_file($tmp_name, "$uploads_dir2/$name");
-		}
-	}
-	$type_exp=$_POST['type_exp'];
-	$température=$_POST['température'];
-	$temps_incubation=$_POST['temps_incubation'];
-	$cellule=$_POST['cellule'];
+
 	
 	include('fonctions.php');// appel à la page contenant toutes le fcts
-	//1- Vérifier le nombre des fichiers à uploader
+		connexxion();
+	//1- créer liste des noms des fichiers xevo et incell
+	
 	$Xevo=array_fichiers('./Xevo', 'txt');
 	$nb_fichiers_xevo=count ($Xevo);
 	$num_plaques_xevo=num_plaque_list($Xevo);
-	$incell_xls=array_fichiers('./Incell', 'xls');
-	$num_plaques_incell=num_plaque_list($incell_xls);
-	require_once 'Extraction/PHPExcel/IOFactory.php';
-	xls_to_txt('./Incell',$incell_xls,$num_plaques_incell);
+	
 	$Incell=array_fichiers('./Incell', 'txt');
 	$nb_fichiers_incell=count ($Incell);
-	if($num_plaques_incell!=$num_plaques_xevo)
-	{
-		echo "Echec d'insertion: Les numéros des plaques ne sont pas compatibles";
-		for ($i=0;$i<=$nb_fichiers_xevo-1;$i++) // vider le dossier xevo
-		{
-			unlink($Xevo[$i]); 
-		}
-		for ($i=0;$i<=$nb_fichiers_incell-1;$i++) // vider le dossier incell
-		{
-			unlink($Incell[$i]);
-		}
-	}
-	else
-	{		
-	
-	
+	$num_plaques_incell2=num_plaque_list($Incell);
+		
 	//2- déterminer la mois et le numéro de l'expérience et les stocker dans des variables
 	$fichier1=$Xevo[0]; // le premier fichier dans la liste des fichiers xevo
-	$mois_annee_numexp= mois_annee_numexperience($fichier1); // extraire la mois(jour,mois), l'année et le num de l'expérience
-	$mois= $mois_annee_numexp[0];
-	$année= $mois_annee_numexp[1];
-	$numexp= $mois_annee_numexp[2];
+	$numexper= mois_annee_numexperience($fichier1); // extraire la mois(jour,mois), l'année et le num de l'expérience
 	
-	//3- Mnt que nous disposons de toutes les propriètés de la table expérience; insertion de l'expérience dans la bdd
-	connexxion();
-	$sql= "insert into  experience (Num_Experience, Type, Mois, Annee, Id_Cellule, Temperature, Temps_Incubation) values ('$numexp','$type_exp' ,'$mois', $année,'$cellule', $température,$temps_incubation)";
-	mysql_query($sql);
+	$numexp= $numexper[2];
+	
+	
 // insertion des fichiers incell
 
-
+/*
 		for ($i=0;$i<=$nb_fichiers_incell-1;$i++)
 		{
 			
-			lire_fichier_incell($numexp,$Incell[$i],$num_plaques_incell[$i]);
+			lire_fichier_incell($numexp,$Incell[$i],$num_plaques_incell2[$i]);
 		}
 	
 	
 // insertion des fichiers Xevo
 
 	
-		$init_Passage_list=initialiser_passage($nb_fichiers_xevo);
+
 		for ($j=0;$j<=$nb_fichiers_xevo-1;$j++)
 		{
-			lire_fichier_xevo($numexp,$Xevo[$j],$init_Passage_list[$j],$num_plaques_xevo[$j]);
-		}
-		//6- supprimer les fichiers xevo et incell des sous répertoires
-	echo "Succés d'insertion:  &nbsp" .$nb_fichiers_xevo."&nbspfichiers Xevo et &nbsp".$nb_fichiers_incell."&nbspfichiers Incell <br>";
+			
+			lire_fichier_xevo($numexp,$Xevo[$j],$num_plaques_xevo[$j]);
+		}*/
+//6- Verifier les plaques insérées pour cette expérience
+$requete_incell = " SELECT DISTINCT (Num_Plaque) FROM resultat_cellule ORDER BY  Num_Plaque ASC  "; 
+$tab_incell=liste_req_sql($requete_incell);	
+$requete_xevo = " SELECT DISTINCT (Num_Plaque) FROM resultat_metabolite ORDER BY  Num_Plaque ASC  "; 
+$tab_xevo=liste_req_sql($requete_xevo);	
+echo "<h2><pre>les plaques inséres pour l'expérience  ".'"'.$numexp.'"'."  sont :<br><ul>";
+echo " <li>Pour Xevo   : ";	
+foreach($tab_incell as $ti)
+{
+	echo '"'.$ti[0].'"'." ";
+}
+echo "<li>Pour Incell : ";
+foreach($tab_xevo as $tx)
+{
+	echo '"'.$tx[0].'"'." ";
+}
+
+	
+	echo "</ul></pre></h2> <br>";
+//7- supprimer les fichiers xevo et incell des sous répertoires
 		for ($i=0;$i<=$nb_fichiers_xevo-1;$i++)
 		{
 			unlink($Xevo[$i]); 
 			unlink($Incell[$i]);
 		}
-	}
-}
+	
+
 ?>
