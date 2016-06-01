@@ -6,26 +6,26 @@ $requete = " SELECT DISTINCT (Num_Experience) FROM experience ORDER BY  Num_Expe
 $tab=liste_req_sql($requete);
 	
 echo '<h2>Liste des numéros des expériences dans la BDD:</h2>
-<form method="post">';
-	echo '<select name="numexp" onchange="this.form.submit()">',"n";
-	echo '<option value="select_numexp"> Num_Experience </option>';
+<form  method="post" enctype="multipart/form-data">';
+	echo '<select name="numexp">',"n";
+	echo '<option value="pas de numéro sélectionné"> Num_Experience </option>';
 	foreach($tab as $e)// affichage des villes dans la liste
 	{
         echo '<option value="'.$e[0].'">'.$e[0].'</option>';
     } 
      echo '</select>',"<br/>";
-echo '</form><br><br>';
+
 if(isset($_POST['numexp'])) 
 {
 	$num=$_POST['numexp'];
-	echo $num;
+	
 }
 
 // zone de sélection des fichiers
 echo'
 <h2>Sélectionner les fichiers:</h2>
 <br><br>
-<form  method="post" enctype="multipart/form-data">
+
 Les fichiers Xevo:<INPUT name="file[]" type="file" multiple /><br><br>
 Les fichiers InCell:<INPUT name="file2[]" type="file" multiple /><br><br>
 <INPUT type="submit" name= "upload" value="Upload">
@@ -79,7 +79,7 @@ if(isset($_POST['upload']))
 			
 	if($num_plaques_incell!=$num_plaques_xevo)
 	{
-		echo "Echec d'insertion: Les numéros des plaques ne sont pas compatibles";
+		echo "<h3>Echec de téléchargement: Les numéros des plaques ne sont pas compatibles</h3>";
 		for ($i=0;$i<=$nb_fichiers_xevo-1;$i++) // vider le dossier xevo
 		{
 			unlink($Xevo[$i]); 
@@ -91,8 +91,27 @@ if(isset($_POST['upload']))
 	}
 	else
 	{
-	
-		echo'<h3>Les fichiers sont uploadés sur le serveur </h3><a href="echantillon.php" target="iframe_a">Afficher un échantillon avant insertion</a>';
+		//2- déterminer la mois et le numéro de l'expérience et les stocker dans des variables
+		$fichier1=$Xevo[0]; // le premier fichier dans la liste des fichiers xevo
+		$numexper= mois_annee_numexperience($fichier1); // extraire la mois(jour,mois), l'année et le num de l'expérience
+		$numexp= $numexper[2];
+		if($numexp==$num)
+		{
+			echo"<h3>Les fichiers sont compatibles au numéro de l'expérience sélectionné et sont uploadés sur le serveur </h3>";
+			echo'<a href="echantillon.php" target="iframe_a">Afficher un échantillon avant insertion</a>';
+		}
+		else
+		{
+			echo"<h3>Les fichiers ne sont pas compatibles à l'expérience sélectionné, modifier vos choix</h3>";
+			for ($i=0;$i<=$nb_fichiers_xevo-1;$i++) // vider le dossier xevo
+		{
+			unlink($Xevo[$i]); 
+		}
+		for ($i=0;$i<=$nb_fichiers_incell-1;$i++) // vider le dossier incell
+		{
+			unlink($Incell[$i]);
+		}
+		}
 	
 	}
 	
