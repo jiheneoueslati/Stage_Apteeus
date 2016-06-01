@@ -64,7 +64,7 @@ if ((isset($_POST['type_exp']))&& (isset($_POST['température']))&& (isset($_POS
 	//3- Mnt que nous disposons de toutes les propriètés de la table expérience; insertion de l'expérience dans la bdd
 	connexxion();
 	$sql= "insert into  experience (Num_Experience, Type, Mois, Annee, Id_Cellule, Temperature, Temps_Incubation) values ('$numexp','$type_exp' ,'$mois', $année,'$cellule', $température,$temps_incubation)";
-	mysql_query($sql);
+	mysqli_query(connexxion(),$sql);
 // insertion des fichiers incell
 
 

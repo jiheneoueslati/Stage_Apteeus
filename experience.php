@@ -1,11 +1,40 @@
-<html >
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8"><link rel="stylesheet" type="text/css" href="style_Apteeus.css">
-  <title>jQuery UI Datepicker - Default functionality</title>
-  <link rel="stylesheet" href="jquery-ui.css">
-  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-  <script src="format_date.js"></script>
-  <link rel="stylesheet" href="/resources/demos/style.css">
+  <title>Choix</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="Extraction/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="Extraction/style.css">
+  <script src="Extraction/bootstrap/jquery.min.js"></script>
+  <script src="Extraction/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="experience.php">Ajouter une expérience</a></li>
+             <li><a href="upload.php">Uploader des fichiers</a></li>
+      <li><a href="Extraction/creationfichier.php">Extraction de fichiers</a></li>
+      <li><a href="Extraction/index.php">Mise à jour du fichier molécule</a></li>
+        <li><a href="Extraction/miseajourdmso.php">Tests DMSO</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+
+
+
+<div class="container-fluid" style="background-color:#D40000;color:#fff;height:60px;">
+<img src="Extraction/logo.png">
+
+</div>
+
+
+
   <script>
   $(function() {
     $( "#datepicker" ).datepicker();
@@ -16,6 +45,8 @@
 <body>
 
 <form method="post">
+<div class="row" style=margin:20px;>
+<div class="col-sm-6" style=margin:20px;>
 <h2>Ajouter une expérience</h2>
 Date: <input type="text" id="datepicker" name="date">
 <h4>Le type</h4>
@@ -25,7 +56,9 @@ Date: <input type="text" id="datepicker" name="date">
 <h4>L'indentifiant de la cellule  <input type="text" name="cellule"></h4>
 <h4>La température (°C)  <input type="text" name="température"></h4>
 <h4>Le temps d'incubations en s	<input type="text" name="temps_incubation"></h4><br><br>
-<input type="submit" name="insertion" value="insérer">
+<input type="submit" name="insertion" value="insérer" class="btn btn-danger">
+<div class="row" style=margin:20px;>
+<div class="col-sm-6" style=margin:20px;>
 <?php
 include('fonctions.php');
 if ((isset($_POST['type_exp']))&& (isset($_POST['température']))&& (isset($_POST['temps_incubation']))&& (isset($_POST['cellule']))&& (isset($_POST['date'])))
@@ -42,5 +75,5 @@ if ((isset($_POST['type_exp']))&& (isset($_POST['température']))&& (isset($_POS
 	//3- Mnt que nous disposons de toutes les propriètés de la table expérience; insertion de l'expérience dans la bdd
 	connexxion();
 	$sql= "insert into  experience (Num_Experience, Type, Date, Id_Cellule, Temperature, Temps_Incubation) values ('$numexp','$type_exp' ,'$date','$cellule', $température,$temps_incubation)";
-	mysql_query($sql);
+	mysqli_query(connexxion(),$sql);
 }

@@ -26,5 +26,5 @@ else
 $position =  serialize($positiontb);
 file_put_contents('Fichiers/listepositionderplaque.txt', $position);
 
-header('Location:index.php');
+header('Location:miseajourdmso.php');
 ?>

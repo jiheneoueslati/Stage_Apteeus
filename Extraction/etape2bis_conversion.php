@@ -83,13 +83,6 @@ file_put_contents('Fichiers/innclasse.txt', serialize($inntrie));
 $objWriter = new PHPExcel_Writer_Excel2007($objPHPExcel);
 $objWriter->save(str_replace('.php', '.xlsx', __FILE__));
 
-require_once 'PHPExcel/IOFactory.php';
-$file="etape2bis_conversion.xlsx";
-$objPHPExcel = PHPExcel_IOFactory::load("$file");
-$objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'csv');
-$objWriter->setDelimiter("\t");
-$objWriter->save('convert.txt');
-
 
 header('Location:index.php');
 

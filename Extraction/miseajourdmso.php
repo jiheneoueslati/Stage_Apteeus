@@ -18,15 +18,12 @@
       <li><a href="../experience.php">Ajouter une expérience</a></li>
            <li><a href="../upload.php">Uploader des fichiers</a></li>
       <li><a href="creationfichier.php">Extraction de fichiers</a></li>
-      <li class="active"><a href="index.php">Mise à jour du fichier molécule</a></li>
-        <li><a href="miseajourdmso.php">Tests DMSO</a></li>
+      <li><a href="index.php">Mise à jour du fichier molécule</a></li>
+        <li class="active"><a href="miseajourdmso.php">Tests DMSO</a></li>
     </ul>
   </div>
 </nav>
-  
 
-</body>
-</html>
 
 
 <div class="container-fluid" style="background-color:#D40000;color:#fff;height:60px;">
@@ -34,24 +31,38 @@
 
 </div>
 
-
-
 <div class="row" style=margin:10px;>
 <div class="col-sm-8" style=margin:10px;>
 
-      <h3>Mettre à jour le fichier de correspondance entre molécules et positions</h3>
-<form action="upload.php" method="post" enctype="multipart/form-data">
-    Sélectionner molecules.xlsx:
-    <input type="file" name="fileToUpload" id="fileToUpload" class="btn btn-link" >
-    <input type="submit" value="Upload" name="submit" class="btn btn-danger">
+      <h3>Mettre à jour les tests DMSO pour la dernière plaque</h3>
+      <form action="dmsoderniereplaque.php" method="post">
+<p>
+    <input type="text" name="position" placeholder="ex: C5,D3..."/>
+    <input type="submit" value="Valider" class="btn btn-danger" />
+</p>
 </form>
+<?php
+$position = file_get_contents('Fichiers/listepositionderplaque.txt');
+$positiontb = unserialize($position);
 
-<br>      
-<a href="Fichiers/molecules.png" class="btn btn-danger" role="button">Extrait du fichier à importer</a>
+$keys=array_keys($positiontb); 
 
-</div>
-</div>
-</div>
 
+echo "Actuellement pour la derniere plaque les tests DMSO sont en: ";
+echo "<br>";
+for ($i = 0; $i <= sizeof($positiontb)-1; $i++){
+if ($positiontb!=""){
+echo "<h5>";	
+echo $positiontb[$keys[$i]];
+echo "</h5>";
+echo " ";
+	}
+}	
+?>
+
+
+    </div>
+    </div>
+    </div>
 </body>
 </html>

@@ -17,41 +17,37 @@
     <ul class="nav navbar-nav">
       <li><a href="../experience.php">Ajouter une expérience</a></li>
            <li><a href="../upload.php">Uploader des fichiers</a></li>
-      <li><a href="creationfichier.php">Extraction de fichiers</a></li>
-      <li class="active"><a href="index.php">Mise à jour du fichier molécule</a></li>
+      <li class="active"><a href="creationfichier.php">Extraction de fichiers</a></li>
+      <li><a href="index.php">Mise à jour du fichier molécule</a></li>
         <li><a href="miseajourdmso.php">Tests DMSO</a></li>
     </ul>
   </div>
 </nav>
-  
-
-</body>
-</html>
 
 
 <div class="container-fluid" style="background-color:#D40000;color:#fff;height:60px;">
 <img src="logo.png">
-
 </div>
 
 
 
-<div class="row" style=margin:10px;>
-<div class="col-sm-8" style=margin:10px;>
+<div class="row" style=margin:20px;>
+<div class="col-sm-8" style=margin:20px;>
+  <div class="tab-content">
+      <h3>Veuillez entrer un numéro d'expérience </h3>
 
-      <h3>Mettre à jour le fichier de correspondance entre molécules et positions</h3>
-<form action="upload.php" method="post" enctype="multipart/form-data">
-    Sélectionner molecules.xlsx:
-    <input type="file" name="fileToUpload" id="fileToUpload" class="btn btn-link" >
-    <input type="submit" value="Upload" name="submit" class="btn btn-danger">
+<form action="etape1_pageform.php" method="post">
+<p>
+    <input  type="text" name="numexp" placeholder="ex: 10-12 ou 10-13..."/>
+    <input type="submit" value="Valider"  class="btn btn-danger" />
+</p>
 </form>
 
-<br>      
-<a href="Fichiers/molecules.png" class="btn btn-danger" role="button">Extrait du fichier à importer</a>
-
-</div>
-</div>
-</div>
-
+    </div>
+    </div>
+    </div>
+    
+    
+ 
 </body>
 </html>

@@ -1,10 +1,47 @@
-<link rel="stylesheet" type="text/css" href="style_Apteeus.css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Choix</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="Extraction/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="Extraction/style.css">
+  <script src="Extraction/bootstrap/jquery.min.js"></script>
+  <script src="Extraction/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      <li ><a href="experience.php">Ajouter une expérience</a></li>
+            <li class="active"><a href="upload.php">Uploader des fichiers</a></li>
+      <li><a href="Extraction/creationfichier.php">Extraction de fichiers</a></li>
+      <li><a href="Extraction/index.php">Mise à jour du fichier molécule</a></li>
+        <li><a href="Extraction/miseajourdmso.php">Tests DMSO</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+
+
+<div class="container-fluid" style="background-color:#D40000;color:#fff;height:60px;">
+<img src="Extraction/logo.png">
+
+</div>
+
+
+
 <?php
 // Liste de sélection des num exp
 include('fonctions.php');
 $requete = " SELECT DISTINCT (Num_Experience) FROM experience ORDER BY  Num_Experience ASC  "; 
 $tab=liste_req_sql($requete);
 	
+echo '<div class="row" style=margin:20px;>';
+echo '<div class="col-sm-6" style=margin:20px;>';
 echo '<h2>Sélectionner un numéro expérience:</h2>
 <form method="post">';
 	echo '<select name="numexp" onchange="this.form.submit()">',"n";
@@ -14,21 +51,26 @@ echo '<h2>Sélectionner un numéro expérience:</h2>
         echo '<option value="'.$e[0].'">'.$e[0].'</option>';
     } 
      echo '</select>',"<br/>";
-echo '</form><br><br>';
+echo '</form>';
 if(isset($_POST['numexp'])) 
 {
 	$num=$_POST['numexp'];
 	echo $num;
 }
+echo '</div>';
+echo '</div>';
 
 // zone de sélection des fichiers
+	
+echo '<div class="row" style=margin:20px;>';
+echo '<div class="col-sm-6" style=margin:20px;>';
 echo'
 <h2>Sélectionner les fichiers:</h2>
-<br><br>
+<br>
 <form  method="post" enctype="multipart/form-data">
-Les fichiers Xevo:<INPUT name="file[]" type="file" multiple /><br><br>
-Les fichiers InCell:<INPUT name="file2[]" type="file" multiple /><br><br>
-<INPUT type="submit" name= "upload" value="Upload">
+Les fichiers Xevo:<INPUT name="file[]" type="file" multiple /><br>
+Les fichiers InCell:<INPUT name="file2[]" type="file" multiple /><br>
+<INPUT type="submit" name= "upload" value="Upload" class="btn btn-danger">
 </form>';
 
 
@@ -99,4 +141,10 @@ if(isset($_POST['upload']))
 	
 	
 }
+echo '</div>';
+echo '</div>';
 ?>
+
+
+</body>
+</html>
