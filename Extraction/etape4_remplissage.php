@@ -1,7 +1,7 @@
 <?php
 
 //Connexion à la BDD
-/*
+
 $serveurbd = 'formationweb-peda.univ-lille3.fr';
 $userbd    = 'joueslati';
 $mdpbd     = 'toto';
@@ -9,22 +9,25 @@ $bdname    = 'sages_femmes_jo';
 $connexion = mysql_connect($serveurbd,$userbd,$mdpbd);
 mysql_set_charset('utf8', $connexion);
 mysql_select_db($bdname,$connexion);
-*/
+
+/*
 $bdname    = 'sages_femmes_jo';
 $serveurbd = 'localhost';
 $userbd='root';
-$mdpbd='root';
-
-$connexion = new mysqli($serveurbd, $userbd, $mdpbd, $bdname);
+$mdpbd='';
+$connexion = mysql_connect($serveurbd,$userbd,$mdpbd);
+*/
+	mysql_set_charset('utf8', $connexion);
+	mysql_select_db($bdname,$connexion);
+/*$connexion = new mysqli($serveurbd, $userbd, $mdpbd, $bdname);
 mysqli_set_charset('utf8', $connexion);
-mysqli_select_db($bdname,$connexion);
-
+mysqli_select_db($bdname,$connexion);*/
 //Inclusion de PHPExcel
 
 include 'PHPExcel.php';
 include 'PHPExcel/Writer/Excel2007.php';
 
-
+ set_time_limit ( 1000 );
 //Fonction pour colorer des cellules dans PHPEXCEL
 
 function cellColor($cells,$color){
@@ -75,14 +78,14 @@ $numexp="'".$numexpe."'";
 
 $requete="SELECT `resultat_metabolite`.`Position`,`Num_Plaque`FROM `resultat_metabolite` WHERE `resultat_metabolite`.`Num_Experience` = ".$numexp." GROUP BY `resultat_metabolite`.`Position`,`Num_Plaque`";
 
-//$resultat= mysql_query($requete,$connexion);
-$resultat= mysqli_query($connexion,$requete);
+$resultat= mysql_query($requete,$connexion);
+//$resultat= mysqli_query($connexion,$requete);
 
 
 $nbfeuille=1;
 $element=0;
-while ($test = mysqli_fetch_assoc($resultat)) {
-//while ($test = mysql_fetch_array($resultat)) {
+//while ($test = mysqli_fetch_assoc($resultat)) {
+while ($test = mysql_fetch_array($resultat)) {
 //Reglage du nombre de feuille
 $element=$element+1;
 if ($element % (241+($nbfeuille-1)*240) ==0){
@@ -95,14 +98,14 @@ if ($element % (241+($nbfeuille-1)*240) ==0){
 
 $requete="SELECT `resultat_cellule`.`Position`,`Num_Plaque`FROM `resultat_cellule` WHERE `resultat_cellule`.`Num_Experience` = ".$numexp." GROUP BY `resultat_cellule`.`Position`,`Num_Plaque`";
 
-//$resultat= mysql_query($requete,$connexion);
-$resultat= mysqli_query($connexion,$requete);
+$resultat= mysql_query($requete,$connexion);
+//$resultat= mysqli_query($connexion,$requete);
 
 
 $nbfeuillebis=1;
 $element=0;
-while ($test = mysqli_fetch_assoc($resultat)) {
-//while ($test = mysql_fetch_array($resultat)) {
+//while ($test = mysqli_fetch_assoc($resultat)) {
+while ($test = mysql_fetch_array($resultat)) {
 
 
 $element=$element+1;
@@ -148,8 +151,8 @@ $compt=0;
 $requete2="SELECT Valeur, Position, Num_Plaque, Num_Passage FROM `resultat_metabolite` WHERE `resultat_metabolite`.`Num_Experience`= ".$numexp." and Activite='".$activitetb[$i]."' and Id_Metabolite='".$compoundtb[$j]."' Group BY Num_Plaque,Position";
 
 
-//$resultat2= mysql_query($requete2,$connexion);
-$resultat2= mysqli_query($connexion,$requete2);
+$resultat2= mysql_query($requete2,$connexion);
+//$resultat2= mysqli_query($connexion,$requete2);
 
 
 $o=0;
@@ -167,8 +170,8 @@ $positionsdmso=array('F22','G15','G16','H4','H15','I9','I10','J9','J22','L4','N2
 $keysdmso=array_keys($dmsopostb);
 $pos=0;
 $idposition=2;
-while ($test2 = mysqli_fetch_assoc($resultat2)) {
-//while ($test2 = mysql_fetch_array($resultat2)) {
+//while ($test2 = mysqli_fetch_assoc($resultat2)) {
+while ($test2 = mysql_fetch_array($resultat2)) {
 $keyplaque=array_search($test2['Num_Plaque'],$numplaquetb);
 if (array_search($test2['Position'], $positiontb)!=""){
 $idposition= array_search($test2['Position'], $positiontb);
@@ -187,8 +190,8 @@ if (($nbfeuille-1)!=$move){
 for ($f = 0; $f <= sizeof($positionsdmso)-1; $f++){
 if (($positionsdmso[$f])==($test2['Position'])){
 $objPHPExcel->getActiveSheet()->setCellValue("E".$idposition,"DMSO");
-cellColor('A'.$idposition, 'FF4500');
-cellColor('E'.$idposition, 'FF4500');
+cellColor('A'.$idposition, 'ffa500');
+cellColor('E'.$idposition, 'ffa500');
 }
 }
 }
@@ -196,8 +199,8 @@ if (($nbfeuille-1)==$move){
 for ($f = 0; $f <= sizeof($dmsopostb)-1; $f++){
 if (($dmsopostb[$keysdmso[$f]])==($test2['Position'])){
 $objPHPExcel->getActiveSheet()->setCellValue("E".$idposition,"DMSO");
-cellColor('A'.$idposition, 'FF4500');
-cellColor('E'.$idposition, 'FF4500');
+cellColor('A'.$idposition, 'ffa500');
+cellColor('E'.$idposition, 'ffa500');
 }
 }
 }
@@ -229,13 +232,13 @@ $requete2="SELECT Valeur, Position, Num_Plaque FROM `resultat_cellule` WHERE `re
 
 $idposition=2;
 
-//$resultat2= mysql_query($requete2,$connexion);
-$resultat2= mysqli_query($connexion,$requete2);
+$resultat2= mysql_query($requete2,$connexion);
+//$resultat2= mysqli_query($connexion,$requete2);
 $o=0;
 $move=0;
 $pos=0;
-while ($test2 = mysqli_fetch_assoc($resultat2)) {
-//while ($test2 = mysql_fetch_array($resultat2)) {
+//while ($test2 = mysqli_fetch_assoc($resultat2)) {
+while ($test2 = mysql_fetch_array($resultat2)) {
 if (array_search($test2['Position'], $positiontb)!=""){
 $idposition= array_search($test2['Position'], $positiontb);
 }

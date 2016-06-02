@@ -112,7 +112,7 @@ while ($alpha !== 'AZ') {
     $alphas[] = $alpha++;
 }
 
-for ($j=0; $j <= ($feuille-1); $j++){
+for ($j=$feuille-1; $j <= ($feuille-1); $j++){
 $a=0;
 $objPHPExcel->setActiveSheetIndex($j);
 While ($alphas[$a]!=$lettre){

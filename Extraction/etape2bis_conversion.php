@@ -83,8 +83,10 @@ file_put_contents('Fichiers/innclasse.txt', serialize($inntrie));
 $objWriter = new PHPExcel_Writer_Excel2007($objPHPExcel);
 $objWriter->save(str_replace('.php', '.xlsx', __FILE__));
 
-
-header('Location:index.php');
-
+header('Location:creationfichier.php');
 
 ?>
+
+
+
+

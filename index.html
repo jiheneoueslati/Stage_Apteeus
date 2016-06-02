@@ -75,3 +75,4 @@ if ((isset($_POST['type_exp']))&& (isset($_POST['température']))&& (isset($_POS
 	$sql= "insert into  experience (Num_Experience, Type, Date, Id_Cellule, Temperature, Temps_Incubation) values ('$numexp','$type_exp' ,'$date','$cellule', $température,$temps_incubation)";
 	mysqli_query(connexxion(),$sql);
 }
+?>
