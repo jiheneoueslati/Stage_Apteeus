@@ -68,7 +68,7 @@ $o=$o+1;
 	
 //Requete Metabolite
 
-$requete1="SELECT `Id_Metabolite` FROM `resultat_metabolite` WHERE `resultat_metabolite`.`Num_Experience`= ".$numexp." GROUP BY `resultat_metabolite`.`Id_Metabolite`";
+$requete1="SELECT `Metabolite_Id` FROM `metabolite_results` WHERE `metabolite_results`.`Experiment_Num`= ".$numexp." GROUP BY `metabolite_results`.`Metabolite_Id`";
 
 $resultat1= mysqli_query($connexion,$requete1);
 //$resultat1= mysql_query($requete1,$connexion);
@@ -76,44 +76,44 @@ $i=0;
 $compoundid=array();
 while ($test1 = mysqli_fetch_assoc($resultat1)) {
 //while ($test1 = mysql_fetch_array($resultat1)) {
-	$compoundid[$i]=$test1['Id_Metabolite'];
+	$compoundid[$i]=$test1['Metabolite_Id'];
 	$i=$i+1;
 	}
 	
 
-//Requete Activite Metabolite
+//Requete Activity Metabolite
 
 $compoundtb=$compoundid;
-$requete2="SELECT `Activite` FROM `resultat_metabolite` WHERE `resultat_metabolite`.`Num_Experience`= ".$numexp." GROUP BY `resultat_metabolite`.`Activite`";
+$requete2="SELECT `Activity` FROM `metabolite_results` WHERE `metabolite_results`.`Experiment_Num`= ".$numexp." GROUP BY `metabolite_results`.`Activity`";
 
 $resultat2= mysqli_query($connexion,$requete2);
 //$resultat2= mysql_query($requete2,$connexion);
 $i=0;
-$activitetb=array();
+$Activitytb=array();
 
 while ($test2 = mysqli_fetch_assoc($resultat2)) {
 //while ($test2 = mysql_fetch_array($resultat2)) {
-	$activitetb[$i]=$test2['Activite'];
+	$Activitytb[$i]=$test2['Activity'];
 	$i=$i+1;
 	}
 
 
-//Requete Activite Cellule
+//Requete Activity Cellule
 
-$requete2bis="SELECT Activite FROM `resultat_cellule` WHERE `Num_Experience`= ".$numexp." Group BY `Activite`";
+$requete2bis="SELECT Activity FROM `cell_results` WHERE `Experiment_Num`= ".$numexp." Group BY `Activity`";
 $actincell=array();
 $q=0;
 $resultat2bis= mysqli_query($connexion,$requete2bis);
 //$resultat2bis= mysql_query($requete2bis,$connexion);
 while ($test2bis = mysqli_fetch_assoc($resultat2bis)) {
 //while ($test2bis = mysql_fetch_array($resultat2bis)) {
-	$actincell[$q]=$test2bis['Activite'];
+	$actincell[$q]=$test2bis['Activity'];
 	$q=$q+1;
 	}
 
 //Requete View Cellule
 
-$requete2bis="SELECT View FROM `resultat_cellule` WHERE `Num_Experience`= ".$numexp." Group BY `View`";
+$requete2bis="SELECT View FROM `cell_results` WHERE `Experiment_Num`= ".$numexp." Group BY `View`";
 $actview=array();
 $q=0;
 $resultat2bis= mysqli_query($connexion,$requete2bis);
@@ -126,25 +126,25 @@ while ($test2bis = mysqli_fetch_assoc($resultat2bis)) {
 
 //Requete numéro plaque
 
-$requete2bis="SELECT Num_Plaque FROM `resultat_metabolite` WHERE `Num_Experience`= ".$numexp." Group BY `Num_plaque`";
+$requete2bis="SELECT `Plate_Num` FROM `metabolite_results` WHERE `Experiment_Num`= ".$numexp." Group BY `Plate_Num`";
 $numplaque=array();
 $q=0;
 $resultat2bis= mysqli_query($connexion,$requete2bis);
 //$resultat2bis= mysql_query($requete2bis,$connexion);
 while ($test2bis = mysqli_fetch_assoc($resultat2bis)) {
 //while ($test2bis = mysql_fetch_array($resultat2bis)) {
-	$numplaque[$q]=$test2bis['Num_Plaque'];
+	$numplaque[$q]=$test2bis['Plate_Num'];
 	$q=$q+1;
 	}
 
 //Sauvegarde des fichiers .TXT
 
-$xevo = serialize($activitetb);
-file_put_contents('Fichiers/activitea.txt', $xevo);
+$xevo = serialize($Activitytb);
+file_put_contents('Fichiers/Activitya.txt', $xevo);
 $metabolites = serialize($compoundid);
 file_put_contents('Fichiers/metabolites.txt', $metabolites);
 $incell = serialize($actincell);
-file_put_contents('Fichiers/activiteb.txt', $incell);
+file_put_contents('Fichiers/Activityb.txt', $incell);
 $view = serialize($actview);
 file_put_contents('Fichiers/view.txt', $view);
 file_put_contents('Fichiers/numexp.txt', $numexpe);

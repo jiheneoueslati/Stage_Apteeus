@@ -1,0 +1,1 @@
+a:11:{i:0;s:0:"";i:1;s:17:"1? Ratio (Actual)";i:2;s:8:"Acq.Time";i:3;s:4:"Area";i:4;s:3:"Col";i:5;s:5:"Conc.";i:6;s:10:"Quan Trace";i:7;s:8:"Response";i:8;s:2:"RT";i:9;s:3:"S/N";i:10;s:4:"Vial";}

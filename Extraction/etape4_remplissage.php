@@ -24,7 +24,6 @@ mysqli_select_db($bdname,$connexion);
 include 'PHPExcel.php';
 include 'PHPExcel/Writer/Excel2007.php';
 
- set_time_limit ( 1000 );
 //Fonction pour colorer des cellules dans PHPEXCEL
 
 function cellColor($cells,$color){
@@ -65,7 +64,6 @@ $dmsopostb=unserialize($dmsopos);
 $numplaque=file_get_contents('Fichiers/numplaque.txt');
 $numplaquetb=unserialize($numplaque);
 
-
 // On recupere le numero de l'experience sur le fichier .XLSX
 
 $numexpe=$objPHPExcel->getActiveSheet()->getCell('B2')->getValue();
@@ -73,7 +71,7 @@ $numexp="'".$numexpe."'";
 
 // Requete pour connaitre le nombre de position, ce qui nous donnera le nombre de feuilles .
 
-$requete="SELECT `resultat_metabolite`.`Position`,`Num_Plaque`FROM `resultat_metabolite` WHERE `resultat_metabolite`.`Num_Experience` = ".$numexp." GROUP BY `resultat_metabolite`.`Position`,`Num_Plaque`";
+$requete="SELECT `metabolite_results`.`Position`,`Plate_Num` FROM `metabolite_results` WHERE `metabolite_results`.`Experiment_Num` = ".$numexp." GROUP BY `metabolite_results`.`Position`,`Plate_Num`";
 
 //$resultat= mysql_query($requete,$connexion);
 $resultat= mysqli_query($connexion,$requete);
@@ -93,7 +91,7 @@ if ($element % (241+($nbfeuille-1)*240) ==0){
 
 // Requete pour connaitre le nombre de position, ce qui nous donnera le nombre de feuilles.
 
-$requete="SELECT `resultat_cellule`.`Position`,`Num_Plaque`FROM `resultat_cellule` WHERE `resultat_cellule`.`Num_Experience` = ".$numexp." GROUP BY `resultat_cellule`.`Position`,`Num_Plaque`";
+$requete="SELECT `cell_results`.`Position`,`Plate_Num` FROM `cell_results` WHERE `cell_results`.`Experiment_Num` = ".$numexp." GROUP BY `cell_results`.`Position`,`Plate_Num`";
 
 //$resultat= mysql_query($requete,$connexion);
 $resultat= mysqli_query($connexion,$requete);
@@ -136,7 +134,7 @@ for ($i = 1; $i <= $nbfeuille-1; $i++){
 }
 $a=0;
 
-//On remplit ce document avec les valeurs pour chaque feuille et chaque activité métabolite
+//On remplit ce document avec les Values pour chaque feuille et chaque activité métabolite
 
 for ($j = 0; $j <= sizeof($compoundtb)-1; $j++){
 //Composants
@@ -145,7 +143,7 @@ $compt=0;
 //Activité
 
 
-$requete2="SELECT Valeur, Position, Num_Plaque, Num_Passage FROM `resultat_metabolite` WHERE `resultat_metabolite`.`Num_Experience`= ".$numexp." and Activite='".$activitetb[$i]."' and Id_Metabolite='".$compoundtb[$j]."' Group BY Num_Plaque,Position";
+$requete2="SELECT Value, Position, Plate_Num, Passage_Num FROM `metabolite_results` WHERE `metabolite_results`.`Experiment_Num`= ".$numexp." and Activity='".$activitetb[$i]."' and Metabolite_Id='".$compoundtb[$j]."' Group BY Plate_Num,Position";
 
 
 //$resultat2= mysql_query($requete2,$connexion);
@@ -169,7 +167,7 @@ $pos=0;
 $idposition=2;
 while ($test2 = mysqli_fetch_assoc($resultat2)) {
 //while ($test2 = mysql_fetch_array($resultat2)) {
-$keyplaque=array_search($test2['Num_Plaque'],$numplaquetb);
+$keyplaque=array_search($test2['Plate_Num'],$numplaquetb);
 if (array_search($test2['Position'], $positiontb)!=""){
 $idposition= array_search($test2['Position'], $positiontb);
 }
@@ -202,10 +200,10 @@ cellColor('E'.$idposition, 'ffa500');
 }
 }
 $innid=$innid+1;
-$objPHPExcel->getActiveSheet()->setCellValue("A".$idposition,$test2['Num_Passage']-((($test2['Num_Plaque'])-1)*240));
-$objPHPExcel->getActiveSheet()->setCellValue("B".$idposition,$numexpe." MAP TEE".($test2['Num_Plaque'])." E".($test2['Num_Passage']-((($test2['Num_Plaque'])-1)*240)));
+$objPHPExcel->getActiveSheet()->setCellValue("A".$idposition,$test2['Passage_Num']-((($test2['Plate_Num'])-1)*240));
+$objPHPExcel->getActiveSheet()->setCellValue("B".$idposition,$numexpe." MAP TEE".($test2['Plate_Num'])." E".($test2['Passage_Num']-((($test2['Plate_Num'])-1)*240)));
 }
-$objPHPExcel->getActiveSheet()->setCellValue($alphas[$a].$idposition,$test2['Valeur']);
+$objPHPExcel->getActiveSheet()->setCellValue($alphas[$a].$idposition,$test2['Value']);
 $compt=$compt+1;
 if ($compt%240==0){
 	$move=$move+1;
@@ -225,7 +223,7 @@ for ($i = 0; $i <= sizeof($activitebistb)-1; $i++){
 
 $compt=0;
 
-$requete2="SELECT Valeur, Position, Num_Plaque FROM `resultat_cellule` WHERE `resultat_cellule`.`Num_Experience`= ".$numexp." and View='".$viewtb[$j]."' and Activite='".$activitebistb[$i]."' Group BY Num_Plaque,Position";
+$requete2="SELECT Value, Position, Plate_Num FROM `cell_results` WHERE `cell_results`.`Experiment_Num`= ".$numexp." and View='".$viewtb[$j]."' and Activity='".$activitebistb[$i]."' Group BY Plate_Num,Position";
 
 $idposition=2;
 
@@ -242,7 +240,7 @@ $idposition= array_search($test2['Position'], $positiontb);
 else{
 $idposition=$idposition+1;
 }
-$objPHPExcel->setActiveSheetIndex(array_search($test2['Num_Plaque'],$numplaquetb));$objPHPExcel->getActiveSheet()->setCellValue($alphas[$a].$idposition,$test2['Valeur']);
+$objPHPExcel->setActiveSheetIndex(array_search($test2['Plate_Num'],$numplaquetb));$objPHPExcel->getActiveSheet()->setCellValue($alphas[$a].$idposition,$test2['Value']);
 $compt=$compt+1;
 if ($compt%240==0){
 	$move=$move+1;
