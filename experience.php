@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +9,6 @@
   <script src="Extraction/bootstrap/jquery.min.js"></script>
   <script src="Extraction/bootstrap/js/bootstrap.min.js"></script>
 </head>
-<body>
 
 
 <nav class="navbar navbar-default">
@@ -36,26 +34,19 @@
 
 
 
-  <script>
-  $(function() {
-    $( "#datepicker" ).datepicker();
-  });
-  </script>
-=======
-<html >
-<head>
-  <meta charset="utf-8"><link rel="stylesheet" type="text/css" href="style_Apteeus.css">
- 
->>>>>>> origin/master
-</head>
-
 <body>
 
-<form method="post">
+
 <div class="row" style=margin:20px;>
 <div class="col-sm-6" style=margin:20px;>
+<form method="post">
 <h2>Ajouter une expérience</h2>
-Date: <input type="date" name="date">
+Date <input type="date" name="date">
+
+
+ 
+ 
+ 
 <h4>Le type</h4>
 <input type="radio" name="type_exp" value="Screening">Screening<br>
 <input type="radio" name="type_exp" value="DRC-Hit">DRC-Hit   <br>
@@ -63,7 +54,7 @@ Date: <input type="date" name="date">
 <h4>L'indentifiant de la cellule  <input type="text" name="cellule"></h4>
 <h4>La température (°C)  <input type="text" name="température"></h4>
 <h4>Le temps d'incubations en s	<input type="text" name="temps_incubation"></h4><br><br>
-<input type="submit" name="insertion" value="insérer" class="btn btn-danger">
+<input type="submit" name="insertion" value="insérer">
 <div class="row" style=margin:20px;>
 <div class="col-sm-6" style=margin:20px;>
 <?php
@@ -81,7 +72,13 @@ if ((isset($_POST['type_exp']))&& (isset($_POST['température']))&& (isset($_POS
 
 	//3- Mnt que nous disposons de toutes les propriètés de la table expérience; insertion de l'expérience dans la bdd
 	connexxion();
-	$sql= "insert into  experience (Num_Experience, Type, Date, Id_Cellule, Temperature, Temps_Incubation) values ('$numexp','$type_exp' ,'$date','$cellule', $température,$temps_incubation)";
-	mysqli_query(connexxion(),$sql);
+	$sql= "insert into  experiment (Experiment_Num,Type,Date,Cell_Id,Temperature,Incubation_Time) values ('$numexp','$type_exp' ,'$date','$cellule', $température,$temps_incubation)";
+	mysql_query($sql,connexxion());
 }
 ?>
+</form>
+</div>
+</div>
+
+</body>
+</html>
