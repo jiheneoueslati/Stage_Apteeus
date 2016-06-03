@@ -31,66 +31,39 @@
 <img src="Extraction/logo.png">
 
 </div>
-
-
-
 <?php
 // Liste de sélection des num exp
 include('fonctions.php');
-$requete = " SELECT DISTINCT (Num_Experience) FROM experience ORDER BY  Num_Experience ASC  "; 
+connexxion();
+$requete = " SELECT DISTINCT (Experiment_Num) FROM experiment"; 
 $tab=liste_req_sql($requete);
-<<<<<<< HEAD
 	
-echo '<div class="row" style=margin:20px;>';
+	echo '<div class="row" style=margin:20px;>';
 echo '<div class="col-sm-6" style=margin:20px;>';
-echo '<h2>Sélectionner un numéro expérience:</h2>
-<form method="post">';
-	echo '<select name="numexp" onchange="this.form.submit()">',"n";
-	echo '<option value="select_numexp"> Num_Experience </option>';
-=======
-	
 echo '<h2>Liste des numéros des expériences dans la BDD:</h2>
 <form  method="post" enctype="multipart/form-data">';
 	echo '<select name="numexp">',"n";
-	echo '<option value="pas de numéro sélectionné"> Num_Experience </option>';
->>>>>>> origin/master
+	echo '<option value="pas de numéro sélectionné"> Experiment_Num </option>';
 	foreach($tab as $e)// affichage des villes dans la liste
 	{
         echo '<option value="'.$e[0].'">'.$e[0].'</option>';
     } 
      echo '</select>',"<br/>";
-<<<<<<< HEAD
-echo '</form>';
-=======
 
->>>>>>> origin/master
 if(isset($_POST['numexp'])) 
 {
 	$num=$_POST['numexp'];
 	
 }
-echo '</div>';
-echo '</div>';
 
 // zone de sélection des fichiers
-	
-echo '<div class="row" style=margin:20px;>';
-echo '<div class="col-sm-6" style=margin:20px;>';
 echo'
 <h2>Sélectionner les fichiers:</h2>
-<<<<<<< HEAD
-<br>
-<form  method="post" enctype="multipart/form-data">
-Les fichiers Xevo:<INPUT name="file[]" type="file" multiple /><br>
-Les fichiers InCell:<INPUT name="file2[]" type="file" multiple /><br>
-<INPUT type="submit" name= "upload" value="Upload" class="btn btn-danger">
-=======
 <br><br>
 
 Les fichiers Xevo:<INPUT name="file[]" type="file" multiple /><br><br>
 Les fichiers InCell:<INPUT name="file2[]" type="file" multiple /><br><br>
 <INPUT type="submit" name= "upload" value="Upload">
->>>>>>> origin/master
 </form>';
 
 
@@ -160,7 +133,7 @@ if(isset($_POST['upload']))
 		if($numexp==$num)
 		{
 			echo"<h3>Les fichiers sont compatibles au numéro de l'expérience sélectionné et sont uploadés sur le serveur </h3>";
-			echo'<a href="echantillon.php" target="iframe_a">Afficher un échantillon avant insertion</a>';
+			echo'<a href="echantillon.php" target="_self">Afficher un échantillon avant insertion</a>';
 		}
 		else
 		{
@@ -183,7 +156,3 @@ if(isset($_POST['upload']))
 echo '</div>';
 echo '</div>';
 ?>
-
-
-</body>
-</html>

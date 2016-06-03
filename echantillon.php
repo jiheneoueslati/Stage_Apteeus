@@ -1,5 +1,37 @@
-<link rel="stylesheet" type="text/css" href="style_Apteeus.css">
-<meta charset="utf-8" />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Choix</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="Extraction/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="Extraction/style.css">
+  <script src="Extraction/bootstrap/jquery.min.js"></script>
+  <script src="Extraction/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      <li ><a href="experience.php">Ajouter une expérience</a></li>
+            <li class="active"><a href="upload.php">Uploader des fichiers</a></li>
+      <li><a href="Extraction/creationfichier.php">Extraction de fichiers</a></li>
+      <li><a href="Extraction/index.php">Mise à jour du fichier molécule</a></li>
+        <li><a href="Extraction/miseajourdmso.php">Tests DMSO</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+
+
+<div class="container-fluid" style="background-color:#D40000;color:#fff;height:60px;">
+<img src="Extraction/logo.png">
+
+</div>
+
 <?php
 include('fonctions.php');
 		
@@ -12,7 +44,14 @@ include('fonctions.php');
 	$num_plaque2_echantillon=$listnumplaq[0];
 		
 		
-	$liste_conversiontxt=liste_de_conversion('Extraction/convert.txt');
+		
+
+	$plaque_list2=file_get_contents('Extraction/Fichiers/plaque384conv.txt');
+	$plaque_l2=unserialize($plaque_list2);
+	$position_list2=file_get_contents('Extraction/Fichiers/position384conv.txt');
+	$position_l2=unserialize($position_list2);
+	$TEE_list2=file_get_contents('Extraction/Fichiers/TEEclasse.txt');
+	$TEE_l2=unserialize($TEE_list2);
 	$fich=file($fich2);
 		
 	foreach($fich as $f) // table des lignes valeurs 
@@ -52,7 +91,7 @@ include('fonctions.php');
 	{
 		$explod_valeurs_echantillon[$i]= explode("	",$valeurs[$i]);
 	}
-	// => Le champs $explod_valeurs_echantillon[2] contient le num_exp 10-12, id_cellule MAP, numplaque TEE2_echantillon et id pos_echantillon E1, je les stocke dans un array avec explod 'espace'
+	// => Le champs $explod_valeurs_echantillon[2] contient le num_exp 10-12, id_cellule MAP, numplaque TEE1 et id pos_echantillon E1, je les stocke dans un array avec explod 'espace'
 	
 	for ($i=0;$i<=$n-1;$i++)
 	{
@@ -94,28 +133,7 @@ include('fonctions.php');
 			$position2_echantillon=trim(str_replace(',','',$position_pos_echantillon)); //supprimer le virgule et les espaces pour pouvoir comparer 
 			$activite2_echantillon=trim($explod_activites_echantillon[$j]);
 			$valeur2_echantillon=$explod_valeurs_echantillon[$i][$j];
-			$TEE2_echantillon=nom_TEE ($num_plaque2_echantillon,$position2_echantillon,$liste_conversiontxt); // appel à la fonction qui détermine le TEE de la molécule à partir du num de la plaque et la pos_echantillon
-			if(empty($TEE2_echantillon))
-			{
-				$array_DMSO=array("D4","F22","G15","G16","H4","H15","I9","I10","J9","J22","L4","N22");
-				if(in_array($position1, $array_DMSO))
-				{
-					$TEE2_echantillon="DMSO";
-				}
-				else {$TEE2_echantillon="Empty";}
-				if (($nb_lignes_fichier_incell<240))
-				{
-					$array_DMSO_derniere_plaque=file_get_contents('Extraction/Fichiers/listepositionderplaque.txt');
-					$array_DMSO_derniere_plaque=unserialize($array_DMSO_derniere_plaque);
-					if(in_array($position1, $array_DMSO_derniere_plaque))
-					{
-						$TEE2_echantillon="DMSO";
-					}
-									else {$TEE2_echantillon="Empty";}
-
-				
-				}
-			}
+			$TEE2_echantillon=nom_TEE ($num_plaque2_echantillon,$position2_echantillon,$plaque_l2,$position_l2,$TEE_l2); // appel à la fonction qui détermine le TEE de la molécule à partir du num de la plaque et la pos_echantillon
 			$ligne= '<tr><td>'.$numexp_echantillon.'<td>'.$TEE2_echantillon.'<td>'.$metabolite_echantillon.'<td>'.$activite2_echantillon .'<td>'.$valeur2_echantillon.'<td>'.$num_plaque2_echantillon.'<td>'.$position2_echantillon.'<td>'.$num_passage_echantillon .'</tr>';
 		    echo $ligne;
 		}

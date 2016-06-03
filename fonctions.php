@@ -1,15 +1,13 @@
 <?php
 function connexxion ()
 { 
+	$serveurbd = 'localhost';
+$userbd    = 'root';
+$mdpbd     = '';
 $bdname    = 'sages_femmes_jo';
-$serveurbd = 'localhost';
-$userbd='root';
-$mdpbd='root';
-
-$connexion = new mysqli($serveurbd, $userbd, $mdpbd, $bdname);
-mysqli_set_charset('utf8', $connexion);
-mysqli_select_db($bdname,$connexion);
-
+	$connexion = mysql_connect($serveurbd,$userbd,$mdpbd);
+	mysql_set_charset('utf8', $connexion);
+	mysql_select_db($bdname,$connexion);
 	return $connexion;
 }
  ////********* fonction prend en paramètre un dossier et retourne une liste contenant les noms des fichiers dans le dosssier ******////
@@ -173,8 +171,8 @@ function lire_fichier_incell($num_exp,$fich1,$num_plaque1)// $fich: indice tab n
 			}
 		
 			echo '<pre>'.$num_exp.' - '.$TEE1.' - '.$v.' - '.$a.' - '.$val. ' - '.$num_plaque1.' - '.$position1.'</pre>';
-				$sql= "insert into resultat_cellule (Num_Experience,TEE,View,Activite,Target,Valeur,Num_Plaque,Position) values ('$num_exp','$TEE1','$v','$a','$tar',$val,$num_plaque1,'$position1')";
-				mysqli_query(connexxion(),$sql);
+				$sql= "insert into cell_results (Experiment_Num,TEE,View,Activity,Target,Value,Plate_Num,Position) values ('$num_exp','$TEE1','$v','$a','$tar',$val,$num_plaque1,'$position1')";
+				mysql_query($sql);
 		}
 	}
 }
@@ -292,8 +290,8 @@ function lire_fichier_xevo($numexp,$fich2,$num_plaque2)
 			
 			$ligne= $numexp.','.$TEE2.','.$metabolite.','.$activite2 .','.$valeur2.','.$num_plaque2.','.$position2.','.$num_passage ;
 		    echo $ligne."<br>";
-				$sql= "insert into resultat_metabolite (Num_Experience, TEE, Id_Metabolite, Activite, Valeur,Num_Plaque, Position, Num_Passage) values ('$numexp','$TEE2','$metabolite','$activite2',$valeur2,$num_plaque2,'$position2',$num_passage)";
-				mysqli_query(connexxion(),$sql);
+				$sql= "insert into metabolite_results (Experiment_Num, TEE, Metabolite_Id, Activity, Value,Plate_Num, Position, Passage_Num) values ('$numexp','$TEE2','$metabolite','$activite2',$valeur2,$num_plaque2,'$position2',$num_passage)";
+				mysql_query($sql);
 		}
 	
 	
@@ -301,10 +299,10 @@ function lire_fichier_xevo($numexp,$fich2,$num_plaque2)
 	
 }
 function liste_req_sql($req){// fonction qui stocke une requete dans un tableau
-	$resultat = mysqli_query(connexxion(),$req);
+	$resultat = mysql_query($req,connexxion());
 	$yourArray = array();
 	$index = 0;
-	while($ligne = mysqli_fetch_array($resultat)) {
+	while($ligne = mysql_fetch_array($resultat)) {
 		$yourArray[$index] = $ligne;
 		$index++;
 	}

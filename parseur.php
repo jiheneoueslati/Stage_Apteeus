@@ -1,7 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Choix</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="Extraction/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="Extraction/style.css">
+  <script src="Extraction/bootstrap/jquery.min.js"></script>
+  <script src="Extraction/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      <li ><a href="experience.php">Ajouter une expérience</a></li>
+            <li class="active"><a href="upload.php">Uploader des fichiers</a></li>
+      <li><a href="Extraction/creationfichier.php">Extraction de fichiers</a></li>
+      <li><a href="Extraction/index.php">Mise à jour du fichier molécule</a></li>
+        <li><a href="Extraction/miseajourdmso.php">Tests DMSO</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+
+
+<div class="container-fluid" style="background-color:#D40000;color:#fff;height:60px;">
+<img src="Extraction/logo.png">
+
+</div>
 <?php
 //header( 'content-type: text/html; charset=utf-8' );
 
-	
+	set_time_limit(0); 
 	include('fonctions.php');// appel à la page contenant toutes le fcts
 		connexxion();
 	//1- créer liste des noms des fichiers xevo et incell
@@ -21,13 +54,6 @@
 	$numexp= $numexper[2];
 	
 	
-<<<<<<< HEAD
-	//3- Mnt que nous disposons de toutes les propriètés de la table expérience; insertion de l'expérience dans la bdd
-	connexxion();
-	$sql= "insert into  experience (Num_Experience, Type, Mois, Annee, Id_Cellule, Temperature, Temps_Incubation) values ('$numexp','$type_exp' ,'$mois', $année,'$cellule', $température,$temps_incubation)";
-	mysqli_query(connexxion(),$sql);
-=======
->>>>>>> origin/master
 // insertion des fichiers incell
 
 
@@ -48,9 +74,10 @@
 			lire_fichier_xevo($numexp,$Xevo[$j],$num_plaques_xevo[$j]);
 		}
 //6- Verifier les plaques insérées pour cette expérience
-$requete_incell = " SELECT DISTINCT (Num_Plaque) FROM resultat_cellule ORDER BY  Num_Plaque ASC  "; 
+$requete_incell = 'SELECT distinct(`Plate_Num`) FROM `cell_results` WHERE `Experiment_Num`="'.$numexp.'"'; 
 $tab_incell=liste_req_sql($requete_incell);	
-$requete_xevo = " SELECT DISTINCT (Num_Plaque) FROM resultat_metabolite ORDER BY  Num_Plaque ASC  "; 
+
+$requete_xevo = 'SELECT distinct(`Plate_Num`) FROM `metabolite_results` WHERE `Experiment_Num`="'.$numexp.'"';
 $tab_xevo=liste_req_sql($requete_xevo);	
 echo "<h2><pre>les plaques inséres pour l'expérience  ".'"'.$numexp.'"'."  sont :<br><ul>";
 echo " <li>Pour Xevo   : ";	
